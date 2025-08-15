@@ -1,0 +1,12 @@
+{
+  "2025-06-25-JaneDoe-WebsiteQuote.pdf": {
+    "timestamp": "2025-06-25 14:32",
+    "notes": "Initial draft sent to client",
+    "tags": ["draft", "website", "quote"]
+  },
+  "2025-06-26-JaneDoe-WebsiteQuote-v2.pdf": {
+    "timestamp": "2025-06-26 10:00",
+    "notes": "Updated pricing",
+    "tags": ["revision", "pricing"]
+  }
+}

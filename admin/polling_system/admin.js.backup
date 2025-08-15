@@ -1,0 +1,254 @@
+const aside = document.querySelector('aside');
+if (window.innerWidth < 1000 || localStorage.getItem('admin_menu') == 'minimal') {
+    aside.classList.add('minimal');
+}
+if (window.innerWidth < 1000) {
+    document.addEventListener('click', event => {
+        if (!aside.classList.contains('minimal') && !event.target.closest('aside') && !event.target.closest('.responsive-toggle') && window.innerWidth < 1000) {
+            aside.classList.add('minimal');
+        }
+    });
+}
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 1000) {
+        aside.classList.add('minimal');
+    } else if (localStorage.getItem('admin_menu') == 'normal') {
+        aside.classList.remove('minimal');
+    }
+});
+document.querySelector('.responsive-toggle').onclick = event => {
+    event.preventDefault();
+    if (aside.classList.contains('minimal')) {
+        aside.classList.remove('minimal');
+        localStorage.setItem('admin_menu', 'normal');
+    } else {
+        aside.classList.add('minimal');
+        localStorage.setItem('admin_menu', 'minimal');
+    }
+};
+document.querySelectorAll('.tabs a').forEach((tab_link, tab_link_index) => {
+    tab_link.onclick = event => {
+        event.preventDefault();
+        document.querySelectorAll('.tabs a').forEach(tab_link => tab_link.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach((tab_content, tab_content_index) => {
+            if (tab_link_index == tab_content_index) {
+                tab_link.classList.add('active');
+                tab_content.style.display = 'block';
+            } else {
+                tab_content.style.display = 'none';
+            }
+        });
+    };
+});
+if (document.querySelector('.filters a')) {
+    let filtersList = document.querySelector('.filters .list');
+    let filtersListStyle = window.getComputedStyle(filtersList);
+    document.querySelector('.filters a').onclick = event => {
+        event.preventDefault();
+        if (filtersListStyle.display == 'none') {
+            filtersList.style.display = 'flex';
+        } else {
+            filtersList.style.display = 'none';
+        }
+    };
+    document.addEventListener('click', event => {
+        if (!event.target.closest('.filters')) {
+            filtersList.style.display = 'none';
+        }
+    });
+}
+document.querySelectorAll('.table-dropdown').forEach(dropdownElement => {
+    dropdownElement.onclick = event => {
+        event.preventDefault();
+        let dropdownItems = dropdownElement.querySelector('.table-dropdown-items');
+        let contextMenu = document.querySelector('.table-dropdown-items-context-menu');
+        if (!contextMenu) {
+            contextMenu = document.createElement('div');
+            contextMenu.classList.add('table-dropdown-items', 'table-dropdown-items-context-menu');
+            document.addEventListener('click', event => {
+                if (contextMenu.classList.contains('show') && !event.target.closest('.table-dropdown-items-context-menu') && !event.target.closest('.table-dropdown')) {
+                    contextMenu.classList.remove('show');
+                }
+            });
+        }
+        contextMenu.classList.add('show');
+        contextMenu.innerHTML = dropdownItems.innerHTML;
+        contextMenu.style.position = 'absolute';
+        let width = window.getComputedStyle(dropdownItems).width ? parseInt(window.getComputedStyle(dropdownItems).width) : 0;
+        contextMenu.style.left = (event.pageX-width) + 'px';
+        contextMenu.style.top = event.pageY + 'px';
+        document.body.appendChild(contextMenu);
+    };
+});
+document.body.addEventListener('click', event => {
+    if (!event.target.closest('.multiselect')) {
+        document.querySelectorAll('.multiselect .list').forEach(element => element.style.display = 'none');
+    } 
+});
+const initMultiselect = () => {
+    document.querySelectorAll('.multiselect').forEach(element => {
+        let updateList = () => {
+            element.querySelectorAll('.item').forEach(item => {
+                element.querySelectorAll('.list span').forEach(newItem => {
+                    if (item.dataset.value == newItem.dataset.value) {
+                        newItem.style.display = 'none';
+                    }
+                });
+                item.querySelector('.remove').onclick = () => {
+                    element.querySelector('.list span[data-value="' + item.dataset.value + '"]').style.display = 'flex';
+                    item.querySelector('.remove').parentElement.remove();
+                };
+            });
+            if (element.querySelectorAll('.item').length > 0) {
+                element.querySelector('.search').placeholder = '';
+            }
+        };
+        element.onclick = () => element.querySelector('.search').focus();
+        element.querySelector('.search').onfocus = () => element.querySelector('.list').style.display = 'flex';
+        element.querySelector('.search').onclick = () => element.querySelector('.list').style.display = 'flex';
+        element.querySelector('.search').onkeyup = () => {
+            element.querySelector('.list').style.display = 'flex';
+            element.querySelectorAll('.list span').forEach(item => {
+                item.style.display = item.innerText.toLowerCase().includes(element.querySelector('.search').value.toLowerCase()) ? 'flex' : 'none';
+            });
+            updateList();
+        };
+        element.querySelectorAll('.list span').forEach(item => item.onclick = () => {
+            item.style.display = 'none';
+            let html = `
+                <span class="item" data-value="${item.dataset.value}">
+                    <i class="remove">&times;</i>${item.innerText}
+                    <input type="hidden" name="${element.dataset.name}" value="${item.dataset.value}">    
+                </span>
+            `;
+            if (element.querySelector('.item')) {
+                let ele = element.querySelectorAll('.item');
+                ele = ele[ele.length-1];
+                ele.insertAdjacentHTML('afterend', html);                          
+            } else {
+                element.insertAdjacentHTML('afterbegin', html);
+            }
+            element.querySelector('.search').value = '';
+            updateList();
+        });
+        updateList();
+    });
+};
+initMultiselect();
+document.querySelectorAll('.msg').forEach(element => {
+    element.querySelector('.close').onclick = () => {
+        element.remove();
+        history.replaceState && history.replaceState(null, '', location.pathname + location.search.replace(/[\?&]success_msg=[^&]+/, '').replace(/^&/, '?') + location.hash);
+        history.replaceState && history.replaceState(null, '', location.pathname + location.search.replace(/[\?&]error_msg=[^&]+/, '').replace(/^&/, '?') + location.hash);
+    };
+});
+if (location.search.includes('success_msg') || location.search.includes('error_msg')) {
+    history.replaceState && history.replaceState(null, '', location.pathname + location.search.replace(/[\?&]success_msg=[^&]+/, '').replace(/^&/, '?') + location.hash);
+    history.replaceState && history.replaceState(null, '', location.pathname + location.search.replace(/[\?&]error_msg=[^&]+/, '').replace(/^&/, '?') + location.hash);
+}
+if (document.querySelector('.add_answer')) {
+    document.querySelector('.add_answer').onclick = function(event) {
+        event.preventDefault();
+        let num_answers = document.querySelectorAll('.answers input[type="text"]').length + 1;
+        document.querySelector('.answers').insertAdjacentHTML('beforeend', `
+            <div>
+                <input type="text" name="answers[]" placeholder="Option ${num_answers}" class="mar-top-3" style="margin-bottom:10px;">
+                <?php if (images_enabled): ?>
+                <label class="file-input">
+                    <span class="file-icon"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,19H5V5H19M19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M13.96,12.29L11.21,15.83L9.25,13.47L6.5,17H17.5L13.96,12.29Z" /></svg></span>
+                    <span class="file-name">Select Image ${num_answers}...</span>
+                    <input id="image" name="images[]" type="file" placeholder="Image" class="image">
+                </label>
+                <?php endif; ?>
+            </div>
+        `);
+        document.querySelectorAll('.image').forEach(img => img.onchange = event => {
+            img.parentElement.querySelector('.file-name').innerHTML = event.target.files[0].name;
+        });
+    };
+    document.querySelectorAll('.image').forEach(img => img.onchange = event => {
+        img.parentElement.querySelector('.file-name').innerHTML = event.target.files[0].name;
+    });
+}
+const modal = options => {
+    let element;
+    if (document.querySelector(options.element)) {
+        element = document.querySelector(options.element);
+    } else if (options.modalTemplate) {
+        document.body.insertAdjacentHTML('beforeend', options.modalTemplate());
+        element = document.body.lastElementChild;
+    }
+    options.element = element;
+    options.open = obj => {
+        element.style.display = 'flex';
+        element.getBoundingClientRect();
+        element.classList.add('open');
+        if (options.onOpen) options.onOpen(obj);
+    };
+    options.close = obj => {
+        if (options.onClose) {
+            let returnCloseValue = options.onClose(obj);
+            if (returnCloseValue !== false) {
+                element.style.display = 'none';
+                element.classList.remove('open');
+                element.remove();
+            }
+        } else {
+            element.style.display = 'none';
+            element.classList.remove('open');
+            element.remove();
+        }
+    };
+    if (options.state == 'close') {
+        options.close({ source: element, button: null });
+    } else if (options.state == 'open') {
+        options.open({ source: element }); 
+    }
+    element.querySelectorAll('.dialog-close').forEach(e => {
+        e.onclick = event => {
+            event.preventDefault();
+            options.close({ source: element, button: e });
+        };
+    });
+    return options;
+};
+const viewPoll = (title, json, totalVotes) => {
+    modal({
+        state: 'open',
+        modalTemplate: function() {
+            return `
+            <div class="dialog view-poll-modal">
+                <div class="content">
+                    <h3 class="heading">Poll Results<span class="dialog-close">&times;</span></h3>
+                    <div class="body">
+                        <h3 class="poll-title">${title}</h3>
+                        <div class="wrapper">
+                            <div class="poll-question">
+                                ${json.map((answer, index) => `
+                                    <div class="poll-txt">
+                                        <span class="answer">${answer.title}</span>
+                                        <span class="votes">${answer.votes} Votes</span>
+                                    </div>
+                                    <div class="result-bar-container">
+                                        <div class="result-bar ${answer.votes === 0 ? 'no-votes' : ''}" style="width:${(answer.votes/totalVotes)*100}%">
+                                            ${answer.votes > 0 ? `${((answer.votes/totalVotes)*100).toFixed(0)}%` : '0%'}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer pad-5">
+                        <a href="#" class="btn dialog-close save">Close</a>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+    });
+};
+document.querySelectorAll('.trigger-answers-modal').forEach(element => element.onclick = event => {
+    event.preventDefault();
+    let title = element.closest('tr').querySelector('.title').innerText;
+    viewPoll(title, JSON.parse(element.dataset.json), element.dataset.totalVotes);
+});

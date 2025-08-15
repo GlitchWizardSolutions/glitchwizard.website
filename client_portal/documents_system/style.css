@@ -1,0 +1,70 @@
+/* 
+ * DOCUMENTS SYSTEM SPECIFIC STYLES
+ * Only styles unique to documents_system
+ * Common form/button styles are in the unified template
+ */
+
+/* Document system specific styling can go here */
+
+/* Tables for document listings */
+.document-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.document-table th,
+.document-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.document-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.document-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Document viewer specific styling */
+.document-viewer {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background: #fff;
+}
+
+/* Signature pad styling */
+.signature-pad {
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Status badges */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-badge.signed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.unsigned {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.pending {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}

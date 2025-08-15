@@ -1,0 +1,6 @@
+# Deny all web access to error logs for security
+Order deny,allow
+Deny from all
+
+# Alternative for newer Apache versions
+# Require all denied

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Reviews System</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<!-- The below stylesheet is required for the reviews but the above is optional -->
+		<link href="reviews.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<nav class="navtop">
+			<div>
+				<h1>Reviews System</h1>
+			</div>
+		</nav>
+		<main class="content">
+			
+			<h2>Reviews</h2>
+			
+			<p>Check out the below reviews for our website.</p>
+
+			<div itemscope itemtype="https://schema.org/Product">
+				<div itemprop="brand" itemtype="https://schema.org/Brand" itemscope>
+					<meta itemprop="name" content="Penguin" />
+				</div>
+				<meta itemprop="description" content="The Catcher in the Rye is a classic coming-of-age story: an story of teenage alienation, capturing the human need for connection and the bewildering sense of loss as we leave childhood behind." />
+				<meta itemprop="sku" content="0446310786" />
+				<meta itemprop="mpn" content="925872" />
+				<img itemprop="image" src="https://example.com/photos/1x1/catcher-in-the-rye-book-cover.jpg" alt="Catcher in the Rye"/>
+				<span itemprop="name">The Catcher in the Rye</span>
+				<div class="reviews"></div>
+			</div>
+			<script src="reviews.js"></script>
+			<script>
+			new Reviews({
+				page_id: 1, // Unique page ID
+				reviews_per_pagination_page: 5, // Number of reviews to show per page
+				current_pagination_page: 1, // Current page of pagination
+				breakdown_status: 'open' // open | closed
+			});
+			</script>
+		</main>
+	</body>
+</html>
