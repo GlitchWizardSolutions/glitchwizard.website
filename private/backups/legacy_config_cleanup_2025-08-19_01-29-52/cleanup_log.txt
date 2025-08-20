@@ -1,0 +1,106 @@
+[2025-08-19 01:29:52] === Legacy Configuration Cleanup Started ===
+[2025-08-19 01:29:52] Date: 2025-08-19 01:29:52
+[2025-08-19 01:29:52] Mode: LIVE
+[2025-08-19 01:29:52] Settings Directory: C:\xampp\htdocs\gws-universal-hybrid-app\public_html/assets/includes/settings
+[2025-08-19 01:29:52] Backup Directory: C:\xampp\htdocs\gws-universal-hybrid-app/private/backups/legacy_config_cleanup_2025-08-19_01-29-52
+[2025-08-19 01:29:52] 
+=== SCANNING FOR LEGACY FILES ===
+[2025-08-19 01:29:52] 
+Found 26 PHP files in settings directory:
+[2025-08-19 01:29:52] ❓ UNKNOWN: account_feature_settings.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: account_features_config.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: account_settings.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: accounts_settings.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: accounts_system_settings.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: blog_comments_settings.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: blog_content_settings.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: blog_display_settings.php - Manual review needed
+[2025-08-19 01:29:52] ❓ UNKNOWN: blog_seo_settings.php - Manual review needed
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: blog_settings.php - Superseded by setting_app_configurations (blog_system entries)
+[2025-08-19 01:29:52] ✅ PRESERVE: branding_settings.php - Current database-driven branding settings (version 2.0)
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: branding_settings_clean.php - Superseded by current branding_settings.php
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: branding_settings_legacy_archive.php - Archive file - no longer needed
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: client_portal_settings.php - Superseded by setting_client_portal_config table
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: contact_settings.php - Superseded by setting_business_contact table
+[2025-08-19 01:29:52] ✅ PRESERVE: database_settings.php - Active mapping layer - loads database settings into legacy variables
+[2025-08-19 01:29:52] ✅ PRESERVE: database_settings_loader.php - Database loader utility
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: general_content_settings.php - Superseded by setting_content_general table
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: home_content_settings.php - Superseded by setting_content_homepage table
+[2025-08-19 01:29:52] ✅ PRESERVE: image_helper.php - Utility functions still used by policy pages and admin
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: media_content_settings.php - Superseded by setting_content_media table
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: pages_content_settings.php - Superseded by setting_content_pages table
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: private_settings.php - Superseded by database-driven configuration
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: public_settings.php - Superseded by database_settings.php and setting_business_* tables
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: sections_content_settings.php - Superseded by setting_content_sections table
+[2025-08-19 01:29:52] 🗑️  OBSOLETE: seo_settings.php - Superseded by setting_seo_config, setting_seo_meta_defaults, setting_seo_schemas
+[2025-08-19 01:29:52] 
+=== SCANNING LEGACY DIRECTORY: archived_legacy_settings ===
+[2025-08-19 01:29:52] 🗂️  LEGACY ARCHIVE: README_ARCHIVED_SETTINGS.md - Can be safely removed
+[2025-08-19 01:29:52] 🗂️  LEGACY ARCHIVE: branding_settings_ARCHIVED.php - Can be safely removed
+[2025-08-19 01:29:52] 🗂️  LEGACY ARCHIVE: branding_settings_clean_ARCHIVED.php - Can be safely removed
+[2025-08-19 01:29:52] 🗂️  LEGACY ARCHIVE: public_settings_ARCHIVED.php - Can be safely removed
+[2025-08-19 01:29:52] 🗂️  LEGACY ARCHIVE: public_settings_copy_ARCHIVED.php - Can be safely removed
+[2025-08-19 01:29:52] 
+=== DATABASE COVERAGE REPORT ===
+[2025-08-19 01:29:52] Your database contains 40+ configuration tables covering:
+[2025-08-19 01:29:52] ✅ Blog system (setting_app_configurations + setting_blog_*)
+[2025-08-19 01:29:52] ✅ Shop system (setting_app_configurations + payment tables)
+[2025-08-19 01:29:52] ✅ Business identity (setting_business_*)
+[2025-08-19 01:29:52] ✅ Branding (setting_branding_*)
+[2025-08-19 01:29:52] ✅ Content management (setting_content_*)
+[2025-08-19 01:29:52] ✅ SEO configuration (setting_seo_*)
+[2025-08-19 01:29:52] ✅ Email/SMTP (setting_email_config)
+[2025-08-19 01:29:52] ✅ Accounts system (setting_accounts_config)
+[2025-08-19 01:29:52] ✅ Forms, Chat, Reviews, Invoicing systems
+[2025-08-19 01:29:52] 
+=== ADMIN INTERFACE STATUS ===
+[2025-08-19 01:29:52] ✅ Database settings have comprehensive admin interfaces
+[2025-08-19 01:29:52] ✅ Audit trail system tracks all changes
+[2025-08-19 01:29:52] ✅ Settings validation and caching implemented
+[2025-08-19 01:29:52] 
+=== MIGRATION COMPLETE ===
+[2025-08-19 01:29:52] Your system has successfully migrated from file-based to database-driven configuration.
+[2025-08-19 01:29:52] Legacy files can be safely removed as they are superseded by the database system.
+[2025-08-19 01:29:52] 
+=== EXECUTING CLEANUP ===
+[2025-08-19 01:29:52] 📋 Backed up: blog_settings.php
+[2025-08-19 01:29:52] 🗑️  Deleted: blog_settings.php - Superseded by setting_app_configurations (blog_system entries)
+[2025-08-19 01:29:52] 📋 Backed up: branding_settings_clean.php
+[2025-08-19 01:29:52] 🗑️  Deleted: branding_settings_clean.php - Superseded by current branding_settings.php
+[2025-08-19 01:29:52] 📋 Backed up: branding_settings_legacy_archive.php
+[2025-08-19 01:29:52] 🗑️  Deleted: branding_settings_legacy_archive.php - Archive file - no longer needed
+[2025-08-19 01:29:52] 📋 Backed up: client_portal_settings.php
+[2025-08-19 01:29:52] 🗑️  Deleted: client_portal_settings.php - Superseded by setting_client_portal_config table
+[2025-08-19 01:29:52] 📋 Backed up: contact_settings.php
+[2025-08-19 01:29:52] 🗑️  Deleted: contact_settings.php - Superseded by setting_business_contact table
+[2025-08-19 01:29:52] 📋 Backed up: general_content_settings.php
+[2025-08-19 01:29:52] 🗑️  Deleted: general_content_settings.php - Superseded by setting_content_general table
+[2025-08-19 01:29:53] 📋 Backed up: home_content_settings.php
+[2025-08-19 01:29:53] 🗑️  Deleted: home_content_settings.php - Superseded by setting_content_homepage table
+[2025-08-19 01:29:53] 📋 Backed up: media_content_settings.php
+[2025-08-19 01:29:53] 🗑️  Deleted: media_content_settings.php - Superseded by setting_content_media table
+[2025-08-19 01:29:53] 📋 Backed up: pages_content_settings.php
+[2025-08-19 01:29:53] 🗑️  Deleted: pages_content_settings.php - Superseded by setting_content_pages table
+[2025-08-19 01:29:53] 📋 Backed up: private_settings.php
+[2025-08-19 01:29:53] 🗑️  Deleted: private_settings.php - Superseded by database-driven configuration
+[2025-08-19 01:29:53] 📋 Backed up: public_settings.php
+[2025-08-19 01:29:53] 🗑️  Deleted: public_settings.php - Superseded by database_settings.php and setting_business_* tables
+[2025-08-19 01:29:53] 📋 Backed up: sections_content_settings.php
+[2025-08-19 01:29:53] 🗑️  Deleted: sections_content_settings.php - Superseded by setting_content_sections table
+[2025-08-19 01:29:53] 📋 Backed up: seo_settings.php
+[2025-08-19 01:29:53] 🗑️  Deleted: seo_settings.php - Superseded by setting_seo_config, setting_seo_meta_defaults, setting_seo_schemas
+[2025-08-19 01:29:53] 📋 Backed up: README_ARCHIVED_SETTINGS.md
+[2025-08-19 01:29:53] 🗑️  Deleted: README_ARCHIVED_SETTINGS.md - Legacy archive file
+[2025-08-19 01:29:53] 📋 Backed up: branding_settings_ARCHIVED.php
+[2025-08-19 01:29:53] 🗑️  Deleted: branding_settings_ARCHIVED.php - Legacy archive file
+[2025-08-19 01:29:53] 📋 Backed up: branding_settings_clean_ARCHIVED.php
+[2025-08-19 01:29:53] 🗑️  Deleted: branding_settings_clean_ARCHIVED.php - Legacy archive file
+[2025-08-19 01:29:53] 📋 Backed up: public_settings_ARCHIVED.php
+[2025-08-19 01:29:53] 🗑️  Deleted: public_settings_ARCHIVED.php - Legacy archive file
+[2025-08-19 01:29:53] 📋 Backed up: public_settings_copy_ARCHIVED.php
+[2025-08-19 01:29:53] 🗑️  Deleted: public_settings_copy_ARCHIVED.php - Legacy archive file
+[2025-08-19 01:29:53] 
+=== CLEANUP SUMMARY ===
+[2025-08-19 01:29:53] Files deleted: 18
+[2025-08-19 01:29:53] Errors: 0
+[2025-08-19 01:29:53] Backup location: C:\xampp\htdocs\gws-universal-hybrid-app/private/backups/legacy_config_cleanup_2025-08-19_01-29-52
