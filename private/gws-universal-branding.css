@@ -261,12 +261,13 @@
 }
 
 .card-header {
-  padding: 1rem;
-  border-bottom: 1px solid var(--table-border-color);
+  padding: 0;  
+   /* border-bottom: 1px solid var(--table-border-color); */
   background: var(--table-header-background);
   margin: 0;
   font-size: 1rem;
   font-weight: var(--brand-font-weight-semibold);
+  
 }
 
 .card-body {
@@ -695,6 +696,59 @@ input[type="button"],
 
 .table-dropdown-items a:hover {
     background-color: var(--action-menu-hover);
+}
+
+/* =========================================
+   BRANDING HEADER STYLES
+   Consistent header styling for admin cards
+   ========================================= */
+
+.branding-settings-header {
+    background: var(--brand-primary-color, #3b89b0) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.branding-settings-header h6,
+.branding-settings-header .m-0 {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+.branding-settings-header .header-icon {
+    margin-right: 0.5rem;
+    color: #ffffff;
+}
+
+.branding-settings-header .text-white {
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+/* Ensure proper contrast for accessibility */
+.branding-settings-header * {
+    color: #ffffff !important;
+}
+
+/* Focus states for accessibility */
+.branding-settings-header:focus,
+.branding-settings-header *:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+    .branding-settings-header {
+        background: Canvas !important;
+        color: CanvasText !important;
+        border: 1px solid CanvasText !important;
+    }
+    
+    .branding-settings-header * {
+        color: CanvasText !important;
+    }
 }
 
 .table-dropdown-items .icon {

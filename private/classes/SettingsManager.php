@@ -421,6 +421,39 @@ class SettingsManager {
             return false;
         }
     }
+
+    /**
+     * Get branding colors only (lightweight accessor for incremental form testing)
+     * Returns associative array of color fields or fallback defaults.
+     */
+    public function getBrandingColors() {
+        $cache_key = 'branding_colors_only';
+        if ($this->cache_enabled && isset($this->cache[$cache_key])) {
+            return $this->cache[$cache_key];
+        }
+        try {
+            $stmt = $this->db->query("SELECT * FROM setting_branding_colors LIMIT 1");
+            $row = $stmt->fetch();
+            if (!$row) {
+                // Build fallback subset from branding fallback
+                $fallback = $this->getFallbackBrandingConfig();
+                $row = [
+                    'brand_primary_color' => $fallback['brand_primary_color'],
+                    'brand_secondary_color' => $fallback['brand_secondary_color'],
+                    'brand_accent_color' => $fallback['brand_accent_color'],
+                    'brand_background_color' => '#ffffff',
+                    'brand_text_color' => '#333333'
+                ];
+            }
+            if ($this->cache_enabled) {
+                $this->cache[$cache_key] = $row;
+            }
+            return $row;
+        } catch (Exception $e) {
+            error_log('Error retrieving branding colors: ' . $e->getMessage());
+            return [];
+        }
+    }
     
     /**
      * Update contact information
@@ -473,6 +506,136 @@ class SettingsManager {
             error_log("Error updating contact info: " . $e->getMessage());
             return false;
         }
+    }
+
+    /**
+     * Get business (global) social media profiles
+     */
+    public function getBusinessSocialMedia() {
+        $cache_key = 'social_media_global';
+        if ($this->cache_enabled && isset($this->cache[$cache_key])) {
+            return $this->cache[$cache_key];
+        }
+        try {
+            $stmt = $this->db->query("SELECT * FROM setting_social_media LIMIT 1");
+            $row = $stmt->fetch();
+            if (!$row) {
+                $row = $this->getFallbackBusinessSocialMedia();
+            }
+            if ($this->cache_enabled) {
+                $this->cache[$cache_key] = $row;
+            }
+            return $row;
+        } catch (Exception $e) {
+            error_log('Error retrieving business social media: ' . $e->getMessage());
+            return $this->getFallbackBusinessSocialMedia();
+        }
+    }
+
+    /**
+     * Update business (global) social media profiles (upsert)
+     */
+    public function updateBusinessSocialMedia($data, $updated_by = 'system') {
+        if (empty($data)) {
+            return true; // nothing to do
+        }
+        try {
+            $this->db->beginTransaction();
+            $current_stmt = $this->db->query("SELECT * FROM setting_social_media LIMIT 1");
+            $current = $current_stmt->fetch();
+            if ($current) {
+                $fields = [];
+                $params = [];
+                foreach ($data as $col => $value) {
+                    if (array_key_exists($col, $current)) {
+                        $fields[] = "$col = ?";
+                        $params[] = $value;
+                        if ($current[$col] !== $value) {
+                            $this->createAuditRecord("social_media.$col", $current[$col], $value, $updated_by, 'Business social media update');
+                        }
+                    }
+                }
+                if ($fields) {
+                    $params[] = $current['id'];
+                    $sql = "UPDATE setting_social_media SET " . implode(', ', $fields) . ", updated_at = CURRENT_TIMESTAMP WHERE id = ?";
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->execute($params);
+                }
+            } else {
+                $fields = array_keys($data);
+                $placeholders = implode(',', array_fill(0, count($fields), '?'));
+                $sql = "INSERT INTO setting_social_media (" . implode(',', $fields) . ") VALUES ($placeholders)";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute(array_values($data));
+            }
+            $this->db->commit();
+            $this->clearCache('social_media');
+            return true;
+        } catch (Exception $e) {
+            $this->db->rollBack();
+            error_log('Error updating business social media: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Fallback business social media profiles
+     */
+    private function getFallbackBusinessSocialMedia() {
+        return [
+            'facebook_url' => '',
+            'twitter_url' => '',
+            'instagram_url' => '',
+            'linkedin_url' => '',
+            'youtube_url' => '',
+            'tiktok_url' => '',
+            'pinterest_url' => '',
+            'snapchat_url' => '',
+            'discord_url' => '',
+            'github_url' => '',
+            'website_url' => '',
+            'blog_url' => '',
+            'shop_url' => '',
+            'booking_url' => '',
+            'calendar_url' => '',
+            'review_platforms' => '[]',
+            'social_handles' => '[]',
+            'last_updated' => null
+        ];
+    }
+
+    /**
+     * Safely encode value as JSON for storage; fallback to '[]' or '{}' on failure.
+     */
+    private function safeJsonEncode($value, $emptyFallback = '[]') {
+        if (is_string($value)) {
+            // If already JSON-looking, attempt decode then re-encode to normalize
+            $trim = trim($value);
+            if ($trim === '' ) return $emptyFallback;
+            if ($trim[0] === '{' || $trim[0] === '[') {
+                $decoded = json_decode($value, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    $value = $decoded;
+                } else {
+                    return $emptyFallback; // malformed input
+                }
+            }
+        }
+        $json = json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        if ($json === false) {
+            return $emptyFallback;
+        }
+        return $json;
+    }
+
+    /**
+     * Safely decode JSON; return fallback on failure.
+     */
+    private function safeJsonDecode($json, $fallback = []) {
+        if ($json === null || $json === '') return $fallback;
+        $decoded = json_decode($json, true);
+        if (json_last_error() !== JSON_ERROR_NONE) return $fallback;
+        return $decoded;
     }
     
     /**
@@ -709,6 +872,238 @@ class SettingsManager {
         ];
     }
     
+    // ====================================================================
+    // SEO SETTINGS (GLOBAL) METHODS  -- (Added Phase 0 Hotfix 2025-08-20)
+    // ====================================================================
+
+    /**
+     * Get global SEO settings
+     */
+    public function getSeoSettings() {
+        try {
+            $stmt = $this->db->query("SELECT * FROM setting_seo_global LIMIT 1");
+            $seo = $stmt->fetch();
+            if (!$seo || empty($seo)) {
+                $seo = $this->getFallbackSeoGlobal();
+            }
+            // Map DB -> UI keys for current form expectations
+            return [
+                'site_title' => $seo['default_title_suffix'] ?? $seo['default_title_suffix'] ?? ' | GWS Universal',
+                'site_description' => $seo['default_meta_description'] ?? '',
+                'site_keywords' => $seo['default_meta_keywords'] ?? '',
+                'google_analytics_id' => $seo['google_analytics_id'] ?? '',
+                'google_tag_manager_id' => $seo['google_tag_manager_id'] ?? '',
+                'facebook_app_id' => $seo['facebook_pixel_id'] ?? '', // UI using app id field; storing pixel
+                'twitter_site' => $seo['twitter_card_type'] ?? '', // placeholder mapping; refine later
+                'robots_txt_content' => $seo['robots_txt_content'] ?? ''
+            ];
+        } catch (Exception $e) {
+            error_log("Error retrieving SEO settings: " . $e->getMessage());
+            return $this->getFallbackSeoGlobal();
+        }
+    }
+
+    /**
+     * Update global SEO settings (upsert)
+     */
+    public function updateSeoSettings($data, $updated_by = 'system') {
+        try {
+            $this->db->beginTransaction();
+            $current_stmt = $this->db->query("SELECT * FROM setting_seo_global LIMIT 1");
+            $current = $current_stmt->fetch();
+            // Map UI -> DB columns
+            $map = [
+                'site_title' => 'default_title_suffix',
+                'site_description' => 'default_meta_description',
+                'site_keywords' => 'default_meta_keywords',
+                'google_analytics_id' => 'google_analytics_id',
+                'google_tag_manager_id' => 'google_tag_manager_id',
+                'facebook_app_id' => 'facebook_pixel_id',
+                'twitter_site' => 'twitter_card_type', // Not ideal; refine with real column later
+                'robots_txt_content' => 'robots_txt_content'
+            ];
+            $dbData = [];
+            foreach ($map as $ui => $dbcol) {
+                if (isset($data[$ui])) {
+                    $dbData[$dbcol] = $data[$ui];
+                }
+            }
+
+            if ($current) {
+                $fields = [];
+                $params = [];
+                foreach ($dbData as $col => $value) {
+                    if (array_key_exists($col, $current)) {
+                        $fields[] = "$col = ?";
+                        $params[] = $value;
+                        if ($current[$col] !== $value) {
+                            $this->createAuditRecord("seo_global.$col", $current[$col], $value, $updated_by, 'SEO global update');
+                        }
+                    }
+                }
+                if ($fields) {
+                    $params[] = $current['id'];
+                    $sql = "UPDATE setting_seo_global SET " . implode(', ', $fields) . ", last_updated = CURRENT_TIMESTAMP WHERE id = ?";
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->execute($params);
+                }
+            } else {
+                $fields = array_keys($dbData);
+                if ($fields) {
+                    $placeholders = implode(',', array_fill(0, count($fields), '?'));
+                    $sql = "INSERT INTO setting_seo_global (" . implode(',', $fields) . ") VALUES ($placeholders)";
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->execute(array_values($dbData));
+                }
+            }
+
+            $this->db->commit();
+            $this->clearCache('seo');
+            return true;
+        } catch (Exception $e) {
+            $this->db->rollBack();
+            error_log("Error updating SEO settings: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Fallback SEO settings
+     */
+    private function getFallbackSeoGlobal() {
+        return [
+            'site_title' => 'My Website',
+            'site_description' => 'Just another GWS Universal site',
+            'site_keywords' => '',
+            'google_analytics_id' => '',
+            'google_tag_manager_id' => '',
+            'facebook_app_id' => '',
+            'twitter_site' => '',
+            'robots_txt_content' => "User-agent: *\nDisallow: /admin/\nDisallow: /private/\nSitemap: /sitemap.xml"
+        ];
+    }
+
+    // ====================================================================
+    // ACCOUNT SETTINGS METHODS  -- (Added Phase 0 Hotfix 2025-08-20)
+    // ====================================================================
+
+    /**
+     * Get account / authentication settings
+     */
+    public function getAccountSettings() {
+        try {
+            $stmt = $this->db->query("SELECT * FROM setting_accounts_config LIMIT 1");
+            $acct = $stmt->fetch();
+            if (!$acct || empty($acct)) {
+                $acct = $this->getFallbackAccountSettings();
+            }
+            // Map DB -> UI keys
+            return [
+                'allow_registration' => $acct['registration_enabled'] ?? 1,
+                'require_email_verification' => $acct['email_verification_required'] ?? 1,
+                'min_password_length' => $acct['password_min_length'] ?? 8,
+                'require_password_uppercase' => $acct['password_require_uppercase'] ?? 1,
+                'require_password_numbers' => $acct['password_require_numbers'] ?? 1,
+                'require_password_symbols' => $acct['password_require_special'] ?? 1,
+                'default_user_role' => $acct['default_role'] ?? 'Member',
+                'session_timeout' => isset($acct['session_lifetime']) ? (int)($acct['session_lifetime'] / 60) : 60,
+                'max_login_attempts' => $acct['max_login_attempts'] ?? 5,
+                'lockout_duration' => isset($acct['lockout_duration']) ? (int)($acct['lockout_duration'] / 60) : 15
+            ];
+        } catch (Exception $e) {
+            error_log("Error retrieving account settings: " . $e->getMessage());
+            return $this->getFallbackAccountSettings();
+        }
+    }
+
+    /**
+     * Update account / authentication settings
+     */
+    public function updateAccountSettings($data, $updated_by = 'system') {
+        try {
+            $this->db->beginTransaction();
+            $current_stmt = $this->db->query("SELECT * FROM setting_accounts_config LIMIT 1");
+            $current = $current_stmt->fetch();
+            // Map UI -> DB columns & unit conversions
+            $map = [
+                'allow_registration' => 'registration_enabled',
+                'require_email_verification' => 'email_verification_required',
+                'min_password_length' => 'password_min_length',
+                'require_password_uppercase' => 'password_require_uppercase',
+                'require_password_numbers' => 'password_require_numbers',
+                'require_password_symbols' => 'password_require_special',
+                'default_user_role' => 'default_role',
+                'session_timeout' => 'session_lifetime', // minutes -> seconds conversion
+                'max_login_attempts' => 'max_login_attempts',
+                'lockout_duration' => 'lockout_duration' // minutes -> seconds conversion
+            ];
+            $dbData = [];
+            foreach ($map as $ui => $col) {
+                if (isset($data[$ui])) {
+                    if (in_array($ui, ['session_timeout','lockout_duration'])) {
+                        $dbData[$col] = (int)$data[$ui] * 60; // store seconds
+                    } else {
+                        $dbData[$col] = $data[$ui];
+                    }
+                }
+            }
+
+            if ($current) {
+                $fields = [];
+                $params = [];
+                foreach ($dbData as $col => $value) {
+                    if (array_key_exists($col, $current)) {
+                        $fields[] = "$col = ?";
+                        $params[] = $value;
+                        if ($current[$col] !== $value) {
+                            $this->createAuditRecord("accounts_config.$col", $current[$col], $value, $updated_by, 'Account settings update');
+                        }
+                    }
+                }
+                if ($fields) {
+                    $params[] = $current['id'];
+                    $sql = "UPDATE setting_accounts_config SET " . implode(', ', $fields) . ", last_updated = CURRENT_TIMESTAMP WHERE id = ?";
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->execute($params);
+                }
+            } else {
+                $fields = array_keys($dbData);
+                if ($fields) {
+                    $placeholders = implode(',', array_fill(0, count($fields), '?'));
+                    $sql = "INSERT INTO setting_accounts_config (" . implode(',', $fields) . ") VALUES ($placeholders)";
+                    $stmt = $this->db->prepare($sql);
+                    $stmt->execute(array_values($dbData));
+                }
+            }
+
+            $this->db->commit();
+            $this->clearCache('accounts');
+            return true;
+        } catch (Exception $e) {
+            $this->db->rollBack();
+            error_log("Error updating account settings: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Fallback account settings
+     */
+    private function getFallbackAccountSettings() {
+        return [
+            'allow_registration' => 1,
+            'require_email_verification' => 0,
+            'min_password_length' => 8,
+            'require_password_uppercase' => 1,
+            'require_password_numbers' => 1,
+            'require_password_symbols' => 0,
+            'default_user_role' => 'User',
+            'session_timeout' => 60,
+            'max_login_attempts' => 5,
+            'lockout_duration' => 15
+        ];
+    }
+
     /**
      * Generate branding CSS variables from database
      */

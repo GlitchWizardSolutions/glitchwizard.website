@@ -6,6 +6,7 @@
 	],
 	"settings": {
 		"php.validate.enable": false,
-		"editor.fontSize": 18
+		"editor.fontSize": 25,
+		"editor.mouseWheelZoom": true
 	}
 }
