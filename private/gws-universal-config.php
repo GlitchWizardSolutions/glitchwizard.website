@@ -62,7 +62,7 @@ date_default_timezone_set('America/New_York');
  * Use PROJECT_ROOT for all includes and path resolutions in this project.
  */
 
-if (!defined('PROJECT_ROOT')) define('PROJECT_ROOT', 'C:\xampp\htdocs\gws-universal-hybrid-app');
+if (!defined('PROJECT_ROOT')) define('PROJECT_ROOT', dirname(__DIR__));
 
 // Environment Configuration
 // Change this to 'prod' when deploying to production
