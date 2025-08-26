@@ -1,5 +1,5 @@
-cd /d "c:\xampp\htdocs\gws-universal-hybrid-app\public_html" && git status
-  
+cd /d "d:\xampp\htdocs\gws-universal-hybrid-app\
+
 # Check what's changed
 git status
 

@@ -83,7 +83,7 @@ if (ENVIRONMENT === 'dev')
     if (!defined('db_charset'))
         define('db_charset', 'utf8');
     if (!defined('secret_key'))
-        define('secret_key', 'dev_secret_key');
+        define('secret_key', ' ');
 
     // Dynamically determine the web root URL for assets (dev or prod)
     if (!defined('WEB_ROOT_URL'))
