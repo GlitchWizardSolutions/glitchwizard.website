@@ -7,7 +7,7 @@ git status
 git add .
 
 # Commit with a message
-git commit -m "This commit has mmenu issues"
+git commit -m "Added new feature Theme Templates"
 
 # Push to GitHub
 git push origin main
