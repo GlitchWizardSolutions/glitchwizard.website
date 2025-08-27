@@ -1,7 +1,9 @@
-ARCHIVE/
-private/gws-universal-config.php
+# Repository is now in public_html - ignore private config outside web root
+../private/gws-universal-config.php
+# Development tools and OS files
 .vscode/
 .specstory/
-# OS/editor noise (optional but recommended)
 .DS_Store
 Thumbs.db
+# Scripts not needed in production
+update_paths_script.sh
