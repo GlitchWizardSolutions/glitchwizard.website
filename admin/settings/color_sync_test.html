@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Picker Sync Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Color Picker → Text Input Sync Test</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Primary Color</label>
+                <div class="input-group">
+                    <input type="color" id="color_primary" class="form-control form-control-color" value="#6c2eb6" onchange="updateColorText('primary')" oninput="updateColorText('primary')">
+                    <input type="text" id="color_primary_text" class="form-control" value="#6C2EB6" placeholder="#FFFFFF" onchange="updateColorPicker('primary')">
+                </div>
+                <div class="form-text">Move the color picker and watch the hex code update</div>
+            </div>
+            
+            <div class="col-md-6">
+                <label class="form-label">Secondary Color</label>
+                <div class="input-group">
+                    <input type="color" id="color_secondary" class="form-control form-control-color" value="#bf5512" onchange="updateColorText('secondary')" oninput="updateColorText('secondary')">
+                    <input type="text" id="color_secondary_text" class="form-control" value="#BF5512" placeholder="#FFFFFF" onchange="updateColorPicker('secondary')">
+                </div>
+                <div class="form-text">Also works in reverse - type a hex code</div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h4>Instructions:</h4>
+            <ol>
+                <li><strong>Click and drag the color picker</strong> - the hex code should update in real-time</li>
+                <li><strong>Type a hex code</strong> (like #ff0000) - the color picker should update</li>
+                <li><strong>Check the browser console</strong> for debug messages</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+    // Color picker and text input synchronization functions
+    function updateColorText(colorName) {
+        const colorPicker = document.getElementById('color_' + colorName);
+        const textInput = document.getElementById('color_' + colorName + '_text');
+        
+        if (colorPicker && textInput) {
+            // Update text input with the color picker value
+            textInput.value = colorPicker.value.toUpperCase();
+            
+            // Remove any error styling since we have a valid color
+            textInput.style.borderColor = '';
+            textInput.style.backgroundColor = '';
+            
+            // Debug logging
+            console.log('Updated ' + colorName + ' text to: ' + colorPicker.value.toUpperCase());
+        } else {
+            console.error('Could not find elements for color: ' + colorName);
+        }
+    }
+
+    function updateColorPicker(colorName) {
+        const colorPicker = document.getElementById('color_' + colorName);
+        const textInput = document.getElementById('color_' + colorName + '_text');
+        if (colorPicker && textInput) {
+            let hexValue = textInput.value.trim();
+            
+            // Add # if missing
+            if (hexValue && !hexValue.startsWith('#')) {
+                hexValue = '#' + hexValue;
+            }
+            
+            // Validate hex format
+            if (hexValue.match(/^#[A-Fa-f0-9]{6}$/)) {
+                colorPicker.value = hexValue.toLowerCase();
+                textInput.value = hexValue.toUpperCase();
+                // Remove any error styling
+                textInput.style.borderColor = '';
+                textInput.style.backgroundColor = '';
+                console.log('Updated ' + colorName + ' picker to: ' + hexValue);
+            } else if (hexValue.length > 1) {
+                // Show error for invalid format
+                textInput.style.borderColor = '#dc3545';
+                textInput.style.backgroundColor = '#fff5f5';
+                console.log('Invalid hex format for ' + colorName + ': ' + hexValue);
+            }
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+/*
+ * Admin Area Brand Dynamic CSS
+ * 
+ * Professional, clean admin interface with database-driven brand colors and fonts.
+ * This CSS provides a sophisticated, modern admin experience while maintaining
+ * professional appearance and usability.
+ */
+
+/* Import dynamic brand variables from the public brand system */
+@import url('../../../assets/css/brand-dynamic.css');
+
+/* Admin-specific CSS custom properties */
+:root {
+  /* Admin color variations using brand colors */
+  --admin-primary: var(--brand-primary);
+  --admin-secondary: var(--brand-secondary);
+  --admin-accent: var(--brand-accent);
+  --admin-success: var(--brand-success);
+  --admin-warning: var(--brand-warning);
+  --admin-danger: var(--brand-danger);
+  --admin-info: var(--brand-info);
+  
+  /* Admin-specific neutral colors */
+  --admin-bg-primary: #f8f9fa;
+  --admin-bg-secondary: #ffffff;
+  --admin-bg-dark: #343a40;
+  --admin-text-primary: var(--brand-text);
+  --admin-text-secondary: var(--brand-text-light);
+  --admin-text-muted: var(--brand-text-muted);
+  --admin-border: #dee2e6;
+  --admin-border-light: #e9ecef;
+  
+  /* Admin layout */
+  --admin-sidebar-width: 280px;
+  --admin-header-height: 60px;
+  --admin-border-radius: 8px;
+  --admin-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  --admin-shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
+  
+  /* Admin fonts */
+  --admin-font-family: var(--brand-font-primary);
+  --admin-font-size: 14px;
+  --admin-font-weight: 400;
+  --admin-font-weight-bold: 600;
+}
+
+/* Base body and layout */
+body {
+  font-family: var(--admin-font-family);
+  font-size: var(--admin-font-size);
+  color: var(--admin-text-primary);
+  background-color: var(--admin-bg-primary);
+  line-height: 1.6;
+}
+
+/* Admin header/navbar */
+.navbar-brand {
+  color: var(--admin-primary) !important;
+  font-family: var(--brand-font-heading);
+  font-weight: var(--admin-font-weight-bold);
+  font-size: 1.25rem;
+}
+
+.navbar-brand:hover {
+  color: var(--admin-secondary) !important;
+}
+
+.navbar {
+  background-color: var(--admin-bg-secondary) !important;
+  border-bottom: 1px solid var(--admin-border);
+  box-shadow: var(--admin-shadow);
+  min-height: var(--admin-header-height);
+}
+
+.navbar-nav .nav-link {
+  color: var(--admin-text-primary) !important;
+  font-weight: var(--admin-font-weight);
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: var(--admin-primary) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--admin-primary) !important;
+  font-weight: var(--admin-font-weight-bold);
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--admin-bg-secondary);
+  border-right: 1px solid var(--admin-border);
+  width: var(--admin-sidebar-width);
+  box-shadow: var(--admin-shadow);
+}
+
+.sidebar .nav-link {
+  color: var(--admin-text-primary);
+  padding: 12px 20px;
+  border-radius: var(--admin-border-radius);
+  margin: 4px 12px;
+  transition: all 0.3s ease;
+  font-weight: var(--admin-font-weight);
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  color: var(--admin-primary);
+  transform: translateX(4px);
+}
+
+.sidebar .nav-link.active {
+  background-color: var(--admin-primary);
+  color: white;
+  font-weight: var(--admin-font-weight-bold);
+}
+
+.sidebar .nav-link i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Main content area */
+.main-content {
+  background-color: var(--admin-bg-primary);
+  min-height: calc(100vh - var(--admin-header-height));
+  padding: 24px;
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--admin-border-light);
+  border-radius: var(--admin-border-radius);
+  box-shadow: var(--admin-shadow);
+  background-color: var(--admin-bg-secondary);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--admin-shadow-hover);
+}
+
+.card-header {
+  background-color: var(--admin-bg-primary);
+  border-bottom: 1px solid var(--admin-border-light);
+  padding: 16px 20px;
+  font-weight: var(--admin-font-weight-bold);
+  color: var(--admin-text-primary);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  color: var(--admin-text-primary);
+  font-family: var(--brand-font-heading);
+  font-weight: var(--admin-font-weight-bold);
+  margin-bottom: 12px;
+}
+
+/* Info cards (dashboard) */
+.info-card {
+  border-left: 4px solid var(--admin-primary);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  border-left-color: var(--admin-secondary);
+  transform: translateY(-2px);
+}
+
+.info-card .card-icon {
+  background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary));
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.info-card h6 {
+  font-size: 28px;
+  font-weight: var(--admin-font-weight-bold);
+  color: var(--admin-text-primary);
+  margin: 0;
+}
+
+/* Buttons */
+.btn {
+  border-radius: var(--admin-border-radius);
+  font-weight: var(--admin-font-weight);
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--admin-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--admin-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--admin-shadow-hover);
+}
+
+.btn-secondary {
+  background-color: var(--admin-text-muted);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--admin-text-secondary);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background-color: var(--admin-success);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: var(--admin-success);
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: var(--admin-danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--admin-danger);
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+}
+
+.btn-warning {
+  background-color: var(--admin-warning);
+  color: var(--admin-text-primary);
+}
+
+.btn-warning:hover {
+  background-color: var(--admin-warning);
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+}
+
+.btn-info {
+  background-color: var(--admin-info);
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: var(--admin-info);
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+}
+
+/* Tables */
+.table {
+  background-color: var(--admin-bg-secondary);
+  border-radius: var(--admin-border-radius);
+  overflow: hidden;
+  box-shadow: var(--admin-shadow);
+}
+
+.table th {
+  background-color: var(--admin-bg-primary);
+  color: var(--admin-text-primary);
+  font-weight: var(--admin-font-weight-bold);
+  border-bottom: 2px solid var(--admin-border);
+  padding: 16px 12px;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--admin-border-light);
+  color: var(--admin-text-primary);
+}
+
+.table tbody tr:hover {
+  background-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.05);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.02);
+}
+
+/* Forms */
+.form-control {
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-border-radius);
+  padding: 12px 16px;
+  background-color: var(--admin-bg-secondary);
+  color: var(--admin-text-primary);
+  font-size: var(--admin-font-size);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  background-color: var(--admin-bg-secondary);
+  color: var(--admin-text-primary);
+}
+
+.form-label {
+  color: var(--admin-text-primary);
+  font-weight: var(--admin-font-weight-bold);
+  margin-bottom: 8px;
+}
+
+.form-select {
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-border-radius);
+  background-color: var(--admin-bg-secondary);
+  color: var(--admin-text-primary);
+}
+
+.form-select:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+}
+
+/* Admin-specific components */
+.admin-stat-card {
+  background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary));
+  color: white;
+  border-radius: var(--admin-border-radius);
+  padding: 24px;
+  box-shadow: var(--admin-shadow);
+  transition: transform 0.3s ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--admin-shadow-hover);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --admin-sidebar-width: 100%;
+    --admin-font-size: 16px;
+  }
+  
+  .main-content {
+    padding: 16px;
+  }
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--admin-btn-outline-hover);
+    border-color: var(--admin-btn-outline);
+    color: var(--admin-btn-outline);
+}
+
+/* =========================================
+   ADMIN CARDS WITH SUBTLE BRANDING
+   Maintain clean look with brand accents
+   ========================================= */
+
+/* Card headers with subtle brand accent */
+.card-header {
+    border-bottom: 2px solid var(--admin-card-border);
+    position: relative;
+}
+
+.card-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--admin-card-accent);
+}
+
+/* Card with primary accent */
+.card.border-primary {
+    border-color: var(--admin-card-accent) !important;
+}
+
+.card.border-primary .card-header {
+    background-color: rgba(54, 113, 201, 0.05);
+    border-bottom-color: var(--admin-card-accent);
+}
+
+/* =========================================
+   ADMIN TABLES WITH BRAND TOUCHES
+   Subtle branding for table elements
+   ========================================= */
+
+/* Table headers with subtle background */
+.table thead th {
+    background-color: var(--admin-table-header);
+    border-bottom: 2px solid var(--admin-table-border);
+}
+
+/* Table row hover with brand color */
+.table tbody tr:hover {
+    background-color: var(--admin-table-hover);
+}
+
+/* Table action links with brand color */
+.table a {
+    color: var(--admin-table-accent);
+}
+
+.table a:hover {
+    color: var(--admin-btn-primary-hover);
+}
+
+/* =========================================
+   ADMIN STATUS INDICATORS
+   Brand-consistent status displays
+   ========================================= */
+
+/* Status badges with brand colors */
+.badge.bg-primary {
+    background-color: var(--admin-status-active) !important;
+}
+
+.badge.bg-success {
+    background-color: var(--admin-status-active) !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--admin-status-warning) !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--admin-status-danger) !important;
+}
+
+/* =========================================
+   ADMIN FORMS WITH BRANDING
+   Subtle brand integration in forms
+   ========================================= */
+
+/* Form controls with brand focus */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--admin-btn-primary);
+    box-shadow: 0 0 0 0.2rem rgba(54, 113, 201, 0.25);
+}
+
+/* Form labels with brand color */
+.form-label {
+    color: var(--admin-nav-text);
+    font-weight: var(--brand-font-weight-medium);
+}
+
+/* Required field indicators */
+.form-label.required::after {
+    content: ' *';
+    color: var(--admin-status-danger);
+}
+
+/* =========================================
+   ADMIN DASHBOARD WIDGETS
+   Brand-enhanced dashboard elements
+   ========================================= */
+
+/* Dashboard stats cards */
+.dashboard-stat-card {
+    border-left: 4px solid var(--admin-card-accent);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--admin-card-shadow);
+}
+
+/* Dashboard icons with brand color */
+.dashboard-icon {
+    color: var(--admin-card-accent);
+}
+
+/* =========================================
+   ADMIN ALERTS WITH BRANDING
+   Brand-consistent alert styling
+   ========================================= */
+
+/* Info alerts with brand color */
+.alert-info {
+    background-color: rgba(54, 113, 201, 0.1);
+    border-color: var(--admin-btn-primary);
+    color: var(--admin-btn-primary-hover);
+}
+
+/* Success alerts with secondary brand color */
+.alert-success {
+    background-color: rgba(47, 192, 144, 0.1);
+    border-color: var(--admin-status-active);
+    color: #1a6e5a;
+}
+
+/* =========================================
+   ADMIN NAVIGATION TABS
+   Brand-enhanced tab navigation
+   ========================================= */
+
+/* Tab navigation with brand styling */
+.nav-tabs .nav-link {
+    color: var(--admin-nav-text);
+    border: 1px solid transparent;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: var(--admin-table-border);
+    color: var(--admin-nav-active);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--admin-nav-active);
+    background-color: var(--admin-table-header);
+    border-color: var(--admin-table-border) var(--admin-table-border) var(--admin-table-header);
+    border-bottom: 2px solid var(--admin-nav-active);
+}
+
+/* =========================================
+   ADMIN LOADING STATES
+   Brand-consistent loading indicators
+   ========================================= */
+
+/* Legacy Bootstrap spinner color override (kept temporarily during migration to brand spinner system) */
+.spinner-border.text-primary { color: var(--admin-btn-primary) !important; }
+
+/* Progress bars with brand color */
+.progress-bar {
+    background-color: var(--admin-btn-primary);
+}
+
+/* =========================================
+   ADMIN ACCESSIBILITY ENHANCEMENTS
+   Ensure proper contrast and usability
+   ========================================= */
+
+/* Focus indicators with brand color */
+:focus {
+    outline: 2px solid var(--admin-btn-primary);
+    outline-offset: 2px;
+}
+
+/* Skip links with brand styling */
+.skip-link {
+    background: var(--admin-btn-primary);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 6px;
+}

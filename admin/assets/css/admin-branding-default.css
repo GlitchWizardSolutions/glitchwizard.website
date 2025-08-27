@@ -1,0 +1,184 @@
+/* =========================================
+   ADMIN BRANDING ENHANCEMENT - DEFAULT
+   Default professional variation for admin
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   ADMIN DEFAULT APPLICATIONS
+   Professional, clean design
+   ========================================= */
+
+/* Sidebar - Default */
+#sidebar {
+    background: #343a40 !important;
+    border-right: 2px solid var(--brand-primary) !important;
+}
+
+#sidebar .nav-link {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin: 2px 8px;
+}
+
+#sidebar .nav-link:hover {
+    background: rgba(var(--brand-primary-rgb), 0.2) !important;
+    color: var(--brand-primary) !important;
+}
+
+#sidebar .nav-link.active {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Header - Default */
+.header {
+    background: #ffffff !important;
+    border-bottom: 2px solid var(--brand-primary) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.header .logo {
+    color: var(--brand-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Cards - Default */
+.card {
+    border: 1px solid #dee2e6 !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    border-radius: 8px !important;
+}
+
+.card-header {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid var(--brand-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Buttons - Default */
+.btn-primary {
+    background: var(--brand-primary) !important;
+    border: 1px solid var(--brand-primary) !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+}
+
+.btn-primary:hover {
+    background: var(--brand-secondary) !important;
+    border-color: var(--brand-secondary) !important;
+}
+
+.btn-secondary {
+    background: #6c757d !important;
+    border: 1px solid #6c757d !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+}
+
+.btn-secondary:hover {
+    background: #5a6268 !important;
+    border-color: #5a6268 !important;
+}
+
+/* Tables - Default */
+.table th {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    border-bottom: 2px solid var(--brand-primary) !important;
+    font-weight: 600 !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(var(--brand-primary-rgb), 0.05) !important;
+}
+
+/* Forms - Default */
+.form-control {
+    border: 1px solid #ced4da !important;
+    border-radius: 6px !important;
+}
+
+.form-control:focus {
+    border-color: var(--brand-primary) !important;
+    box-shadow: 0 0 0 2px rgba(var(--brand-primary-rgb), 0.25) !important;
+}
+
+.form-label {
+    color: #495057 !important;
+    font-weight: 600 !important;
+}
+
+/* Alerts - Default */
+.alert {
+    border: 1px solid transparent !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+}
+
+.alert-success {
+    background: #d1e7dd !important;
+    color: #0f5132 !important;
+    border-color: #badbcc !important;
+}
+
+.alert-danger {
+    background: #f8d7da !important;
+    color: #842029 !important;
+    border-color: #f5c2c7 !important;
+}
+
+.alert-warning {
+    background: #fff3cd !important;
+    color: #664d03 !important;
+    border-color: #ffecb5 !important;
+}
+
+/* Navigation - Default */
+.breadcrumb {
+    background: #e9ecef !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 6px !important;
+}
+
+.breadcrumb-item a {
+    color: var(--brand-primary) !important;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--brand-secondary) !important;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d !important;
+}
+
+/* Typography - Default */
+h1, h2, h3, h4, h5, h6 {
+    color: #495057 !important;
+    font-weight: 600 !important;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+/* Dashboard Stats - Default */
+.info-card {
+    border: 1px solid #dee2e6 !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+}
+
+.info-card .card-icon {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+}

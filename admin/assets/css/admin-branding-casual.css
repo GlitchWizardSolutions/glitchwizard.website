@@ -1,0 +1,280 @@
+/* =========================================
+   ADMIN BRANDING ENHANCEMENT - CASUAL
+   Casual, friendly variation for approachable admin
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   ADMIN CASUAL APPLICATIONS
+   Friendly, relaxed design for ease of use
+   ========================================= */
+
+/* Sidebar - Casual */
+#sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-right: 2px dashed rgba(var(--brand-primary-rgb), 0.3) !important;
+    border-radius: 0 15px 15px 0 !important;
+}
+
+#sidebar .nav-link {
+    color: #6c757d !important;
+    font-weight: 500 !important;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin: 2px 8px;
+}
+
+#sidebar .nav-link:hover {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-primary) !important;
+    transform: translateX(3px) scale(1.02);
+    border-left: 4px solid var(--brand-primary) !important;
+}
+
+#sidebar .nav-link.active {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 15px rgba(var(--brand-primary-rgb), 0.3) !important;
+}
+
+/* Header - Casual */
+.header {
+    background: #ffffff !important;
+    border-bottom: 3px dotted rgba(var(--brand-primary-rgb), 0.3) !important;
+    border-radius: 0 0 15px 15px !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08) !important;
+}
+
+.header .logo {
+    color: var(--brand-primary) !important;
+    font-weight: 600 !important;
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+}
+
+/* Cards - Casual */
+.card {
+    border: 2px solid rgba(var(--brand-primary-rgb), 0.2) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
+    border-radius: 15px !important;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px) rotate(0.5deg);
+}
+
+.card-header {
+    background: rgba(var(--brand-primary-rgb), 0.05) !important;
+    color: var(--brand-primary) !important;
+    border-bottom: 2px dashed rgba(var(--brand-primary-rgb), 0.2) !important;
+    font-weight: 600 !important;
+    border-radius: 15px 15px 0 0 !important;
+}
+
+/* Buttons - Casual */
+.btn-primary {
+    background: var(--brand-primary) !important;
+    border: 2px solid var(--brand-primary) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border-radius: 25px !important;
+    padding: 8px 20px !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-primary:hover {
+    background: var(--brand-secondary) !important;
+    border-color: var(--brand-secondary) !important;
+    transform: scale(1.05) rotate(-1deg) !important;
+    box-shadow: 0 5px 15px rgba(var(--brand-primary-rgb), 0.3) !important;
+}
+
+.btn-secondary {
+    background: #ffffff !important;
+    border: 2px dashed var(--brand-primary) !important;
+    color: var(--brand-primary) !important;
+    font-weight: 500 !important;
+    border-radius: 20px !important;
+}
+
+.btn-secondary:hover {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    transform: scale(1.02) rotate(1deg) !important;
+}
+
+/* Tables - Casual */
+.table {
+    border: 2px solid rgba(var(--brand-primary-rgb), 0.2) !important;
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+
+.table th {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-primary) !important;
+    border-bottom: 2px dashed rgba(var(--brand-primary-rgb), 0.3) !important;
+    font-weight: 600 !important;
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+}
+
+.table td {
+    border-color: rgba(var(--brand-primary-rgb), 0.1) !important;
+    font-weight: 400;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(var(--brand-primary-rgb), 0.02) !important;
+}
+
+.table tbody tr:hover {
+    background: rgba(var(--brand-primary-rgb), 0.05) !important;
+    transform: scale(1.01);
+}
+
+/* Forms - Casual */
+.form-control {
+    border: 2px solid rgba(var(--brand-primary-rgb), 0.3) !important;
+    border-radius: 15px !important;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--brand-primary) !important;
+    box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb), 0.2) !important;
+    transform: scale(1.02) !important;
+    border-radius: 20px !important;
+}
+
+.form-label {
+    color: var(--brand-primary) !important;
+    font-weight: 600 !important;
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+}
+
+/* Alerts - Casual */
+.alert {
+    border: 2px dashed !important;
+    border-radius: 15px !important;
+    font-weight: 500 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.1) !important;
+    color: #155724 !important;
+    border-color: #28a745 !important;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1) !important;
+    color: #721c24 !important;
+    border-color: #dc3545 !important;
+}
+
+.alert-warning {
+    background: rgba(255, 193, 7, 0.1) !important;
+    color: #856404 !important;
+    border-color: #ffc107 !important;
+}
+
+/* Navigation - Casual */
+.breadcrumb {
+    background: rgba(var(--brand-primary-rgb), 0.05) !important;
+    border: 2px dashed rgba(var(--brand-primary-rgb), 0.2) !important;
+    border-radius: 20px !important;
+    padding: 10px 15px !important;
+}
+
+.breadcrumb-item a {
+    color: var(--brand-primary) !important;
+    text-decoration: none;
+    font-weight: 500 !important;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--brand-secondary) !important;
+    transform: scale(1.1);
+}
+
+.breadcrumb-item.active {
+    color: #6c757d !important;
+    font-weight: 600 !important;
+}
+
+/* Typography - Casual */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--brand-primary) !important;
+    font-weight: 600 !important;
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+}
+
+.text-muted {
+    color: #6c757d !important;
+    font-style: italic;
+}
+
+/* Dashboard Stats - Casual */
+.info-card {
+    border: 2px solid rgba(var(--brand-primary-rgb), 0.2) !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-3px) rotate(1deg);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+}
+
+.info-card .card-icon {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-primary) !important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover .card-icon {
+    transform: scale(1.1) rotate(-5deg);
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+}
+
+/* Fun animations */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+    40%, 43% { transform: translate3d(0,-5px,0); }
+    70% { transform: translate3d(0,-3px,0); }
+    90% { transform: translate3d(0,-1px,0); }
+}
+
+.btn-primary:active {
+    animation: bounce 0.6s ease;
+}
+
+/* Playful elements */
+.card-header::after {
+    content: ' 😊';
+    opacity: 0.3;
+    font-size: 0.8em;
+}
