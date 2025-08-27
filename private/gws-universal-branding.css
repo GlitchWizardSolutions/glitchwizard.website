@@ -1,0 +1,766 @@
+/* =========================================
+   GWS UNIVERSAL HYBRID APP - BRAND CUSTOMIZATION
+   Central branding file for entire workspace
+   ========================================= */
+
+/* CSS Variables for Brand Colors */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #3671c9;
+  --brand-secondary: #2fc090;
+  --brand-accent: #c93667;
+  
+  /* Brand Gradients */
+  --brand-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --brand-gradient-alt: linear-gradient(135deg, #3671c9 0%, #2fc090 100%);
+  
+  /* Logo and Icon Colors */
+  --logo-background: var(--brand-gradient);
+  --logo-text-color: #ffffff;
+  --fallback-logo-bg: var(--brand-gradient);
+  
+  /* Header Customization */
+  --header-background: #ffffff;
+  --header-text-color: #4a5361;
+  --header-border-color: rgba(45, 54, 68, 0.12);
+  
+  /* Sidebar Customization */
+  --sidebar-background: #242a36;
+  --sidebar-text-color: #868c9c;
+  --sidebar-active-color: #ffffff;
+  --sidebar-active-background: #343d4e;
+  --sidebar-active-border: var(--brand-primary);
+  
+  /* Content Area Customization */
+  --content-background: #f3f4f7;
+  --content-title-text: #4a5361;
+  --content-block-background: #ffffff;
+  --content-block-shadow: rgba(45, 54, 68, 0.05);
+  
+  /* Table Customization */
+  --table-header-background: #ffffff;
+  --table-header-text: #000000;
+  --table-hover-background: #f8f9fa;
+  --table-border-color: #cfcfd2;
+  
+  /* Button and Action Colors */
+  --button-primary: var(--brand-primary);
+  --button-primary-hover: #3575c3;
+  --button-secondary: var(--brand-secondary);
+  --button-danger: #dc3545;
+  
+  /* Action Menu Colors */
+  --action-menu-text: #333333;
+  --action-menu-hover: #f8f9fa;
+  --action-menu-border: #dee2e6;
+
+/* Table Action Button Styles */
+.actions-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actions-btn:hover {
+    opacity: 0.8;
+}
+
+.actions-btn:focus {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+    .actions-btn:focus {
+        outline: 3px solid currentColor;
+    }
+}
+  --button-warning: #fd7e14;
+  
+  /* Status Colors */
+  --status-success: #198754;
+  --status-success-bg: #d1e7dd;
+  --status-danger: #dc3545;
+  --status-danger-bg: #f8d7da;
+  --status-warning: #fd7e14;
+  --status-warning-bg: #fff3cd;
+  --status-info: #0d6efd;
+  --status-info-bg: #e7f1ff;
+  
+  /* Form Controls */
+  --form-background: #ffffff;
+  --form-text-color: #000000;
+  --form-border-color: #dee2e6;
+  --form-placeholder-color: #6c757d;
+  
+  /* Accessibility Compliance */
+  --min-font-size: 16px;
+  --min-line-height: 1.4;
+  --min-touch-target: 44px;
+  
+  /* Brand Typography */
+  --brand-font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --brand-font-weight-normal: 400;
+  --brand-font-weight-medium: 500;
+  --brand-font-weight-semibold: 600;
+  --brand-font-weight-bold: 700;
+  
+  /* =========================================
+     ADMIN AREA BRANDING VARIABLES
+     Subtle branding for admin interface
+     ========================================= */
+  
+  /* Admin Header & Navigation */
+  --admin-nav-primary: var(--brand-primary);
+  --admin-nav-secondary: #f8f9fa;
+  --admin-nav-text: #495057;
+  --admin-nav-active: var(--brand-primary);
+  --admin-nav-hover: rgba(54, 113, 201, 0.1);
+  
+  /* Admin Cards & Panels */
+  --admin-card-border: #e9ecef;
+  --admin-card-header: #f8f9fa;
+  --admin-card-accent: var(--brand-primary);
+  --admin-card-shadow: rgba(0, 0, 0, 0.05);
+  
+  /* Admin Buttons */
+  --admin-btn-primary: var(--brand-primary);
+  --admin-btn-primary-hover: #2a5aa0;
+  --admin-btn-outline: var(--brand-primary);
+  --admin-btn-outline-hover: rgba(54, 113, 201, 0.1);
+  
+  /* Admin Tables */
+  --admin-table-header: #f8f9fa;
+  --admin-table-border: #dee2e6;
+  --admin-table-hover: rgba(54, 113, 201, 0.05);
+  --admin-table-accent: var(--brand-primary);
+  
+  /* Admin Status Indicators */
+  --admin-status-active: var(--brand-secondary);
+  --admin-status-inactive: #6c757d;
+  --admin-status-warning: #fd7e14;
+  --admin-status-danger: #dc3545;
+  
+  /* =========================================
+     CLIENT PORTAL BRANDING VARIABLES
+     Stronger branding for client experience
+     ========================================= */
+  
+  /* Client Portal Header & Navigation */
+  --client-header-primary: var(--brand-primary);
+  --client-header-gradient: var(--brand-gradient-alt);
+  --client-nav-background: #ffffff;
+  --client-nav-text: #495057;
+  --client-nav-active: var(--brand-primary);
+  --client-nav-hover: rgba(54, 113, 201, 0.1);
+  
+  /* Client Portal Sidebar */
+  --client-sidebar-bg: #f8f9fa;
+  --client-sidebar-text: #495057;
+  --client-sidebar-active: var(--brand-primary);
+  --client-sidebar-active-bg: rgba(54, 113, 201, 0.1);
+  --client-sidebar-border: var(--brand-primary);
+  
+  /* Client Portal Cards & Content */
+  --client-card-primary: var(--brand-primary);
+  --client-card-secondary: var(--brand-secondary);
+  --client-card-accent: var(--brand-accent);
+  --client-card-gradient: var(--brand-gradient);
+  --client-card-shadow: rgba(54, 113, 201, 0.1);
+  
+  /* Client Portal Buttons */
+  --client-btn-primary: var(--brand-primary);
+  --client-btn-primary-hover: #2a5aa0;
+  --client-btn-secondary: var(--brand-secondary);
+  --client-btn-secondary-hover: #26a085;
+  --client-btn-accent: var(--brand-accent);
+  --client-btn-gradient: var(--brand-gradient);
+  
+  /* Client Portal Forms */
+  --client-form-focus: var(--brand-primary);
+  --client-form-accent: var(--brand-secondary);
+  --client-form-border: #dee2e6;
+  --client-form-label: #495057;
+  
+  /* Client Portal Dashboard */
+  --client-dashboard-primary: var(--brand-primary);
+  --client-dashboard-secondary: var(--brand-secondary);
+  --client-dashboard-stats: var(--brand-gradient);
+  --client-dashboard-icons: var(--brand-primary);
+}
+
+  /* =========================================
+     GLOBAL BRAND SPINNER STYLES
+     Extracted from showcase & centralized for app-wide use
+     ========================================= */
+  /* Duration variable with accessibility fallback */
+  :root { --spinner-duration: 2s; }
+  @media (prefers-reduced-motion: reduce) { :root { --spinner-duration: 0s; } }
+
+  /* Size utilities */
+  .brand-spinner-size-sm .brand-spinner,
+  .brand-spinner-size-sm .brand-spinner-gradient,
+  .brand-spinner-size-sm .brand-spinner-logo,
+  .brand-spinner-size-sm .brand-spinner-pulse,
+  .brand-spinner-size-sm .brand-spinner-dots,
+  .brand-spinner-size-sm .brand-spinner-rainbow { width:1.75rem; height:1.75rem; }
+
+  .brand-spinner-size-lg .brand-spinner,
+  .brand-spinner-size-lg .brand-spinner-gradient,
+  .brand-spinner-size-lg .brand-spinner-logo,
+  .brand-spinner-size-lg .brand-spinner-pulse,
+  .brand-spinner-size-lg .brand-spinner-dots,
+  .brand-spinner-size-lg .brand-spinner-rainbow { width:4.5rem; height:4.5rem; }
+
+  /* Core variants (matching showcase definitions) */
+  .brand-spinner { width:3rem; height:3rem; border:.4rem solid rgba(0,0,0,0.08); border-top-color:var(--brand-primary); border-radius:50%; animation:spin var(--spinner-duration) linear infinite; }
+  .brand-spinner-gradient { --c1:var(--brand-primary); --c2:var(--brand-secondary); --c3:var(--brand-accent); width:3rem; height:3rem; border-radius:50%; position:relative; animation:spin var(--spinner-duration) linear infinite; background:conic-gradient(from 0deg,var(--c1) 0 30%,var(--c2) 30% 60%,var(--c3) 60% 100%); -webkit-mask:radial-gradient(circle 55% at 50% 50%, transparent 55%, #000 56%); mask:radial-gradient(circle 55% at 50% 50%, transparent 55%, #000 56%); }
+  .brand-spinner-logo { width:3.5rem; height:3.5rem; position:relative; }
+  .brand-spinner-logo::before { content:''; position:absolute; inset:0; border-radius:50%; border:.45rem solid rgba(0,0,0,0.08); border-top-color:var(--brand-primary); border-right-color:var(--brand-secondary); border-bottom-color:var(--brand-accent); border-left-color:var(--brand-quaternary, var(--brand-secondary)); animation:spin var(--spinner-duration) linear infinite; }
+  .brand-spinner-logo img { width:50%; height:50%; object-fit:contain; position:absolute; top:25%; left:25%; filter:drop-shadow(0 0 2px rgba(0,0,0,.25)); }
+  .brand-spinner-pulse { width:3rem; height:3rem; border-radius:50%; background:radial-gradient(circle at 65% 35%, var(--brand-primary), var(--brand-secondary)); position:relative; animation:pulse var(--spinner-duration) ease-in-out infinite; }
+  .brand-spinner-pulse::after { content:''; position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 35% 65%, var(--brand-accent), var(--brand-primary)); opacity:.65; animation:counter-pulse calc(var(--spinner-duration)*1.25) ease-in-out infinite; }
+  .brand-spinner-dots { width:4rem; height:1rem; display:flex; align-items:center; justify-content:space-between; }
+  .brand-spinner-dots span { width:.9rem; height:.9rem; background:var(--brand-primary); border-radius:50%; animation:dot-bounce calc(var(--spinner-duration)*1.5) ease-in-out infinite; }
+  .brand-spinner-dots span:nth-child(2) { animation-delay:.15s; background:var(--brand-secondary); }
+  .brand-spinner-dots span:nth-child(3) { animation-delay:.3s; background:var(--brand-accent); }
+  .brand-spinner-rainbow { width:3.25rem; height:3.25rem; position:relative; }
+  .brand-spinner-rainbow::before, .brand-spinner-rainbow::after { content:''; position:absolute; inset:0; border-radius:50%; background:conic-gradient(var(--brand-primary) 0deg, var(--brand-secondary) 90deg, var(--brand-tertiary, var(--brand-accent)) 180deg, var(--brand-quaternary, var(--brand-secondary)) 270deg, var(--brand-primary) 360deg); -webkit-mask:radial-gradient(circle at 50% 50%, transparent 58%, #000 59%); mask:radial-gradient(circle at 50% 50%, transparent 58%, #000 59%); animation:spin var(--spinner-duration) linear infinite; }
+  .brand-spinner-rainbow::after { inset:.35rem; background:conic-gradient(var(--brand-primary) 0deg, var(--brand-secondary) 120deg, var(--brand-tertiary, var(--brand-accent)) 240deg, var(--brand-primary) 360deg); filter:brightness(1.1) saturate(1.05); animation-direction:reverse; opacity:.9; }
+  @keyframes spin { to { transform:rotate(360deg);} }
+  @keyframes pulse { 0%,100% { transform:scale(.85); filter:brightness(1);} 50% { transform:scale(1); filter:brightness(1.15);} }
+  @keyframes counter-pulse { 0%,100% { transform:scale(1); opacity:.65;} 50% { transform:scale(.75); opacity:.4;} }
+  @keyframes dot-bounce { 0%,80%,100% { transform:translateY(0);} 40% { transform:translateY(-6px);} }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .brand-spinner-gradient, .brand-spinner, .brand-spinner-logo::before { animation:none; }
+    .brand-spinner-pulse, .brand-spinner-pulse::after, .brand-spinner-dots span { animation:none; }
+  }
+
+  /* Overlay utility */
+  .brand-spinner-overlay { position:fixed; inset:0; background:rgba(255,255,255,.75); backdrop-filter:blur(2px); display:flex; align-items:center; justify-content:center; z-index:1050; }
+  .brand-spinner-overlay.dark { background:rgba(0,0,0,.4); }
+  .brand-spinner-overlay.d-none { display:none !important; }
+
+/* =========================================
+   CARD AND TABLE STYLING
+   Card and table container styling
+   ========================================= */
+
+.card {
+  background: var(--content-block-background);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 0;  
+   /* border-bottom: 1px solid var(--table-border-color); */
+  background: var(--table-header-background);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--brand-font-weight-semibold);
+  
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-body .table {
+  overflow: hidden;
+}
+
+.table table {
+  width: 100%;
+  background: transparent;
+}
+
+/* =========================================
+   TABLE ACTION BUTTON STYLES
+   Action buttons for table interactions
+   ========================================= */
+
+/* Table Action Button Styles */
+.actions-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actions-btn:hover {
+    opacity: 0.8;
+}
+
+.actions-btn:focus {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+    .actions-btn:focus {
+        outline: 3px solid currentColor;
+    }
+}
+
+/* =========================================
+   TABLE DROPDOWN ACTIONS STYLING
+   Beautiful dropdown menus for all tables
+   ========================================= */
+
+/* Table dropdown container */
+.table-dropdown {
+  position: relative !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+/* Table dropdown trigger (ellipsis icon) */
+.table-dropdown > svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: #6c757d !important;
+  display: block !important;
+  cursor: pointer !important;
+}
+
+.table-dropdown:hover {
+  background-color: #f8f9fa !important;
+}
+
+.table-dropdown:hover > svg {
+  fill: #495057 !important;
+}
+
+/* Table dropdown menu */
+.table-dropdown-items {
+  display: none !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 100% !important;
+  background: white !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  z-index: 9999 !important;
+  min-width: 160px !important;
+  overflow: hidden !important;
+  margin-top: 4px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.2s ease, visibility 0.2s ease !important;
+}
+
+/* Show dropdown on hover */
+.table-dropdown:hover .table-dropdown-items {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Individual dropdown items */
+.table-dropdown-items a {
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px 15px !important;
+  text-decoration: none !important;
+  color: #495057 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: background-color 0.2s ease !important;
+  border-bottom: 1px solid #f8f9fa !important;
+  gap: 10px !important;
+}
+
+.table-dropdown-items a:last-child {
+  border-bottom: none !important;
+}
+
+.table-dropdown-items a:hover {
+  background-color: #f8f9fa !important;
+  color: #212529 !important;
+}
+
+/* Icon styling in dropdown items */
+.table-dropdown-items a .icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+}
+
+.table-dropdown-items a .icon svg {
+  width: 12px !important;
+  height: 12px !important;
+  fill: currentColor !important;
+}
+
+/* Color-coded action items */
+.table-dropdown-items a.blue {
+  color: var(--status-info) !important;
+}
+
+.table-dropdown-items a.blue:hover {
+  background-color: var(--status-info-bg) !important;
+  color: #0a58ca !important;
+}
+
+.table-dropdown-items a.green {
+  color: var(--status-success) !important;
+}
+
+.table-dropdown-items a.green:hover {
+  background-color: var(--status-success-bg) !important;
+  color: #146c43 !important;
+}
+
+.table-dropdown-items a.orange {
+  color: var(--status-warning) !important;
+}
+
+.table-dropdown-items a.orange:hover {
+  background-color: var(--status-warning-bg) !important;
+  color: #e55a00 !important;
+}
+
+.table-dropdown-items a.red {
+  color: var(--status-danger) !important;
+}
+
+.table-dropdown-items a.red:hover {
+  background-color: var(--status-danger-bg) !important;
+  color: #b02a37 !important;
+}
+
+.table-dropdown-items a.black {
+  color: #212529 !important;
+}
+
+.table-dropdown-items a.black:hover {
+  background-color: #e9ecef !important;
+  color: #000000 !important;
+}
+
+/* Force table actions to show properly */
+.table tbody td.actions,
+td.actions {
+  position: relative !important;
+  padding: 8px !important;
+  text-align: center !important;
+}
+
+/* =========================================
+   BRAND APPLICATIONS
+   Apply brand colors to key elements
+   ========================================= */
+
+/* Admin Logo Branding */
+.admin-logo .fallback-logo,
+.fallback-logo {
+  background: var(--brand-gradient) !important;
+  color: var(--logo-text-color) !important;
+}
+
+/* Primary Buttons */
+.btn-primary,
+.btn.blue,
+button.primary,
+.button-primary {
+  background-color: var(--button-primary) !important;
+  border-color: var(--button-primary) !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.btn.blue:hover,
+button.primary:hover,
+.button-primary:hover {
+  background-color: var(--button-primary-hover) !important;
+  border-color: var(--button-primary-hover) !important;
+  color: #ffffff !important;
+}
+
+/* Secondary Buttons */
+.btn-secondary,
+button.secondary,
+.button-secondary {
+  background-color: var(--button-secondary) !important;
+  border-color: var(--button-secondary) !important;
+  color: #ffffff !important;
+}
+
+/* Status Color Applications */
+.text-success,
+.green,
+span.green {
+  color: var(--status-success) !important;
+}
+
+.text-danger,
+.red,
+span.red {
+  color: var(--status-danger) !important;
+}
+
+.text-warning,
+.orange,
+span.orange {
+  color: var(--status-warning) !important;
+}
+
+.text-info,
+.blue,
+span.blue {
+  color: var(--status-info) !important;
+}
+
+/* Form Control Branding */
+.form-control,
+.form-select,
+.form-input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+  background-color: var(--form-background) !important;
+  color: var(--form-text-color) !important;
+  border-color: var(--form-border-color) !important;
+  font-size: var(--min-font-size) !important;
+}
+
+.form-control::placeholder,
+.form-select::placeholder,
+.form-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: var(--form-placeholder-color) !important;
+}
+
+/* Dashboard Stats Branding */
+.dashboard .stat {
+  border-left-color: var(--button-primary) !important;
+}
+
+.dashboard .stat .data h3 {
+  color: var(--button-primary) !important;
+}
+
+.dashboard .stat.green {
+  border-left-color: var(--button-secondary) !important;
+}
+
+.dashboard .stat.green .data h3 {
+  color: var(--button-secondary) !important;
+}
+
+/* =========================================
+   ACCESSIBILITY OVERRIDES
+   Ensure compliance with accessibility standards
+   ========================================= */
+
+/* Universal font family and size */
+* {
+  font-family: var(--brand-font-family) !important;
+}
+
+/* Ensure minimum font sizes */
+body,
+p,
+td,
+th,
+div,
+span,
+label,
+input,
+button,
+select,
+textarea {
+  font-size: var(--min-font-size) !important;
+  line-height: var(--min-line-height) !important;
+}
+
+/* Minimum touch targets */
+button,
+.btn,
+a.button,
+input[type="submit"],
+input[type="button"],
+.table-dropdown {
+  min-height: var(--min-touch-target) !important;
+  min-width: var(--min-touch-target) !important;
+}
+
+/* High contrast for better readability */
+.table thead th {
+  color: var(--table-header-text) !important;
+  background-color: var(--table-header-background) !important;
+  font-weight: var(--brand-font-weight-bold) !important;
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   Mobile-friendly adjustments
+   ========================================= */
+
+@media (max-width: 768px) {
+  .table-dropdown-items {
+    right: -20px !important;
+    min-width: 140px !important;
+  }
+  
+  .table-dropdown-items a {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+  }
+  
+  /* Ensure touch targets remain accessible on mobile */
+  .table-dropdown {
+    min-height: 48px !important;
+    min-width: 48px !important;
+  }
+}
+
+/* =========================================
+   CUSTOM BRAND EXTENSIONS
+   Add your specific customizations below
+   ========================================= */
+
+/* Table Action Menu Styles */
+.actions-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--min-touch-target);
+    min-width: var(--min-touch-target);
+}
+
+.actions-btn:hover {
+    opacity: 0.8;
+}
+
+.actions-btn:focus {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+.table-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.table-dropdown-items {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 160px;
+    background: var(--content-block-background);
+    border: 1px solid var(--action-menu-border);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.table-dropdown-items a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: var(--action-menu-text);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.table-dropdown-items a:hover {
+    background-color: var(--action-menu-hover);
+}
+
+/* =========================================
+   BRANDING HEADER STYLES
+   Consistent header styling for admin cards
+   ========================================= */
+
+.branding-settings-header {
+    background: var(--brand-primary-color, #3b89b0) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.branding-settings-header h6,
+.branding-settings-header .m-0 {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+.branding-settings-header .header-icon {
+    margin-right: 0.5rem;
+    color: #ffffff;
+}
+
+.branding-settings-header .text-white {
+    color: #ffffff !important;
+    opacity: 0.9;
+}
+
+/* Ensure proper contrast for accessibility */
+.branding-settings-header * {
+    color: #ffffff !important;
+}
+
+/* Focus states for accessibility */
+.branding-settings-header:focus,
+.branding-settings-header *:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+    .branding-settings-header {
+        background: Canvas !important;
+        color: CanvasText !important;
+        border: 1px solid CanvasText !important;
+    }
+    
+    .branding-settings-header * {
+        color: CanvasText !important;
+    }
+}
+
+.table-dropdown-items .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+@media (forced-colors: active) {
+    .actions-btn:focus {
+        outline: 3px solid currentColor;
+    }
+}

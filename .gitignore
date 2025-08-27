@@ -1,6 +1,5 @@
 ARCHIVE/
-private/
-!private/gws-universal-config-template.php
+private/gws-universal-config.php
 .vscode/
 .specstory/
 # OS/editor noise (optional but recommended)
