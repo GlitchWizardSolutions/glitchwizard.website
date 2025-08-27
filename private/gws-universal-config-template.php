@@ -48,7 +48,7 @@ if (!isset($_SESSION['last_regeneration'])) {
     $_SESSION['last_regeneration'] = time();
 }
 
-// DEVELOPMENT ENVIRONMENT DATABASE CONFIGURATION
+// ENVIRONMENT CONFIGURATION
 if (!defined('ENVIRONMENT')) {
     define('ENVIRONMENT', 'development'); // Change to 'production' for live site
 }
@@ -58,11 +58,11 @@ if (ENVIRONMENT === 'development') {
     if (!defined('db_host'))
         define('db_host', 'localhost');
     if (!defined('db_user'))
-        define('db_user', 'your_db_username'); // UPDATE THIS
+        define('db_user', 'your_username_here'); // UPDATE THIS
     if (!defined('db_pass'))
-        define('db_pass', 'your_db_password'); // UPDATE THIS
+        define('db_pass', 'your_password_here'); // UPDATE THIS
     if (!defined('db_name'))
-        define('db_name', 'your_database_name'); // UPDATE THIS
+        define('db_name', 'your_database_here'); // UPDATE THIS
     if (!defined('db_charset'))
         define('db_charset', 'utf8');
         
@@ -74,13 +74,13 @@ if (ENVIRONMENT === 'development') {
 } else {
     // PRODUCTION ENVIRONMENT DATABASE CONFIGURATION
     if (!defined('db_host'))
-        define('db_host', 'your_production_host'); // UPDATE THIS
+        define('db_host', 'your_production_host_here'); // UPDATE THIS
     if (!defined('db_user'))
-        define('db_user', 'your_production_username'); // UPDATE THIS
+        define('db_user', 'your_production_user_here'); // UPDATE THIS
     if (!defined('db_pass'))
-        define('db_pass', 'your_production_password'); // UPDATE THIS
+        define('db_pass', 'your_production_pass_here'); // UPDATE THIS
     if (!defined('db_name'))
-        define('db_name', 'your_production_database'); // UPDATE THIS
+        define('db_name', 'your_production_db_here'); // UPDATE THIS
     if (!defined('db_charset'))
         define('db_charset', 'utf8');
         
