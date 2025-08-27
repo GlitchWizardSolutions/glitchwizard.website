@@ -1,0 +1,6 @@
+ARCHIVE/
+.vscode/
+.specstory/
+# OS/editor noise (optional but recommended)
+.DS_Store
+Thumbs.db
