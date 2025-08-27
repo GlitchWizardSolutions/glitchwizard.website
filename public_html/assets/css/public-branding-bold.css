@@ -1,0 +1,540 @@
+/* =========================================
+   PUBLIC FACING BRANDING ENHANCEMENT - BOLD
+   Strong, vibrant variation for maximum impact
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   BOLD BRAND APPLICATIONS
+   Strong, impactful brand presence
+   ========================================= */
+
+/* Header and Navigation - Bold */
+.navbar {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
+    box-shadow: 0 4px 12px rgba(54, 113, 201, 0.3) !important;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(54, 113, 201, 0.3) !important;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    font-size: 1.4em !important;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 6px;
+    transform: translateY(-2px);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Primary Buttons - Bold */
+.btn-primary {
+    background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-primary) 100%) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 30px !important;
+    border-radius: 50px !important;
+    box-shadow: 0 6px 20px rgba(54, 113, 201, 0.4) !important;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(54, 113, 201, 0.5) !important;
+    filter: brightness(1.1);
+}
+
+/* Secondary Buttons - Bold */
+.btn-secondary {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+    border: 3px solid var(--brand-primary) !important;
+    color: var(--brand-primary) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px !important;
+}
+
+.btn-secondary:hover {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(54, 113, 201, 0.3);
+}
+
+/* =========================================
+   HERO INLINE FORM - BOLD
+   Full-width horizontal form within hero section
+   ========================================= */
+
+.hero-inline-form {
+    transition: all 0.3s ease;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.hero-inline-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4) !important;
+}
+
+/* Full Width Form Container */
+.hero-inline-form form {
+    width: 100%;
+    max-width: none !important;
+}
+
+/* Top Text Section */
+.hero-form-text-top {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Input Fields Container - Full Width */
+.hero-form-inputs {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Individual Input Styling */
+.hero-inline-form .form-control {
+    transition: all 0.3s ease;
+    background: white;
+    color: #2c3e50;
+    font-weight: 600;
+    border: 3px solid white !important;
+}
+
+.hero-inline-form .form-control:focus {
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25) !important;
+    transform: translateY(-1px);
+    background: #fff;
+}
+
+.hero-inline-form .form-control:hover {
+    border-color: #FFA500 !important;
+    background: #f8f9fa;
+}
+
+.hero-inline-form .form-control::placeholder {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* Button Styling - Yellow with No Icon */
+.hero-inline-form .btn {
+    background: #FFD700 !important;
+    color: #2c3e50 !important;
+    border: 3px solid #FFA500 !important;
+    font-weight: 800 !important;
+    transition: all 0.3s ease;
+}
+
+.hero-inline-form .btn:hover {
+    background: #FFA500 !important;
+    color: #2c3e50 !important;
+    border-color: #FF8C00 !important;
+}
+
+.hero-inline-form .btn:focus {
+    outline: 3px solid #fff !important;
+    outline-offset: 3px !important;
+}
+
+/* Responsive Design for Full Width Form */
+@media (max-width: 768px) {
+    .hero-inline-form {
+        padding: 1rem !important;
+    }
+    
+    .hero-inline-form form {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1rem !important;
+    }
+    
+    .hero-form-inputs {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+    
+    .hero-form-inputs .form-control {
+        min-width: auto !important;
+        max-width: none !important;
+        flex: none !important;
+    }
+    
+    .hero-inline-form .btn {
+        min-width: auto !important;
+        flex: none !important;
+        width: 100%;
+        padding: 1rem !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .hero-form-text-top h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-form-text-top p {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-inline-form {
+        padding: 0.75rem !important;
+        margin-top: 1rem !important;
+    }
+    
+    .hero-form-text-top h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .hero-form-text-top p {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-inline-form .form-control {
+        padding: 0.75rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Desktop - ensure inputs and button align nicely */
+    .hero-form-inputs {
+        align-items: stretch;
+    }
+    
+    .hero-form-inputs .form-control {
+        height: auto;
+    }
+    
+    .hero-inline-form .btn {
+        height: auto;
+        align-self: stretch;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .hero-inline-form {
+        border: 3px solid #000 !important;
+    }
+    
+    .hero-inline-form .form-control {
+        border: 3px solid #000 !important;
+        background: white !important;
+        color: #000 !important;
+    }
+    
+    .hero-inline-form .btn {
+        border: 4px solid #000 !important;
+    }
+}
+
+/* Card Headers - Bold */
+.card-header {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 15px 20px !important;
+}
+
+/* Links - Bold */
+.card-body a,
+.content-area a {
+    color: var(--brand-primary) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card-body a:hover,
+.content-area a:hover {
+    color: var(--brand-secondary) !important;
+    transform: translateX(5px);
+}
+
+.card-body a::after,
+.content-area a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+    transition: width 0.3s ease;
+}
+
+.card-body a:hover::after,
+.content-area a:hover::after {
+    width: 100%;
+}
+
+/* Card Styling - Bold */
+.card {
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+}
+
+/* Forms - Bold */
+.form-control {
+    border: 3px solid var(--brand-primary) !important;
+    border-radius: 10px !important;
+    padding: 12px 15px !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--brand-secondary) !important;
+    box-shadow: 0 0 0 4px rgba(54, 113, 201, 0.2) !important;
+    transform: scale(1.02);
+}
+
+/* Text Styling - Bold */
+.text-muted {
+    color: #555555 !important;
+    font-weight: 500 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hero Sections - Bold & Accessibility Compliant */
+.hero, .hero-section {
+    color: #ffffff !important;
+    text-align: center;
+    position: relative;
+}
+
+/* Add subtle gradient overlay for better text contrast */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    color: white !important;
+    font-weight: 900 !important;
+    /* Multi-layer text shadow for accessibility compliance */
+    text-shadow: 
+        /* Dark outline */
+        -2px -2px 0 rgba(0, 0, 0, 0.8),
+        2px -2px 0 rgba(0, 0, 0, 0.8),
+        -2px 2px 0 rgba(0, 0, 0, 0.8),
+        2px 2px 0 rgba(0, 0, 0, 0.8),
+        /* Softer glow */
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 16px rgba(0, 0, 0, 0.7);
+    /* Ensure minimum font size for readability */
+    font-size: clamp(2rem, 5vw, 4rem) !important;
+    line-height: 1.2 !important;
+}
+
+.hero p {
+    color: white !important;
+    font-weight: 600 !important;
+    /* Multi-layer text shadow for paragraphs */
+    text-shadow: 
+        -1px -1px 0 rgba(0, 0, 0, 0.8),
+        1px -1px 0 rgba(0, 0, 0, 0.8),
+        -1px 1px 0 rgba(0, 0, 0, 0.8),
+        1px 1px 0 rgba(0, 0, 0, 0.8),
+        0 0 6px rgba(0, 0, 0, 0.9),
+        0 0 12px rgba(0, 0, 0, 0.6);
+    /* Responsive font sizing */
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+    line-height: 1.4 !important;
+    /* Add subtle background for extra readability on light images */
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
+    padding: 80px 0 !important;
+}
+
+.hero .btn, .hero-section .btn {
+    background: white !important;
+    color: var(--brand-primary) !important;
+    border: 3px solid white !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    padding: 0.75rem 2rem !important;
+    text-shadow: none !important;
+    /* High contrast shadow for button */
+    box-shadow: 
+        0 0 0 2px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover, .hero-section .btn:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--brand-primary) !important;
+    border-color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 0 2px rgba(0, 0, 0, 0.4),
+        0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero .btn:focus, .hero-section .btn:focus {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 2px !important;
+}
+
+/* Gradients and Animations */
+@keyframes boldPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse-animation {
+    animation: boldPulse 2s ease-in-out infinite;
+}
+
+/* Footer - Bold */
+.footer {
+    background: linear-gradient(135deg, #333333 0%, #222222 100%) !important;
+    color: #ffffff !important;
+    padding: 40px 0 !important;
+}
+
+/* Bold Focus States */
+:focus {
+    outline: 4px solid var(--brand-secondary) !important;
+    outline-offset: 3px !important;
+    border-radius: 8px;
+}
+
+/* Special Effects */
+.brand-shine {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, #ffffff 50%, var(--brand-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* =========================================
+   MOBILE NAVIGATION TOGGLE - BOLD
+   Bold hamburger menu button styling
+   ========================================= */
+
+.mobile-nav-toggle {
+    display: none;
+    cursor: pointer;
+    color: var(--brand-secondary) !important;
+    background: #fff !important;
+    border: 3px solid var(--brand-secondary) !important;
+    width: 45px !important;
+    height: 45px !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+.mobile-nav-toggle:hover {
+    background: var(--brand-secondary) !important;
+    color: #fff !important;
+    transform: scale(1.1) rotate(180deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+}
+
+.mobile-nav-toggle:focus {
+    outline: 4px solid var(--brand-primary) !important;
+    outline-offset: 3px !important;
+}
+
+@media (max-width: 991.98px) {
+    .mobile-nav-toggle {
+        display: flex !important;
+    }
+}

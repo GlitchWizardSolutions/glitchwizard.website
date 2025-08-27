@@ -1,0 +1,396 @@
+/*
+ * Dynamic Brand CSS Override
+ * 
+ * This file overrides the hardcoded CSS variables in main.css with database-driven values.
+ * It uses the CSS custom properties set by brand_loader.php to make all colors dynamic.
+ * 
+ * Include this file AFTER main.css to ensure proper override precedence.
+ */
+
+:root {
+  /* Override main.css variables with database-driven brand colors */
+  --background-color: var(--brand-background, #ffffff);
+  --default-color: var(--brand-text, #444444);
+  --heading-color: var(--brand-secondary, #124265);
+  --accent-color: var(--brand-primary, #2487ce);
+  --surface-color: var(--brand-background, #ffffff);
+  --contrast-color: var(--brand-background, #ffffff);
+  
+  /* Navigation colors using brand colors */
+  --nav-color: var(--brand-secondary, #124265);
+  --nav-hover-color: var(--brand-primary, #2487ce);
+  --nav-mobile-background-color: var(--brand-background, #ffffff);
+  --nav-dropdown-background-color: var(--brand-background, #ffffff);
+  --nav-dropdown-color: var(--brand-secondary, #124265);
+  --nav-dropdown-hover-color: var(--brand-primary, #2487ce);
+}
+
+/* Light theme overrides */
+[data-bs-theme=light] {
+  --background-color: var(--brand-background, #f6fafd);
+  --surface-color: var(--brand-background, #ffffff);
+}
+
+/* Dark theme overrides */
+[data-bs-theme=dark] {
+  --background-color: var(--brand-text, #060606);
+  --default-color: var(--brand-background, #ffffff);
+  --heading-color: var(--brand-background, #ffffff);
+  --surface-color: var(--brand-text-muted, #252525);
+}
+
+/* Bootstrap color overrides using brand colors */
+.btn-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+}
+
+.btn-secondary {
+  background-color: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+  background-color: var(--brand-tertiary);
+  border-color: var(--brand-tertiary);
+}
+
+.btn-success {
+  background-color: var(--brand-success);
+  border-color: var(--brand-success);
+}
+
+.btn-danger {
+  background-color: var(--brand-danger);
+  border-color: var(--brand-danger);
+}
+
+.btn-warning {
+  background-color: var(--brand-warning);
+  border-color: var(--brand-warning);
+}
+
+.btn-info {
+  background-color: var(--brand-info);
+  border-color: var(--brand-info);
+}
+
+/* Text color utilities using brand colors */
+.text-primary {
+  color: var(--brand-primary) !important;
+}
+
+.text-secondary {
+  color: var(--brand-secondary) !important;
+}
+
+.text-success {
+  color: var(--brand-success) !important;
+}
+
+.text-danger {
+  color: var(--brand-danger) !important;
+}
+
+.text-warning {
+  color: var(--brand-warning) !important;
+}
+
+.text-info {
+  color: var(--brand-info) !important;
+}
+
+.text-muted {
+  color: var(--brand-text-muted) !important;
+}
+
+/* Background color utilities using brand colors */
+.bg-primary {
+  background-color: var(--brand-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--brand-secondary) !important;
+}
+
+.bg-success {
+  background-color: var(--brand-success) !important;
+}
+
+.bg-danger {
+  background-color: var(--brand-danger) !important;
+}
+
+.bg-warning {
+  background-color: var(--brand-warning) !important;
+}
+
+.bg-info {
+  background-color: var(--brand-info) !important;
+}
+
+/* Border color utilities using brand colors */
+.border-primary {
+  border-color: var(--brand-primary) !important;
+}
+
+.border-secondary {
+  border-color: var(--brand-secondary) !important;
+}
+
+.border-success {
+  border-color: var(--brand-success) !important;
+}
+
+.border-danger {
+  border-color: var(--brand-danger) !important;
+}
+
+.border-warning {
+  border-color: var(--brand-warning) !important;
+}
+
+.border-info {
+  border-color: var(--brand-info) !important;
+}
+
+/* Custom brand color classes for specific use cases */
+.brand-primary {
+  color: var(--brand-primary) !important;
+}
+
+.brand-secondary {
+  color: var(--brand-secondary) !important;
+}
+
+.brand-tertiary {
+  color: var(--brand-tertiary) !important;
+}
+
+.brand-quaternary {
+  color: var(--brand-quaternary) !important;
+}
+
+.brand-accent {
+  color: var(--brand-accent) !important;
+}
+
+.bg-brand-primary {
+  background-color: var(--brand-primary) !important;
+}
+
+.bg-brand-secondary {
+  background-color: var(--brand-secondary) !important;
+}
+
+.bg-brand-tertiary {
+  background-color: var(--brand-tertiary) !important;
+}
+
+.bg-brand-quaternary {
+  background-color: var(--brand-quaternary) !important;
+}
+
+.bg-brand-accent {
+  background-color: var(--brand-accent) !important;
+}
+
+/* Link colors using brand colors */
+a {
+  color: var(--brand-primary);
+}
+
+a:hover,
+a:focus {
+  color: var(--brand-secondary);
+}
+
+/* Card styling with brand colors */
+.card {
+  border-color: var(--brand-text-muted);
+}
+
+.card-header {
+  background-color: var(--brand-primary);
+  color: var(--brand-background);
+  border-bottom-color: var(--brand-primary);
+}
+
+/* Form controls with brand colors */
+.form-control:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.2rem rgba(var(--brand-primary-rgb, 108, 46, 182), 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* Navigation brand styling */
+.navbar-brand {
+  color: var(--brand-primary) !important;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: var(--brand-secondary) !important;
+}
+
+/* Footer with brand colors */
+.footer {
+  background-color: var(--brand-background);
+  color: var(--brand-text);
+  border-top: 1px solid var(--brand-text-muted);
+}
+
+.footer a {
+  color: var(--brand-primary);
+}
+
+.footer a:hover {
+  color: var(--brand-secondary);
+}
+
+/* Hero section styling managed by branding template CSS files */
+
+/* Section headings with brand colors */
+.section-title {
+  color: var(--brand-secondary);
+}
+
+.section-subtitle {
+  color: var(--brand-text-muted);
+}
+
+/* Badge styling with brand colors */
+.badge.bg-primary {
+  background-color: var(--brand-primary) !important;
+}
+
+.badge.bg-secondary {
+  background-color: var(--brand-secondary) !important;
+}
+
+/* Alert styling with brand colors */
+.alert-primary {
+  background-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.alert-secondary {
+  background-color: rgba(var(--brand-secondary-rgb, 191, 85, 18), 0.1);
+  border-color: var(--brand-secondary);
+  color: var(--brand-secondary);
+}
+
+/* Progress bar with brand colors */
+.progress-bar {
+  background-color: var(--brand-primary);
+}
+
+/* Dropdown styling with brand colors */
+.dropdown-menu {
+  border-color: var(--brand-text-muted);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--brand-primary);
+  color: var(--brand-background);
+}
+
+/* Table styling with brand colors */
+.table-primary {
+  background-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+}
+
+.table-secondary {
+  background-color: rgba(var(--brand-secondary-rgb, 191, 85, 18), 0.1);
+}
+
+/* Pagination with brand colors */
+.page-link {
+  color: var(--brand-primary);
+}
+
+.page-link:hover {
+  color: var(--brand-secondary);
+  background-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  border-color: var(--brand-primary);
+}
+
+.page-item.active .page-link {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* Modal styling with brand colors */
+.modal-header {
+  border-bottom-color: var(--brand-text-muted);
+}
+
+.modal-footer {
+  border-top-color: var(--brand-text-muted);
+}
+
+/* Tab styling with brand colors */
+.nav-tabs .nav-link.active {
+  color: var(--brand-primary);
+  border-bottom-color: var(--brand-primary);
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--brand-secondary);
+}
+
+/* Custom brand utility classes */
+.text-brand-light {
+  color: var(--brand-text-light) !important;
+}
+
+.text-brand-muted {
+  color: var(--brand-text-muted) !important;
+}
+
+.border-brand-light {
+  border-color: var(--brand-text-light) !important;
+}
+
+.border-brand-muted {
+  border-color: var(--brand-text-muted) !important;
+}
+
+/* Responsive brand color adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+  
+  .hero {
+    background: linear-gradient(180deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+  }
+}
+
+/* Print styles with brand colors */
+@media print {
+  * {
+    color: var(--brand-text) !important;
+    background: transparent !important;
+  }
+  
+  a {
+    color: var(--brand-primary) !important;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Commenting System</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link href="comments.css" rel="stylesheet" type="text/css">
+		<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+	</head>
+	<body>
+
+	    <nav class="navtop">
+	    	<div>
+	    		<h1>Commenting System</h1>
+	    	</div>
+	    </nav>
+
+		<main class="content">
+
+			<h2>Article</h2>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique vel leo a vestibulum. Praesent varius ex elit, vitae pretium felis laoreet in. Nullam sit amet pretium nulla. Aliquam convallis sem vitae tincidunt pulvinar. Integer id ex efficitur, vulputate ante et, vulputate risus. Maecenas ac nunc est. Donec nisl turpis, aliquet quis turpis mollis, dictum pulvinar est.</p>
+			
+			<p>Donec suscipit neque lectus, id fringilla tortor pellentesque ut. Maecenas quam lectus, pharetra vitae commodo sit amet, iaculis quis massa. Aenean varius quam quis posuere viverra. Nullam varius condimentum sem, sit amet bibendum augue porttitor in.</p>
+
+			<div class="cs-comments"></div>
+
+			<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+			<script src="comments.js"></script>
+			<script>
+			new Comments({
+				page_id: 1, // Could be blog post ID, product ID, etc.
+				sort_by: "newest", // newest | oldest | votes
+				editor: "quill", // quill | standard
+				// php_file_url: "https://example.com/comments/comments.php"
+			});
+			</script>
+
+		</main>
+	</body>
+</html>

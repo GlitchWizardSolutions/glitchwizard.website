@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Instructions</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+		<meta name="robots" content="noindex, nofollow">
+		<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAqFBMVEUAAAAzQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU+vbZcxAAAAN3RSTlMAAQIDBAUGCAsOEBESFhccHR8gJzM3Pk1OUFRmbXeCg4uMjpSjpqiwtLW3usDO09fZ2uDm6O/9IUR6cgAAAH1JREFUGBltwdUWglAARcGNCNjY2B1YWOD5/z/T68L75AwfgawSxkzZxthKRYxEEYanAw0glDWoLYFYSeAbsarDCEi1cAw3fXKqQF3W1H8Ac1md7gS4ynJXbWjJ2jmZA3tZ/eYauCn3OhbGPeAc8uPefaB8kTXiy/NzBf55A27BHFFEBO8ZAAAAAElFTkSuQmCC" rel="icon" type="image/x-icon">
+		<style>*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"segoe ui",roboto,oxygen,ubuntu,cantarell,"fira sans","droid sans","helvetica neue",Arial,sans-serif;font-size:16px;line-height:24px}body,html{padding:0;margin:0}body{background-color:#f1f3f7}.content{width:800px;background-color:#fff;margin:25px auto 25px auto;padding:25px;box-shadow:0 0 5px rgba(0,0,0,.2)}h2{font-size:18px;color:#495362;padding:15px 0;border-top:1px solid #f5f7f9;border-bottom:1px solid #f5f7f9}h1{margin:0;font-size:20px;color:#495362;padding:15px 0;text-align:center}h2{margin:30px 0 0 0}li{padding:0 0 6px 0}li span{color:red;font-weight:600}li i{color:#37a269}a{color:#006edf;text-decoration:none}a:hover{color:#005bb8}code{display:block;overflow:auto;tab-size:4;width:100%;border-radius:5px;font-family:Consolas,Monaco,"andale mono","ubuntu mono",monospace;padding:15px;background-color:#f3f4f7;font-size:14px}@media screen and (max-width:800px){.content{width:95%}}</style>
+	</head>
+	<body>
+    	<div class="content">
+
+			<h1>Instructions</h1>
+
+			<h2>Add-on Details</h2>
+
+			<p>The brute force protection add-on will give the user X amount of login attempts before they're temporarily blocked. It will prevent an attacker from trying to login hundreds of times.</p>
+
+			<h2>How To Add</h2>
+
+			<p>In phpMyAdmin, select the "phplogin" table and import the "login_attempts.sql" SQL file.</p>
+
+			<p>Edit the "main.php" file and add the following (just before the closing tag will do):</p>
+
+<pre><code>function login_attempts($pdo, $update = TRUE) {
+	$ip = $_SERVER['REMOTE_ADDR'];
+	$now = date('Y-m-d H:i:s');
+	if ($update) {
+		$stmt = $pdo->prepare('INSERT INTO login_attempts (ip_address, created) VALUES (?,?) ON DUPLICATE KEY UPDATE attempts_left = attempts_left - 1, created = VALUES(created)');
+		$stmt->execute([ $ip, $now ]);
+	}
+	$stmt = $pdo->prepare('SELECT * FROM login_attempts WHERE ip_address = ?');
+	$stmt->execute([ $ip ]);
+	$login_attempts = $stmt->fetch(PDO::FETCH_ASSOC);
+	if ($login_attempts) {
+		// The user can try to login after 1 day... change the "+1 day" if you want to increase/decrease this date.
+		$expire = date('Y-m-d H:i:s', strtotime('+1 day', strtotime($login_attempts['created'])));
+		if ($now > $expire) {
+			$stmt = $pdo->prepare('DELETE FROM login_attempts WHERE ip_address = ?');
+			$stmt->execute([ $ip ]);
+			$login_attempts = array();
+		}
+	}
+	return $login_attempts;
+}</code></pre>
+
+			<p>Edit the "authenticate.php" file and find:</p>
+
+			<code>include 'main.php';</code>
+
+			<p>Add after:</p>
+
+<pre><code>$login_attempts = login_attempts($pdo, FALSE);
+if ($login_attempts && $login_attempts['attempts_left'] <= 0) {
+	exit('Error: You cannot login right now! Please try again later!');
+}</code></pre>
+
+			<p>Find:</p>
+
+			<code>if (!isset($_POST['username'], $_POST['password'])) {</code>
+
+			<p>Add after:</p>
+
+<pre><code>$login_attempts = login_attempts($pdo);</code></pre>
+
+			<p>Find (should be 2 instances):</p>
+
+			<code>echo 'Error: Incorrect username and/or password!';</code>
+
+			<p>Replace all with:</p>
+
+<pre><code>$login_attempts = login_attempts($pdo, TRUE);
+echo 'Error: Incorrect username and/or password! You have ' . $login_attempts['attempts_left'] . ' attempts remaining!';</code></pre>
+
+			<p>Find:</p>
+
+			<code>echo 'Redirect: home.php';</code>
+
+			<p>Add above:</p>
+
+<pre><code>$ip = $_SERVER['REMOTE_ADDR'];
+$stmt = $pdo->prepare('DELETE FROM login_attempts WHERE ip_address = ?');
+$stmt->execute([ $ip ]);</code></pre>			
+
+			<p><b>Note:</b> If you would like to change the number of attempts, you just need to change the default value for the "attempts_left" column in the "login_attempts" table.</p>
+		</div>
+    </body>
+</html>

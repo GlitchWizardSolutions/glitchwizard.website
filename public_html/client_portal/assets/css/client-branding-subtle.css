@@ -1,0 +1,278 @@
+/* =========================================
+   CLIENT PORTAL BRANDING - SUBTLE
+   Subtle, minimal variation for professional client experience
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   CLIENT PORTAL SUBTLE APPLICATIONS
+   Clean, minimal design for client focus
+   ========================================= */
+
+/* Portal Header - Subtle */
+.client-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e9ecef !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+.client-header .logo {
+    color: #495057 !important;
+    font-weight: 500 !important;
+}
+
+.client-header .nav-link {
+    color: #6c757d !important;
+    font-weight: 400 !important;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin: 0 4px;
+}
+
+.client-header .nav-link:hover {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-primary) !important;
+}
+
+.client-header .nav-link.active {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+}
+
+/* Portal Sidebar - Subtle */
+.client-sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-right: 1px solid #dee2e6 !important;
+}
+
+.client-sidebar .nav-link {
+    color: #6c757d !important;
+    font-weight: 400 !important;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin: 1px 6px;
+}
+
+.client-sidebar .nav-link:hover {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-primary) !important;
+}
+
+.client-sidebar .nav-link.active {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+}
+
+/* Portal Content - Subtle */
+.client-content {
+    background: #ffffff !important;
+}
+
+/* Cards - Subtle */
+.client-card, .portal-card {
+    border: 1px solid #e9ecef !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04) !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+}
+
+.client-card-header, .portal-card-header {
+    background: #f8f9fa !important;
+    color: #495057 !important;
+    border-bottom: 1px solid #e9ecef !important;
+    font-weight: 500 !important;
+}
+
+/* Buttons - Subtle */
+.client-btn-primary, .portal-btn-primary {
+    background: var(--brand-primary) !important;
+    border: 1px solid var(--brand-primary) !important;
+    color: #ffffff !important;
+    font-weight: 400 !important;
+    border-radius: 6px !important;
+}
+
+.client-btn-primary:hover, .portal-btn-primary:hover {
+    background: var(--brand-secondary) !important;
+    border-color: var(--brand-secondary) !important;
+}
+
+.client-btn-secondary, .portal-btn-secondary {
+    background: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    color: #6c757d !important;
+    font-weight: 400 !important;
+}
+
+.client-btn-secondary:hover, .portal-btn-secondary:hover {
+    background: #e9ecef !important;
+    color: #495057 !important;
+}
+
+/* Tables - Subtle */
+.client-table, .portal-table {
+    border: 1px solid #e9ecef !important;
+}
+
+.client-table th, .portal-table th {
+    background: #f8f9fa !important;
+    color: #495057 !important;
+    border-bottom: 2px solid #dee2e6 !important;
+    font-weight: 500 !important;
+}
+
+.client-table-striped tbody tr:nth-of-type(odd),
+.portal-table-striped tbody tr:nth-of-type(odd) {
+    background: rgba(var(--brand-primary-rgb), 0.02) !important;
+}
+
+/* Forms - Subtle */
+.client-form-control, .portal-form-control {
+    border: 1px solid #ced4da !important;
+    border-radius: 6px !important;
+}
+
+.client-form-control:focus, .portal-form-control:focus {
+    border-color: var(--brand-primary) !important;
+    box-shadow: 0 0 0 2px rgba(var(--brand-primary-rgb), 0.15) !important;
+}
+
+.client-form-label, .portal-form-label {
+    color: #495057 !important;
+    font-weight: 500 !important;
+}
+
+/* Alerts - Subtle */
+.client-alert, .portal-alert {
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+}
+
+.client-alert-success, .portal-alert-success {
+    background: rgba(40, 167, 69, 0.05) !important;
+    color: #155724 !important;
+    border-color: rgba(40, 167, 69, 0.2) !important;
+}
+
+.client-alert-danger, .portal-alert-danger {
+    background: rgba(220, 53, 69, 0.05) !important;
+    color: #721c24 !important;
+    border-color: rgba(220, 53, 69, 0.2) !important;
+}
+
+.client-alert-warning, .portal-alert-warning {
+    background: rgba(255, 193, 7, 0.05) !important;
+    color: #856404 !important;
+    border-color: rgba(255, 193, 7, 0.2) !important;
+}
+
+.client-alert-info, .portal-alert-info {
+    background: rgba(23, 162, 184, 0.05) !important;
+    color: #0c5460 !important;
+    border-color: rgba(23, 162, 184, 0.2) !important;
+}
+
+/* Navigation - Subtle */
+.client-breadcrumb, .portal-breadcrumb {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.client-breadcrumb-item a, .portal-breadcrumb-item a {
+    color: #6c757d !important;
+    text-decoration: none;
+}
+
+.client-breadcrumb-item a:hover, .portal-breadcrumb-item a:hover {
+    color: var(--brand-primary) !important;
+}
+
+.client-breadcrumb-item.active, .portal-breadcrumb-item.active {
+    color: #495057 !important;
+}
+
+/* Client Dashboard - Subtle */
+.client-dashboard {
+    background: #f8f9fa !important;
+}
+
+.client-stat-card {
+    border: 1px solid #e9ecef !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+}
+
+.client-stat-card .stat-icon {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-primary) !important;
+}
+
+/* Typography - Subtle */
+.client-content h1, .client-content h2, .client-content h3, 
+.client-content h4, .client-content h5, .client-content h6,
+.portal-content h1, .portal-content h2, .portal-content h3, 
+.portal-content h4, .portal-content h5, .portal-content h6 {
+    color: #495057 !important;
+    font-weight: 500 !important;
+}
+
+.client-text-muted, .portal-text-muted {
+    color: #6c757d !important;
+}
+
+/* Client Projects/Services - Subtle */
+.client-project-card, .client-service-card {
+    border: 1px solid #e9ecef !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+}
+
+.client-project-status, .client-service-status {
+    font-weight: 500 !important;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.875em;
+}
+
+.status-active {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-primary) !important;
+}
+
+.status-pending {
+    background: rgba(255, 193, 7, 0.1) !important;
+    color: #856404 !important;
+}
+
+.status-completed {
+    background: rgba(40, 167, 69, 0.1) !important;
+    color: #155724 !important;
+}
+
+/* Client Communication - Subtle */
+.client-message-card {
+    border: 1px solid #e9ecef !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+}
+
+.client-message-header {
+    background: #f8f9fa !important;
+    border-bottom: 1px solid #e9ecef !important;
+    font-weight: 500 !important;
+}
+
+/* File Upload Areas - Subtle */
+.client-dropzone {
+    border: 2px dashed #dee2e6 !important;
+    background: #f8f9fa !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+}
+
+.client-dropzone:hover {
+    border-color: var(--brand-primary) !important;
+    background: rgba(var(--brand-primary-rgb), 0.05) !important;
+}

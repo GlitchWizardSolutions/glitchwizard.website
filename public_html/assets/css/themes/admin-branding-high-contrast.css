@@ -1,0 +1,367 @@
+/* 
+ * THEME: High Contrast
+ * AREA: Admin Panel
+ * DESCRIPTION: Accessibility-focused high contrast design
+ */
+
+:root {
+    --theme-primary: #000000;
+    --theme-secondary: #ffffff;
+    --theme-accent: #ffff00;
+    --theme-background: #ffffff;
+    --theme-surface: #ffffff;
+    --theme-text: #000000;
+    --theme-text-muted: #333333;
+    --theme-border: #000000;
+    --theme-shadow: rgba(0, 0, 0, 0.8);
+}
+
+/* High contrast base styling - Very aggressive overrides */
+body, html {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Make header very obvious */
+.admin-header, .main-header, header {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-bottom: 5px solid #ffff00 !important;
+}
+
+/* Navigation styling - Very prominent */
+.navbar, .nav, .navigation {
+    background-color: #000000 !important;
+    border-bottom: 3px solid #ffff00 !important;
+}
+
+.navbar-brand, .nav-link, .navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+.nav-link:hover, .navbar-nav .nav-link:hover {
+    color: #ffff00 !important;
+    background-color: #333333 !important;
+    text-decoration: underline !important;
+}
+
+/* Tab navigation - Very clear indicators */
+.nav-tabs, .tab-navigation {
+    border-bottom: 3px solid #000000 !important;
+}
+
+.nav-tabs .nav-link, .tab-btn {
+    border: 2px solid #000000 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+    margin-right: 2px !important;
+}
+
+.nav-tabs .nav-link.active, .tab-btn.active {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
+    border-bottom-color: #000000 !important;
+}
+
+.nav-tabs .nav-link:hover, .tab-btn:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+/* Page title and headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+}
+
+/* Make page title very obvious */
+.page-title, .admin-title {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    padding: 10px !important;
+    border: 3px solid #000000 !important;
+    font-weight: bold !important;
+}
+
+/* Content areas */
+.container, .container-fluid, .content, .main-content {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* High contrast base */
+body {
+    background-color: var(--theme-background) !important;
+    color: var(--theme-text) !important;
+}
+
+/* Admin header styling */
+.admin-header {
+    background-color: var(--theme-primary) !important;
+    border-bottom: 4px solid var(--theme-accent);
+    color: var(--theme-secondary) !important;
+}
+
+.admin-header .navbar-brand {
+    color: var(--theme-secondary) !important;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Sidebar styling */
+.admin-sidebar {
+    background-color: var(--theme-surface);
+    border-right: 4px solid var(--theme-primary);
+    border-top: 4px solid var(--theme-primary);
+    border-bottom: 4px solid var(--theme-primary);
+}
+
+.admin-sidebar .nav-link {
+    color: var(--theme-text);
+    padding: 1rem 1.5rem;
+    border: 2px solid transparent;
+    margin: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.admin-sidebar .nav-link:hover {
+    background-color: var(--theme-accent);
+    color: var(--theme-primary);
+    border: 2px solid var(--theme-primary);
+}
+
+.admin-sidebar .nav-link.active {
+    background-color: var(--theme-primary);
+    color: var(--theme-secondary);
+    border: 2px solid var(--theme-accent);
+}
+
+/* Card styling */
+.card {
+    background-color: var(--theme-surface);
+    border: 3px solid var(--theme-primary);
+    color: var(--theme-text);
+}
+
+.card-header {
+    background-color: var(--theme-primary);
+    border-bottom: 3px solid var(--theme-accent);
+    color: var(--theme-secondary);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: var(--theme-primary);
+    border: 3px solid var(--theme-primary);
+    color: var(--theme-secondary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-height: 44px; /* Accessibility requirement */
+}
+
+.btn-primary:hover {
+    background-color: var(--theme-accent);
+    border: 3px solid var(--theme-primary);
+    color: var(--theme-primary);
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 4px var(--theme-accent);
+}
+
+.btn-success {
+    background-color: var(--theme-accent);
+    border: 3px solid var(--theme-primary);
+    color: var(--theme-primary);
+    font-weight: 700;
+    min-height: 44px;
+}
+
+.btn-outline-primary {
+    border: 3px solid var(--theme-primary);
+    color: var(--theme-primary);
+    background-color: var(--theme-secondary);
+    font-weight: 700;
+    min-height: 44px;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--theme-primary);
+    color: var(--theme-secondary);
+}
+
+/* Table styling */
+.table {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+    border: 3px solid var(--theme-primary);
+}
+
+.table th {
+    background-color: var(--theme-primary);
+    color: var(--theme-secondary);
+    border: 2px solid var(--theme-accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.table td {
+    border: 1px solid var(--theme-primary);
+    font-weight: 600;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background-color: var(--theme-accent);
+    color: var(--theme-primary);
+}
+
+/* Form styling */
+.form-control {
+    background-color: var(--theme-surface);
+    border: 3px solid var(--theme-primary);
+    color: var(--theme-text);
+    font-weight: 600;
+    font-size: 1.1rem;
+    min-height: 44px; /* Accessibility requirement */
+}
+
+.form-control:focus {
+    background-color: var(--theme-accent);
+    border-color: var(--theme-primary);
+    color: var(--theme-primary);
+    box-shadow: 0 0 0 4px var(--theme-primary);
+}
+
+.form-label {
+    color: var(--theme-text);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Dashboard widgets */
+.dashboard-widget {
+    background: var(--theme-surface);
+    border: 4px solid var(--theme-primary);
+    padding: 2rem;
+    color: var(--theme-text);
+}
+
+/* Admin footer */
+.admin-footer {
+    background-color: var(--theme-primary);
+    border-top: 4px solid var(--theme-accent);
+    color: var(--theme-secondary);
+    font-weight: 600;
+}
+
+/* Alert styling */
+.alert {
+    border: 4px solid var(--theme-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.alert-success {
+    background-color: var(--theme-accent);
+    color: var(--theme-primary);
+}
+
+.alert-danger {
+    background-color: var(--theme-primary);
+    color: var(--theme-secondary);
+    border-color: var(--theme-accent);
+}
+
+.alert-info {
+    background-color: var(--theme-secondary);
+    color: var(--theme-primary);
+    border-color: var(--theme-primary);
+}
+
+/* Text styling */
+.text-muted {
+    color: var(--theme-text-muted) !important;
+    font-weight: 600;
+}
+
+/* Link styling */
+a {
+    color: var(--theme-primary);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--theme-primary);
+    background-color: var(--theme-accent);
+}
+
+/* Tab styling */
+.nav-tabs {
+    border-bottom: 4px solid var(--theme-primary);
+}
+
+.nav-tabs .nav-link {
+    border: 3px solid var(--theme-primary);
+    color: var(--theme-text);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--theme-secondary);
+    background-color: var(--theme-primary);
+    border-color: var(--theme-primary);
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: var(--theme-accent);
+    color: var(--theme-primary);
+}
+
+/* Focus indicators for accessibility */
+*:focus {
+    outline: 4px solid var(--theme-accent);
+    outline-offset: 2px;
+}
+
+/* Ensure sufficient contrast for all interactive elements */
+.dropdown-menu {
+    background-color: var(--theme-surface);
+    border: 3px solid var(--theme-primary);
+}
+
+.dropdown-item {
+    color: var(--theme-text);
+    font-weight: 600;
+}
+
+.dropdown-item:hover {
+    background-color: var(--theme-accent);
+    color: var(--theme-primary);
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: var(--theme-surface);
+    border: 4px solid var(--theme-primary);
+}
+
+.modal-header {
+    background-color: var(--theme-primary);
+    color: var(--theme-secondary);
+    border-bottom: 3px solid var(--theme-accent);
+}
+
+.modal-footer {
+    border-top: 3px solid var(--theme-primary);
+}

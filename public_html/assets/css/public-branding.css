@@ -1,0 +1,653 @@
+/* =========================================
+   PUBLIC FACING BRANDING ENHANCEMENT - DEFAULT
+   Default GWS Universal Public branding variation
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   GLOBAL BRAND APPLICATIONS
+   Site-wide brand color implementations
+   ========================================= */
+
+/* Header and Navigation */
+.navbar {
+    background: var(--brand-gradient) !important;
+}
+
+/* GWS Universal Public Template Header Override - Keep white background */
+.header {
+    background-color: #ffffff !important;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: var(--brand-font-weight-bold);
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: white !important;
+}
+
+/* Primary Buttons */
+.btn-primary {
+    background: var(--brand-gradient) !important;
+    border: none !important;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--brand-primary) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(54, 113, 201, 0.3);
+}
+
+/* Secondary Buttons */
+.btn-secondary {
+    background-color: var(--brand-secondary) !important;
+    border-color: var(--brand-secondary) !important;
+    color: white !important;
+}
+
+.btn-secondary:hover {
+    background-color: #26a085 !important;
+    border-color: #26a085 !important;
+}
+
+/* Cards and Content Blocks */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(54, 113, 201, 0.15);
+}
+
+.card-header {
+    background: var(--brand-gradient) !important;
+    color: white !important;
+    font-weight: var(--brand-font-weight-semibold);
+}
+
+/* Links */
+a {
+    color: var(--brand-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2a5aa0;
+    text-decoration: underline;
+}
+
+/* Form Controls */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 0.2rem rgba(54, 113, 201, 0.25);
+}
+
+/* Hero Sections - Accessibility Compliant Text Over Images */
+.hero {
+    color: white !important;
+    position: relative;
+}
+
+/* Add subtle gradient overlay for better text contrast */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    color: white !important;
+    font-weight: 900 !important;
+    /* Multi-layer text shadow for accessibility compliance */
+    text-shadow: 
+        /* Dark outline */
+        -2px -2px 0 rgba(0, 0, 0, 0.8),
+        2px -2px 0 rgba(0, 0, 0, 0.8),
+        -2px 2px 0 rgba(0, 0, 0, 0.8),
+        2px 2px 0 rgba(0, 0, 0, 0.8),
+        /* Softer glow */
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 16px rgba(0, 0, 0, 0.7);
+    /* Ensure minimum font size for readability */
+    font-size: clamp(2rem, 5vw, 4rem) !important;
+    line-height: 1.2 !important;
+}
+
+.hero p {
+    color: white !important;
+    font-weight: 600 !important;
+    /* Multi-layer text shadow for paragraphs */
+    text-shadow: 
+        -1px -1px 0 rgba(0, 0, 0, 0.8),
+        1px -1px 0 rgba(0, 0, 0, 0.8),
+        -1px 1px 0 rgba(0, 0, 0, 0.8),
+        1px 1px 0 rgba(0, 0, 0, 0.8),
+        0 0 6px rgba(0, 0, 0, 0.9),
+        0 0 12px rgba(0, 0, 0, 0.6);
+    /* Responsive font sizing */
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+    line-height: 1.4 !important;
+    /* Add subtle background for extra readability on light images */
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+}
+
+/* Accessible button styling */
+.hero .btn {
+    background: white !important;
+    color: var(--brand-primary) !important;
+    border: 3px solid white !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    padding: 0.75rem 2rem !important;
+    text-shadow: none !important;
+    /* High contrast shadow for button */
+    box-shadow: 
+        0 0 0 2px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--brand-primary) !important;
+    border-color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 0 2px rgba(0, 0, 0, 0.4),
+        0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero .btn:focus {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 2px !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #ffffff !important;
+    color: #333333;
+    border-top: 1px solid #e2e8f0;
+}
+
+.footer a {
+    color: var(--brand-primary);
+}
+
+.footer a:hover {
+    color: var(--brand-secondary);
+}
+
+/* =========================================
+   RESPONSIVE ENHANCEMENTS
+   Mobile-friendly brand styling
+   ========================================= */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY ENHANCEMENTS
+   Ensure proper contrast and usability
+   ========================================= */
+
+/* Focus indicators */
+:focus {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+/* Skip links */
+.skip-link {
+    background: var(--brand-primary);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* =========================================
+   MOBILE NAVIGATION TOGGLE
+   Hamburger menu button styling
+   ========================================= */
+
+.mobile-nav-toggle {
+    display: none;
+    cursor: pointer;
+    color: var(--brand-secondary) !important;
+    background: #fff !important;
+    border: 2px solid var(--brand-secondary) !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-toggle:hover {
+    background: var(--brand-secondary) !important;
+    color: #fff !important;
+    transform: scale(1.05);
+}
+
+.mobile-nav-toggle:focus {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+@media (max-width: 991.98px) {
+    .mobile-nav-toggle {
+        display: flex !important;
+    }
+}
+
+/* =========================================
+   HERO OFFER FORM SECTION
+   Accessible teal form below hero image
+   ========================================= */
+
+.hero-offer-section {
+    display: flex;
+    align-items: center;
+    min-height: 40vh;
+}
+
+.hero-offer-form {
+    transition: all 0.3s ease;
+}
+
+.hero-offer-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25) !important;
+}
+
+/* Form Input Accessibility & Styling */
+.hero-offer-form .form-control {
+    transition: all 0.3s ease;
+}
+
+.hero-offer-form .form-control:focus {
+    border-color: #20B2AA !important;
+    box-shadow: 0 0 0 0.2rem rgba(32, 178, 170, 0.25) !important;
+    transform: translateY(-1px);
+}
+
+.hero-offer-form .form-control:hover {
+    border-color: #008B8B !important;
+}
+
+/* Button Accessibility */
+.hero-offer-form .btn:focus {
+    outline: 3px solid #fff !important;
+    outline-offset: 3px !important;
+}
+
+/* =========================================
+   HERO INLINE FORM
+   Full-width horizontal form within hero section
+   ========================================= */
+
+.hero-inline-form {
+    transition: all 0.3s ease;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.hero-inline-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4) !important;
+}
+
+/* Full Width Form Container */
+.hero-inline-form form {
+    width: 100%;
+    max-width: none !important;
+}
+
+/* Top Text Section */
+.hero-form-text-top {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Input Fields Container - Full Width */
+.hero-form-inputs {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Individual Input Styling */
+.hero-inline-form .form-control {
+    transition: all 0.3s ease;
+    background: white;
+    color: #2c3e50;
+    font-weight: 500;
+    border: 3px solid white !important;
+}
+
+.hero-inline-form .form-control:focus {
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25) !important;
+    transform: translateY(-1px);
+    background: #fff;
+}
+
+.hero-inline-form .form-control:hover {
+    border-color: #FFA500 !important;
+    background: #f8f9fa;
+}
+
+.hero-inline-form .form-control::placeholder {
+    color: #6c757d;
+    font-weight: 400;
+}
+
+/* Button Styling - Yellow with No Icon */
+.hero-inline-form .btn {
+    background: #FFD700 !important;
+    color: #2c3e50 !important;
+    border: 3px solid #FFA500 !important;
+    font-weight: 700 !important;
+    transition: all 0.3s ease;
+}
+
+.hero-inline-form .btn:hover {
+    background: #FFA500 !important;
+    color: #2c3e50 !important;
+    border-color: #FF8C00 !important;
+}
+
+.hero-inline-form .btn:focus {
+    outline: 3px solid #fff !important;
+    outline-offset: 3px !important;
+}
+
+/* Responsive Design for Full Width Form */
+@media (max-width: 768px) {
+    .hero-inline-form {
+        padding: 1rem !important;
+    }
+    
+    .hero-inline-form form {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1rem !important;
+    }
+    
+    .hero-form-inputs {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+    
+    .hero-form-inputs .form-control {
+        min-width: auto !important;
+        max-width: none !important;
+        flex: none !important;
+    }
+    
+    .hero-inline-form .btn {
+        min-width: auto !important;
+        flex: none !important;
+        width: 100%;
+        padding: 1rem !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .hero-form-text-top h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-form-text-top p {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-inline-form {
+        padding: 0.75rem !important;
+        margin-top: 1rem !important;
+    }
+    
+    .hero-form-text-top h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .hero-form-text-top p {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-inline-form .form-control {
+        padding: 0.75rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Desktop - ensure inputs and button align nicely */
+    .hero-form-inputs {
+        align-items: stretch;
+    }
+    
+    .hero-form-inputs .form-control {
+        height: auto;
+    }
+    
+    .hero-inline-form .btn {
+        height: auto;
+        align-self: stretch;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .hero-inline-form {
+        border: 3px solid #000 !important;
+    }
+    
+    .hero-inline-form .form-control {
+        border: 3px solid #000 !important;
+        background: white !important;
+        color: #000 !important;
+    }
+    
+    .hero-inline-form .btn {
+        border: 4px solid #000 !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-offer-section {
+        padding: 40px 0 !important;
+        min-height: auto;
+    }
+    
+    .hero-offer-form {
+        padding: 1.5rem !important;
+    }
+    
+    .hero-offer-form .btn {
+        font-size: 1rem !important;
+        padding: 0.8rem 2rem !important;
+        min-width: 240px !important;
+    }
+    
+    /* Inline Form Mobile Responsive */
+    .hero-inline-form {
+        padding: 1rem !important;
+    }
+    
+    .hero-inline-form form {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1rem !important;
+    }
+    
+    .hero-form-text {
+        text-align: center !important;
+        min-width: auto !important;
+        flex: none !important;
+    }
+    
+    .hero-form-inputs {
+        flex-direction: column !important;
+        min-width: auto !important;
+        flex: none !important;
+    }
+    
+    .hero-form-inputs .form-control {
+        min-width: auto !important;
+        flex: none !important;
+    }
+    
+    .hero-form-button {
+        flex: none !important;
+        text-align: center;
+    }
+    
+    .hero-form-button .btn {
+        min-width: 200px !important;
+        font-size: 0.9rem !important;
+        padding: 0.7rem 1.2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-offer-section h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .hero-offer-section p {
+        font-size: 1rem !important;
+    }
+    
+    /* Smaller mobile adjustments for inline form */
+    .hero-inline-form .hero-form-text h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .hero-inline-form .hero-form-text p {
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    /* Tablet view - stack inputs vertically but keep horizontal layout */
+    .hero-form-inputs {
+        flex-direction: column !important;
+        min-width: 250px !important;
+    }
+    
+    .hero-form-inputs .form-control {
+        min-width: auto !important;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .hero-offer-form {
+        background: white !important;
+        border: 3px solid #000 !important;
+    }
+    
+    .hero-offer-form .form-control {
+        border: 2px solid #000 !important;
+    }
+    
+    .hero-offer-form .btn {
+        border: 3px solid #000 !important;
+    }
+    
+    .hero-inline-form {
+        border: 3px solid #000 !important;
+    }
+    
+    .hero-inline-form .form-control {
+        border: 2px solid #000 !important;
+        background: white !important;
+        color: #000 !important;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .hero-offer-form,
+    .hero-offer-form .form-control,
+    .hero-offer-form .btn,
+    .hero-inline-form,
+    .hero-inline-form .form-control,
+    .hero-inline-form .btn {
+        transition: none !important;
+    }
+    
+    .hero-offer-form:hover,
+    .hero-inline-form:hover {
+        transform: none !important;
+    }
+}

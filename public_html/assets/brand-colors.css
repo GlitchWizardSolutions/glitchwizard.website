@@ -1,0 +1,82 @@
+/* Burden to Blessings Brand Colors - Auto-generated */
+/* Generated: 2025-08-17 02:18:25 */
+
+:root {
+    /* Primary Brand Colors */
+    --brand-primary: #2C5530;
+    --brand-secondary: #4A7C59;
+    --brand-accent: #6BAE75;
+    --brand-success: #8BC34A;
+    --brand-warning: #FFA726;
+    --brand-danger: #E53E3E;
+
+    /* Text Colors */
+    --text-primary: #2D3748;
+    --text-secondary: #4A5568;
+
+    /* Background Colors */
+    --bg-white: #FFFFFF;
+    --bg-light: #F7FAFC;
+    --border-color: #E2E8F0;
+}
+
+/* Bootstrap Override Classes */
+.btn-primary {
+    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-secondary);
+    border-color: var(--brand-secondary);
+}
+
+.btn-success {
+    background-color: var(--brand-success);
+    border-color: var(--brand-success);
+}
+
+.text-primary {
+    color: var(--brand-primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--brand-primary) !important;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: var(--brand-primary) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+.card {
+    border-color: var(--border-color);
+}
+
+.section-light {
+    background-color: var(--bg-light);
+}
+
+/* Brand-specific styling */
+.hero-section {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+    color: white;
+}
+
+.services-section .card:hover {
+    border-color: var(--brand-accent);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.team-member .card {
+    border: 2px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+.team-member .card:hover {
+    border-color: var(--brand-accent);
+}

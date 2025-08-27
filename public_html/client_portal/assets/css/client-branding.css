@@ -1,0 +1,388 @@
+/*
+ * Client Portal Branding CSS
+ * 
+ * Professional, welcoming design for client-facing portal
+ * Designed to be attractive and professional, not obnoxious
+ */
+
+/* Import dynamic brand variables */
+@import url('../../assets/css/brand-dynamic.css');
+
+/* Client Portal specific CSS custom properties */
+:root {
+  /* Client-friendly color adjustments */
+  --client-opacity: 0.85;
+  --client-gradient-opacity: 0.08;
+  --client-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --client-shadow-hover: 0 4px 12px rgba(0,0,0,0.12);
+  --client-border-radius: 12px;
+  --client-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Body and base styling */
+body {
+  font-family: var(--brand-font-body);
+  color: var(--brand-text);
+  background: linear-gradient(135deg, 
+    rgba(var(--brand-primary-rgb, 108, 46, 182), 0.02) 0%, 
+    rgba(var(--brand-secondary-rgb, 191, 85, 18), 0.02) 100%),
+    var(--brand-background);
+  min-height: 100vh;
+}
+
+/* Navigation styling */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  box-shadow: var(--client-shadow);
+}
+
+.navbar-brand {
+  color: var(--brand-primary) !important;
+  font-weight: 600 !important;
+  font-size: 1.25em !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--brand-text-light) !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+  transition: var(--client-transition);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--brand-primary) !important;
+  background: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.05) !important;
+}
+
+/* Card styling - welcoming and professional */
+.card {
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.08);
+  border-radius: var(--client-border-radius);
+  box-shadow: var(--client-shadow);
+  transition: var(--client-transition);
+  background: white;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--client-shadow-hover);
+  border-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.15);
+}
+
+.card-header {
+  background: linear-gradient(135deg, 
+    rgba(var(--brand-primary-rgb, 108, 46, 182), var(--client-gradient-opacity)), 
+    rgba(var(--brand-secondary-rgb, 191, 85, 18), var(--client-gradient-opacity)));
+  border-bottom: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  border-radius: calc(var(--client-border-radius) - 1px) calc(var(--client-border-radius) - 1px) 0 0;
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  background: rgba(var(--brand-background), 0.5);
+  border-top: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.05);
+  border-radius: 0 0 calc(var(--client-border-radius) - 1px) calc(var(--client-border-radius) - 1px);
+}
+
+/* Button styling - welcoming and professional */
+.btn-primary {
+  background: linear-gradient(135deg, 
+    var(--brand-primary) 0%, 
+    rgba(var(--brand-secondary-rgb, 191, 85, 18), var(--client-opacity)) 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  transition: var(--client-transition);
+  box-shadow: 0 2px 4px rgba(var(--brand-primary-rgb, 108, 46, 182), 0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, 
+    rgba(var(--brand-primary-rgb, 108, 46, 182), 0.9) 0%, 
+    var(--brand-secondary) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(var(--brand-primary-rgb, 108, 46, 182), 0.25);
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.3);
+  border-radius: 8px;
+  color: var(--brand-primary);
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  transition: var(--client-transition);
+}
+
+.btn-secondary:hover {
+  background: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.05);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.btn-outline-primary {
+  border-color: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.4);
+  color: var(--brand-primary);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: var(--client-transition);
+}
+
+.btn-outline-primary:hover {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Form styling - user-friendly */
+.form-control {
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.15);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  transition: var(--client-transition);
+  background: white;
+}
+
+.form-control:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  background: white;
+}
+
+.form-label {
+  color: var(--brand-text);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-select {
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.15);
+  border-radius: 8px;
+  transition: var(--client-transition);
+}
+
+.form-select:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+}
+
+/* Alert styling - friendly notifications */
+.alert {
+  border: none;
+  border-radius: var(--client-border-radius);
+  border-left: 4px solid;
+}
+
+.alert-primary {
+  background: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.05);
+  border-left-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.alert-success {
+  background: rgba(var(--brand-success-rgb, 40, 167, 69), 0.05);
+  border-left-color: var(--brand-success);
+  color: var(--brand-success);
+}
+
+.alert-warning {
+  background: rgba(var(--brand-warning-rgb, 255, 193, 7), 0.05);
+  border-left-color: var(--brand-warning);
+  color: #856404;
+}
+
+.alert-danger {
+  background: rgba(var(--brand-danger-rgb, 220, 53, 69), 0.05);
+  border-left-color: var(--brand-danger);
+  color: var(--brand-danger);
+}
+
+/* Dashboard widgets */
+.dashboard-widget {
+  background: white;
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.08);
+  border-radius: var(--client-border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--client-shadow);
+  transition: var(--client-transition);
+}
+
+.dashboard-widget:hover {
+  box-shadow: var(--client-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.widget-title {
+  color: var(--brand-text);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.widget-title i {
+  color: var(--brand-primary);
+  margin-right: 0.5rem;
+}
+
+.widget-content {
+  color: var(--brand-text-light);
+}
+
+/* Progress bars */
+.progress {
+  height: 8px;
+  background: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, 
+    var(--brand-primary) 0%, 
+    var(--brand-secondary) 100%);
+  transition: var(--client-transition);
+}
+
+/* Table styling */
+.table {
+  border-radius: var(--client-border-radius);
+  overflow: hidden;
+  box-shadow: var(--client-shadow);
+  background: white;
+}
+
+.table thead th {
+  background: linear-gradient(135deg, 
+    rgba(var(--brand-primary-rgb, 108, 46, 182), 0.05), 
+    rgba(var(--brand-secondary-rgb, 191, 85, 18), 0.05));
+  border-bottom: 2px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+.table tbody tr:hover {
+  background: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.02);
+}
+
+/* Badge styling */
+.badge {
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 0.4em 0.8em;
+}
+
+.badge.bg-primary {
+  background: var(--brand-primary) !important;
+}
+
+.badge.bg-secondary {
+  background: var(--brand-secondary) !important;
+}
+
+.badge.bg-success {
+  background: var(--brand-success) !important;
+}
+
+/* List group styling */
+.list-group-item {
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.08);
+  transition: var(--client-transition);
+}
+
+.list-group-item:hover {
+  background: rgba(var(--brand-primary-rgb, 108, 46, 182), 0.02);
+}
+
+.list-group-item.active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* Modal styling */
+.modal-content {
+  border: none;
+  border-radius: var(--client-border-radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, 
+    rgba(var(--brand-primary-rgb, 108, 46, 182), var(--client-gradient-opacity)), 
+    rgba(var(--brand-secondary-rgb, 191, 85, 18), var(--client-gradient-opacity)));
+  border-bottom: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.1);
+  border-radius: var(--client-border-radius) var(--client-border-radius) 0 0;
+}
+
+.modal-title {
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+/* Client-specific utility classes */
+.client-welcome-section {
+  background: linear-gradient(135deg, 
+    rgba(var(--brand-primary-rgb, 108, 46, 182), 0.03) 0%, 
+    rgba(var(--brand-secondary-rgb, 191, 85, 18), 0.03) 100%);
+  border-radius: var(--client-border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.08);
+}
+
+.client-stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: var(--client-border-radius);
+  border: 1px solid rgba(var(--brand-primary-rgb, 108, 46, 182), 0.08);
+  box-shadow: var(--client-shadow);
+  transition: var(--client-transition);
+}
+
+.client-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--client-shadow-hover);
+}
+
+.client-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  display: block;
+}
+
+.client-stat-label {
+  color: var(--brand-text-light);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .client-welcome-section {
+    padding: 1.5rem;
+  }
+  
+  .dashboard-widget {
+    padding: 1rem;
+  }
+}

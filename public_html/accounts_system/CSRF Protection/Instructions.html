@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Instructions</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+		<meta name="robots" content="noindex, nofollow">
+		<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAqFBMVEUAAAAzQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU+vbZcxAAAAN3RSTlMAAQIDBAUGCAsOEBESFhccHR8gJzM3Pk1OUFRmbXeCg4uMjpSjpqiwtLW3usDO09fZ2uDm6O/9IUR6cgAAAH1JREFUGBltwdUWglAARcGNCNjY2B1YWOD5/z/T68L75AwfgawSxkzZxthKRYxEEYanAw0glDWoLYFYSeAbsarDCEi1cAw3fXKqQF3W1H8Ac1md7gS4ynJXbWjJ2jmZA3tZ/eYauCn3OhbGPeAc8uPefaB8kTXiy/NzBf55A27BHFFEBO8ZAAAAAElFTkSuQmCC" rel="icon" type="image/x-icon">
+		<style>*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"segoe ui",roboto,oxygen,ubuntu,cantarell,"fira sans","droid sans","helvetica neue",Arial,sans-serif;font-size:16px;line-height:24px}body,html{padding:0;margin:0}body{background-color:#f1f3f7}.content{width:800px;background-color:#fff;margin:25px auto 25px auto;padding:25px;box-shadow:0 0 5px rgba(0,0,0,.2)}h2{font-size:18px;color:#495362;padding:15px 0;border-top:1px solid #f5f7f9;border-bottom:1px solid #f5f7f9}h1{margin:0;font-size:20px;color:#495362;padding:15px 0;text-align:center}h2{margin:30px 0 0 0}li{padding:0 0 6px 0}li span{color:red;font-weight:600}li i{color:#37a269}a{color:#006edf;text-decoration:none}a:hover{color:#005bb8}code{display:block;overflow:auto;tab-size:4;width:100%;border-radius:5px;font-family:Consolas,Monaco,"andale mono","ubuntu mono",monospace;padding:15px;background-color:#f3f4f7;font-size:14px}@media screen and (max-width:800px){.content{width:95%}}</style>
+	</head>
+	<body>
+    	<div class="content">
+
+			<h1>Instructions</h1>
+
+			<h2>Add-on Details</h2>
+			
+			<p>The CSRF Protection add-on will help prevent Cross-Site Request Forgery attacks when the user logs in, each login will require a token that will be checked with PHP sessions.</p>
+
+			<h2>How To Add</h2>
+			
+			<p>Edit the "index.php" and "register.php" files and find the following PHP closing tag:</p>
+			
+<pre><code>?&gt;</code></pre>
+
+			<p>Add above:</p>
+			
+			<code>$_SESSION['token'] = hash('sha256', uniqid(rand(), true));</code>
+			
+			<p>Find:</p>
+			
+			<code>&lt;div class=&quot;msg&quot;&gt;&lt;/div&gt;</code>
+			
+			<p>Add above:</p>
+
+			<code>&lt;input type=&quot;hidden&quot; name=&quot;token&quot; value=&quot;&lt;?=$_SESSION['token']?&gt;&quot;&gt;</code>			
+			
+			<p>Edit the "authenticate.php" and "register-process.php" files and find both lines:</p>
+			
+<pre><code>include 'main.php';</code></pre>
+			
+			<p>Add below:</p>
+			
+<pre><code>if (!isset($_POST['token']) || $_POST['token'] != $_SESSION['token']) {
+	exit('Error: Incorrect token provided!');
+}</code></pre>		
+
+			<p>If you encounter the error "Incorrect token provided!" then you have not added the token correctly. Make sure to add the token to the form and the session in the "index.php" and "register.php" files. Also, make sure you don't have caching enabled in your hosting provider's control panel.</p>
+			
+		</div>
+    </body>
+</html>

@@ -1,0 +1,202 @@
+/**
+ * Brand Template CSS - Template Arrangements
+ * 
+ * This file defines how the brand colors are arranged for different templates
+ * while maintaining accessibility and usability.
+ * 
+ * Templates are selected in the branding settings and applied via body classes:
+ * - .brand-template-classic (Template 1)
+ * - .brand-template-modern (Template 2) 
+ * - .brand-template-bold (Template 3)
+ */
+
+/* ==================================================
+   TEMPLATE 1: CLASSIC
+   Traditional layout with primary color for headers
+   ================================================== */
+
+body.brand-template-classic {
+    /* Uses default CSS variables as defined - traditional layout */
+    --template-primary: var(--brand-primary);
+    --template-secondary: var(--brand-secondary);
+}
+
+body.brand-template-classic .navbar,
+body.brand-template-classic .header {
+    background: var(--brand-primary) !important;
+    color: white !important;
+}
+
+body.brand-template-classic .btn-primary {
+    background: var(--brand-primary) !important;
+    border-color: var(--brand-primary) !important;
+}
+
+body.brand-template-classic .btn-secondary {
+    background: var(--brand-secondary) !important;
+    border-color: var(--brand-secondary) !important;
+}
+
+body.brand-template-classic .card-header {
+    background: var(--brand-primary) !important;
+    color: white !important;
+}
+
+/* ==================================================
+   TEMPLATE 2: MODERN
+   Contemporary layout with secondary color emphasis
+   ================================================== */
+
+body.brand-template-modern {
+    /* Swap primary and secondary colors in specific contexts */
+    --template-primary: var(--brand-secondary);
+    --template-secondary: var(--brand-primary);
+}
+
+body.brand-template-modern .navbar,
+body.brand-template-modern .header {
+    background: var(--brand-secondary) !important;
+    color: white !important;
+}
+
+body.brand-template-modern .btn-primary {
+    background: var(--brand-secondary) !important;
+    border-color: var(--brand-secondary) !important;
+}
+
+body.brand-template-modern .btn-secondary {
+    background: var(--brand-primary) !important;
+    border-color: var(--brand-primary) !important;
+}
+
+body.brand-template-modern .card-header {
+    background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-primary) 100%) !important;
+    color: white !important;
+}
+
+body.brand-template-modern .accent-background {
+    background: var(--brand-secondary) !important;
+}
+
+/* ==================================================
+   TEMPLATE 3: BOLD
+   High contrast layout with accent colors
+   ================================================== */
+
+body.brand-template-bold {
+    /* Uses accent colors more prominently */
+    --template-primary: var(--brand-accent, var(--brand-primary));
+    --template-secondary: var(--brand-info, var(--brand-secondary));
+}
+
+body.brand-template-bold .navbar,
+body.brand-template-bold .header {
+    background: var(--brand-accent, var(--brand-primary)) !important;
+    color: white !important;
+}
+
+body.brand-template-bold .btn-primary {
+    background: var(--brand-accent, var(--brand-primary)) !important;
+    border-color: var(--brand-accent, var(--brand-primary)) !important;
+}
+
+body.brand-template-bold .btn-secondary {
+    background: var(--brand-info, var(--brand-secondary)) !important;
+    border-color: var(--brand-info, var(--brand-secondary)) !important;
+}
+
+body.brand-template-bold .card-header {
+    background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-info) 100%) !important;
+    color: white !important;
+}
+
+body.brand-template-bold .accent-background {
+    background: var(--brand-accent, var(--brand-primary)) !important;
+}
+
+/* ==================================================
+   ACCESSIBILITY OVERRIDES
+   Ensure all templates maintain proper contrast
+   ================================================== */
+
+/* Ensure text remains readable in all templates */
+.text-primary {
+    color: var(--brand-primary) !important;
+}
+
+.text-secondary {
+    color: var(--brand-secondary) !important;
+}
+
+.bg-primary {
+    background-color: var(--brand-primary) !important;
+    color: white !important;
+}
+
+.bg-secondary {
+    background-color: var(--brand-secondary) !important;
+    color: white !important;
+}
+
+/* Alert styling for all templates */
+.alert-success {
+    background-color: rgba(var(--brand-accent-rgb, 40, 167, 69), 0.1) !important;
+    border-color: var(--brand-accent, #28a745) !important;
+    color: var(--brand-accent, #155724) !important;
+}
+
+.alert-warning {
+    background-color: rgba(var(--brand-warning-rgb, 255, 193, 7), 0.1) !important;
+    border-color: var(--brand-warning, #ffc107) !important;
+    color: var(--brand-warning, #856404) !important;
+}
+
+.alert-danger {
+    background-color: rgba(var(--brand-danger-rgb, 220, 53, 69), 0.1) !important;
+    border-color: var(--brand-danger, #dc3545) !important;
+    color: var(--brand-danger, #721c24) !important;
+}
+
+.alert-info {
+    background-color: rgba(var(--brand-info-rgb, 23, 162, 184), 0.1) !important;
+    border-color: var(--brand-info, #17a2b8) !important;
+    color: var(--brand-info, #0c5460) !important;
+}
+
+/* ==================================================
+   RESPONSIVE CONSIDERATIONS
+   Ensure templates work across all devices
+   ================================================== */
+
+@media (max-width: 768px) {
+    /* Mobile-specific template adjustments */
+    body.brand-template-bold .navbar,
+    body.brand-template-bold .header {
+        background: var(--brand-primary) !important; /* Fallback to primary on mobile for consistency */
+    }
+}
+
+/* ==================================================
+   PRINT STYLES
+   Ensure templates work when printed
+   ================================================== */
+
+@media print {
+    body.brand-template-classic,
+    body.brand-template-modern,
+    body.brand-template-bold {
+        color: black !important;
+        background: white !important;
+    }
+    
+    body.brand-template-classic .navbar,
+    body.brand-template-modern .navbar,
+    body.brand-template-bold .navbar,
+    body.brand-template-classic .header,
+    body.brand-template-modern .header,
+    body.brand-template-bold .header {
+        background: white !important;
+        color: black !important;
+        border-bottom: 2px solid black !important;
+    }
+}

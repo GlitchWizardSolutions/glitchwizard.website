@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Visibility Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Button Test for Brand Colors</h2>
+        
+        <h4>Test 1: Basic Buttons</h4>
+        <div class="d-flex gap-3 p-3 border">
+            <button type="button" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
+            </button>
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-save me-1"></i>Save Brand Colors
+            </button>
+        </div>
+        
+        <h4 class="mt-4">Test 2: With Forced Styles (Like in your file)</h4>
+        <div class="d-flex gap-3 p-3 border">
+            <button type="button" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
+            </button>
+            <button type="submit" class="btn btn-success" style="background-color: #28a745 !important; border-color: #28a745 !important; color: white !important; display: inline-block !important;">
+                <i class="bi bi-save me-1"></i>Save Brand Colors
+            </button>
+        </div>
+        
+        <h4 class="mt-4">Test 3: Check if Bootstrap is loading</h4>
+        <div class="alert alert-info">
+            If the buttons above look styled (green button, proper spacing), Bootstrap is working.
+            If they look plain, there's a Bootstrap loading issue.
+        </div>
+        
+        <h4 class="mt-4">Test 4: Browser Developer Tools</h4>
+        <div class="alert alert-warning">
+            <strong>Next steps:</strong>
+            <ol>
+                <li>Open your Brand Colors tab</li>
+                <li>Right-click where the submit button should be</li>
+                <li>Select "Inspect Element" or "Inspect"</li>
+                <li>Look for the button element in the HTML</li>
+                <li>Check if it has any CSS rules hiding it</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

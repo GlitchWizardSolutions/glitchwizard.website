@@ -1,0 +1,305 @@
+/* =========================================
+   PUBLIC FACING BRANDING ENHANCEMENT - SUBTLE
+   Minimal, clean variation for understated elegance
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   SUBTLE BRAND APPLICATIONS
+   Minimal, understated brand integration
+   ========================================= */
+
+/* Header and Navigation - Subtle */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+    backdrop-filter: blur(10px);
+}
+
+.header {
+    background-color: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    color: #333333 !important;
+    font-weight: 500 !important;
+}
+
+.navbar-nav .nav-link {
+    color: #666666 !important;
+    font-weight: 400 !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--brand-primary) !important;
+}
+
+/* Primary Buttons - Subtle */
+.btn-primary {
+    background: transparent !important;
+    border: 1px solid var(--brand-primary) !important;
+    color: var(--brand-primary) !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(54, 113, 201, 0.2);
+}
+
+/* Secondary Buttons - Subtle */
+.btn-secondary {
+    background-color: transparent !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #666666 !important;
+    font-weight: 400 !important;
+}
+
+.btn-secondary:hover {
+    background-color: #f8f9fa !important;
+    border-color: #d0d0d0 !important;
+    color: #333333 !important;
+}
+
+/* Card Headers - Subtle */
+.card-header {
+    background: rgba(var(--brand-primary-rgb), 0.05) !important;
+    color: #333333 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+    font-weight: 500 !important;
+}
+
+/* Links - Subtle */
+.card-body a,
+.content-area a {
+    color: var(--brand-primary) !important;
+    text-decoration: none !important;
+    font-weight: 400 !important;
+    transition: all 0.2s ease;
+}
+
+.card-body a:hover,
+.content-area a:hover {
+    color: #333333 !important;
+    text-decoration: underline !important;
+}
+
+/* Card Styling - Subtle */
+.card {
+    border: 1px solid #f0f0f0 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15) !important;
+    transform: translateY(-1px);
+}
+
+/* Hero Sections - Subtle & Accessibility Compliant */
+.hero, .hero-section {
+    color: #ffffff !important;
+    text-align: center;
+    position: relative;
+}
+
+/* Add gentle gradient overlay for text contrast */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1, .hero-section h1 {
+    color: white !important;
+    font-weight: 700 !important; /* Increased from 300 for better readability */
+    /* Gentle but effective text shadow for accessibility */
+    text-shadow: 
+        /* Subtle outline */
+        -1px -1px 0 rgba(0, 0, 0, 0.7),
+        1px -1px 0 rgba(0, 0, 0, 0.7),
+        -1px 1px 0 rgba(0, 0, 0, 0.7),
+        1px 1px 0 rgba(0, 0, 0, 0.7),
+        /* Soft glow */
+        0 0 6px rgba(0, 0, 0, 0.8),
+        0 0 12px rgba(0, 0, 0, 0.5);
+    /* Ensure minimum font size for readability */
+    font-size: clamp(2rem, 5vw, 4rem) !important;
+    line-height: 1.2 !important;
+}
+
+.hero p {
+    color: white !important;
+    font-weight: 500 !important;
+    /* Gentle text shadow for paragraphs */
+    text-shadow: 
+        -1px -1px 0 rgba(0, 0, 0, 0.6),
+        1px -1px 0 rgba(0, 0, 0, 0.6),
+        -1px 1px 0 rgba(0, 0, 0, 0.6),
+        1px 1px 0 rgba(0, 0, 0, 0.6),
+        0 0 4px rgba(0, 0, 0, 0.7),
+        0 0 8px rgba(0, 0, 0, 0.4);
+    /* Responsive font sizing */
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+    line-height: 1.4 !important;
+    /* Very subtle background for readability */
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.15) 50%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+    padding: 0.4rem 0.8rem;
+    border-radius: 3px;
+    backdrop-filter: blur(1px);
+}
+
+.hero .btn, .hero-section .btn {
+    background: rgba(255,255,255,0.95) !important;
+    color: var(--brand-primary) !important;
+    border: 2px solid rgba(255,255,255,0.9) !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    padding: 0.7rem 1.8rem !important;
+    text-shadow: none !important;
+    /* Gentle contrast shadow */
+    box-shadow: 
+        0 0 0 1px rgba(0, 0, 0, 0.2),
+        0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover, .hero-section .btn:hover {
+    background: rgba(255,255,255,0.85) !important;
+    color: var(--brand-primary) !important;
+    border-color: rgba(255,255,255,0.95) !important;
+    transform: translateY(-1px);
+    box-shadow: 
+        0 0 0 1px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero .btn:focus, .hero-section .btn:focus {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 2px !important;
+}
+
+/* Forms - Subtle */
+.form-control {
+    border: 1px solid #e0e0e0 !important;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--brand-primary) !important;
+    box-shadow: 0 0 0 2px rgba(54, 113, 201, 0.1) !important;
+}
+
+/* Text Styling - Subtle */
+.text-muted {
+    color: #888888 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333333 !important;
+    font-weight: 500 !important;
+}
+
+/* Subtle Highlights */
+.highlight {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Footer - Subtle */
+.footer {
+    background: #fafafa !important;
+    color: #666666 !important;
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+/* Minimal Focus States */
+:focus {
+    outline: 2px solid rgba(var(--brand-primary-rgb), 0.3) !important;
+    outline-offset: 1px !important;
+}
+
+/* Breadcrumbs - Subtle */
+.breadcrumb-item a {
+    color: #666666 !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--brand-primary) !important;
+}
+
+.breadcrumb-item.active {
+    color: #333333 !important;
+}
+
+/* =========================================
+   MOBILE NAVIGATION TOGGLE - SUBTLE
+   Minimalist hamburger menu button styling
+   ========================================= */
+
+.mobile-nav-toggle {
+    display: none;
+    cursor: pointer;
+    color: #666666 !important;
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+.mobile-nav-toggle:hover {
+    background: #f8f9fa !important;
+    color: var(--brand-primary) !important;
+    border-color: var(--brand-primary) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+}
+
+.mobile-nav-toggle:focus {
+    outline: 2px solid rgba(var(--brand-primary-rgb), 0.3) !important;
+    outline-offset: 1px !important;
+}
+
+@media (max-width: 991.98px) {
+    .mobile-nav-toggle {
+        display: flex !important;
+    }
+}

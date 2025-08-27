@@ -1,0 +1,111 @@
+/* 
+ * ACCOUNTS SYSTEM SPECIFIC STYLES
+ * Only styles unique to accounts_system (login page layout, etc.)
+ * Common form/button styles are in the unified template
+ */
+
+/* Login page specific styling */
+body, html {
+  background-color: #f3f4f7;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+}
+
+/* Login container styling */
+.login {
+  background: #fff;
+  width: 400px;
+  margin: 100px auto;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.login .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #2a77eb;
+  margin-bottom: 30px;
+}
+
+.login h1 {
+  text-align: center;
+  color: #474b50;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Login form specific adjustments */
+.login-form .form-label {
+  padding: 10px 0 5px 0;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.login-form .form-group.pad-y-5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.login-form #rememberme {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #474b50;
+  user-select: none;
+}
+
+.login-form #rememberme input {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  accent-color: #2a77eb;
+}
+
+.login-form .btn {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.login-form .register-link {
+  text-align: center;
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* Profile page specific styling */
+.profile-detail {
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.profile-detail strong {
+  width: 150px;
+  color: #474b50;
+  font-weight: 600;
+}
+
+.profile-detail:last-child {
+  border-bottom: none;
+}
+
+/* Form styling for smaller forms */
+.form.form-small {
+  max-width: 500px;
+}

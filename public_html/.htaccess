@@ -1,0 +1,81 @@
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php83” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php83 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+  php_value date.timezone "America/New_York"
+  php_flag display_errors Off
+  php_value max_execution_time 60
+  php_value max_input_time -1
+  php_value max_input_vars 5000
+  php_value memory_limit 258M
+  php_value post_max_size 256M
+  php_value session.gc_maxlifetime 3600
+  php_value upload_max_filesize 255M
+  php_flag zlib.output_compression On
+  php_value output_buffering On
+  php_value session.save_path "/var/cpanel/php/sessions/ea-php83"
+  php_flag log_errors On
+  php_value error_log "dirname(__FILE__) . '/error.log'"
+  php_value error_reporting (E_ALL)
+</IfModule>
+<IfModule lsapi_module>
+  php_value date.timezone "America/New_York"
+  php_flag display_errors Off
+  php_value max_execution_time 60
+  php_value max_input_time -1
+  php_value max_input_vars 5000
+  php_value memory_limit 258M
+  php_value post_max_size 256M
+  php_value session.gc_maxlifetime 3600
+  php_value upload_max_filesize 255M
+  php_flag zlib.output_compression On
+  php_value output_buffering On
+  php_value session.save_path "/var/cpanel/php/sessions/ea-php83"
+  php_flag log_errors On
+  php_value error_log "dirname(__FILE__) . '/error.log'"
+  php_value error_reporting (E_ALL)
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+<IfModule mod_suphp.c>
+  suPHP_ConfigPath /home/glitchwizarddigi/public_html/PHP.INI_DIRECTORY
+  <Files php.ini>
+    order allow,deny
+    deny from all
+  </Files>
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Rewrite Engine: Clean URLs
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Remove .php extension from URLs
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
+
+# Custom Error Pages (part of core Apache)
+ErrorDocument 301 /301.shtml
+ErrorDocument 400 /400.shtml
+ErrorDocument 401 /401.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 404 /404.shtml
+ErrorDocument 408 /408.shtml
+ErrorDocument 500 /500.shtml
+ErrorDocument 502 /502.shtml
+ErrorDocument 503 /503.shtml
+ErrorDocument 504 /504.shtml

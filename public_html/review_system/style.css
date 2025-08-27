@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+}
+
+body {
+  background-color: #FFFFFF;
+  margin: 0;
+}
+
+.navtop {
+  background-color: #3f69a8;
+  height: 55px;
+  width: 100%;
+  border: 0;
+}
+
+.navtop div {
+  display: flex;
+  margin: 0 auto;
+  width: 1000px;
+  height: 100%;
+}
+
+.navtop div h1, .navtop div a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navtop div h1 {
+  flex: 1;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  color: #ecf0f6;
+  font-weight: normal;
+}
+
+.navtop div a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: #c5d2e5;
+  font-weight: bold;
+}
+
+.navtop div a i {
+  padding: 2px 8px 0 0;
+}
+
+.navtop div a:hover {
+  color: #ecf0f6;
+}
+
+main.content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main.content h2 {
+  margin: 0;
+  padding: 25px 0;
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 1px solid #ebebeb;
+  color: #666666;
+}
+
+@media screen and (max-width: 1000px) {
+  .navtop {
+    height: auto;
+  }
+  .navtop div {
+    flex-flow: wrap;
+    width: 100%;
+  }
+  .navtop div h1 {
+    display: block;
+    flex-basis: 100%;
+    padding: 15px 10px;
+  }
+  .navtop div > a {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    flex-basis: 100%;
+    background-color: #315283;
+    border-bottom: 1px solid #2d4b78;
+  }
+  main.content {
+    padding: 10px;
+  }
+  .responsive-width-100 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}

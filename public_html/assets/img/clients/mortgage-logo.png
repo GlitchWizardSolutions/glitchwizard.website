@@ -1,0 +1,10 @@
+<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <rect width="200" height="100" fill="#1f2937" rx="8"/>
+  <text x="100" y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">MORTGAGE</text>
+  <text x="100" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">SOLUTIONS</text>
+  <rect x="25" y="35" width="20" height="15" fill="white" opacity="0.8"/>
+  <polygon points="25,35 35,25 45,35" fill="white" opacity="0.8"/>
+  <circle cx="170" cy="50" r="8" fill="#fbbf24"/>
+  <text x="170" y="55" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1f2937" text-anchor="middle">%</text>
+  <text x="100" y="75" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Best Rates Guaranteed</text>
+</svg>

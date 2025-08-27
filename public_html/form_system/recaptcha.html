@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Contact Form</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+        <!-- REPLACE SITE_KEY WITH YOUR RECAPTCHA SITE KEY -->
+        <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
+	</head>
+	<body>
+        <nav class="navtop">
+            <div>
+                <h1>Contact Form</h1>
+                <a href="minimal.html"><i class="bi bi-chevron-right" aria-hidden="true"></i>Minimal</a>
+                <a href="index.html"><i class="bi bi-chevron-right" aria-hidden="true"></i>Advanced</a>
+                <a href="recaptcha.html"><i class="bi bi-chevron-right" aria-hidden="true"></i>reCAPTCHA</a>
+                <a href="admin/"><i class="bi bi-lock-fill" aria-hidden="true"></i>Admin</a>
+            </div>
+        </nav>
+
+        <div class="content home">
+
+            <h2>reCAPTCHA v3 Contact Form</h2>
+
+            <form class="contact-form" action="" method="post" enctype="multipart/form-data" novalidate>
+
+                <p class="col-12 pad-y-2">Please use the contact form below.</p>
+
+                <div class="col-12 pad-y-2 pad-r-2">
+                    <label for="first_name"><span class="required">*</span> Name</label>
+                    <div class="form-element">
+                        <i class="bi bi-person" aria-hidden="true"></i>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" pattern="^[a-zA-Z ]+" title="Name must contain only characters!" required>
+                    </div>
+                </div>
+
+                <div class="col-12 pad-y-2">
+                    <label for="email"><span class="required">*</span> Email</label>
+                    <div class="form-element">
+                        <i class="bi bi-envelope" aria-hidden="true"></i>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" title="Please enter a valid email address!" required>
+                    </div>
+                </div>
+
+                <div class="col-12 pad-y-2">
+                    <label for="subject"><span class="required">*</span> Subject</label>
+                    <div class="form-element">
+                        <input type="text" id="subject" name="subject" placeholder="Enter your subject" title="Please enter a subject!" required>
+                    </div>
+                </div>
+
+                <div class="col-12 pad-y-2">
+                    <label for="message"><span class="required">*</span> Message</label>
+                    <div class="form-element size-xl">
+                        <textarea id="message" name="message" placeholder="Your message ..." title="Please enter your message!" required></textarea>
+                    </div>
+                </div>
+
+                <div class="col-12 pad-y-2">
+
+                    <button type="submit" class="btn">Send Message</button>
+
+                </div>
+
+                <p class="col-12 errors"></p>  
+
+            </form>
+
+        </div>
+
+        <script src="ContactForm.js"></script>
+        <script>
+        new ContactForm({
+            container: document.querySelector('.contact-form'),
+            // The PHP file path that processes the form data
+            php_file_url: 'contact-recaptcha.php',
+            // The reCAPTCHA site key
+            recaptcha_site_key: 'YOUR_SITE_KEY'
+        });
+        </script>
+
+    </body>
+</html>

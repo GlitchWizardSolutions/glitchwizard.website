@@ -1,0 +1,424 @@
+/* =========================================
+   PUBLIC FACING BRANDING ENHANCEMENT - CASUAL
+   Friendly, approachable variation for relaxed feel
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   CASUAL BRAND APPLICATIONS
+   Friendly, approachable design
+   ========================================= */
+
+/* Header and Navigation - Casual */
+.navbar {
+    background: rgba(var(--brand-primary-rgb), 0.9) !important;
+    border-radius: 0 0 20px 20px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+.header {
+    background-color: #ffffff !important;
+    border-radius: 0 0 15px 15px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+    border-radius: 15px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--brand-primary) !important;
+    background: #ffffff !important;
+    border-radius: 20px;
+    padding: 8px 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Primary Buttons - Casual */
+.btn-primary {
+    background: var(--brand-primary) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border-radius: 25px !important;
+    padding: 10px 25px !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) rotate(1deg);
+    box-shadow: 0 6px 15px rgba(54, 113, 201, 0.3);
+    background: var(--brand-secondary) !important;
+}
+
+.btn-primary::before {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+    top: 5px;
+    left: 5px;
+}
+
+/* Secondary Buttons - Casual */
+.btn-secondary {
+    background-color: #f8f9fa !important;
+    border: 2px dashed var(--brand-primary) !important;
+    color: var(--brand-primary) !important;
+    font-weight: 500 !important;
+    border-radius: 20px !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--brand-primary) !important;
+    color: #ffffff !important;
+    border-style: solid !important;
+    transform: scale(1.05);
+}
+
+/* Hero Sections - Casual & Accessibility Compliant */
+.hero, .hero-section {
+    color: #ffffff !important;
+    text-align: center;
+    position: relative;
+}
+
+/* Add subtle gradient overlay for better text contrast */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1, .hero-section h1 {
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+    color: white !important;
+    font-weight: 900 !important;
+    /* Multi-layer text shadow for accessibility compliance */
+    text-shadow: 
+        /* Dark outline */
+        -2px -2px 0 rgba(0, 0, 0, 0.8),
+        2px -2px 0 rgba(0, 0, 0, 0.8),
+        -2px 2px 0 rgba(0, 0, 0, 0.8),
+        2px 2px 0 rgba(0, 0, 0, 0.8),
+        /* Softer glow */
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 16px rgba(0, 0, 0, 0.7);
+    /* Ensure minimum font size for readability */
+    font-size: clamp(2rem, 5vw, 4rem) !important;
+    line-height: 1.2 !important;
+}
+
+.hero p {
+    color: white !important;
+    font-weight: 600 !important;
+    /* Multi-layer text shadow for paragraphs */
+    text-shadow: 
+        -1px -1px 0 rgba(0, 0, 0, 0.8),
+        1px -1px 0 rgba(0, 0, 0, 0.8),
+        -1px 1px 0 rgba(0, 0, 0, 0.8),
+        1px 1px 0 rgba(0, 0, 0, 0.8),
+        0 0 6px rgba(0, 0, 0, 0.9),
+        0 0 12px rgba(0, 0, 0, 0.6);
+    /* Responsive font sizing */
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+    line-height: 1.4 !important;
+    /* Add subtle background for extra readability on light images */
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+}
+
+.hero .btn, .hero-section .btn {
+    background: white !important;
+    color: var(--brand-primary) !important;
+    border: 3px solid white !important;
+    border-radius: 25px !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    padding: 0.75rem 2rem !important;
+    text-shadow: none !important;
+    /* High contrast shadow for button */
+    box-shadow: 
+        0 0 0 2px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover, .hero-section .btn:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--brand-primary) !important;
+    border-color: white !important;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 
+        0 0 0 2px rgba(0, 0, 0, 0.4),
+        0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero .btn:focus, .hero-section .btn:focus {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 2px !important;
+}
+
+/* Card Headers - Casual */
+.card-header {
+    background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    color: var(--brand-primary) !important;
+    border-bottom: 3px wavy var(--brand-primary) !important;
+    font-weight: 600 !important;
+    border-radius: 15px 15px 0 0 !important;
+    position: relative;
+}
+
+.card-header::after {
+    content: '🎨';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}
+
+/* Links - Casual */
+.card-body a,
+.content-area a {
+    color: var(--brand-primary) !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    position: relative;
+    padding: 2px 6px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.card-body a:hover,
+.content-area a:hover {
+    background: rgba(var(--brand-primary-rgb), 0.1) !important;
+    color: var(--brand-secondary) !important;
+    transform: scale(1.05);
+}
+
+/* Card Styling - Casual */
+.card {
+    border: 2px solid #f0f0f0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--brand-primary) !important;
+    transform: translateY(-3px) rotate(1deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Forms - Casual */
+.form-control {
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 15px !important;
+    padding: 12px 15px !important;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--brand-primary) !important;
+    box-shadow: 0 0 0 3px rgba(54, 113, 201, 0.1) !important;
+    transform: scale(1.02);
+    border-radius: 20px !important;
+}
+
+/* Text Styling - Casual */
+.text-muted {
+    color: #666666 !important;
+    font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--brand-primary) !important;
+    font-weight: 700 !important;
+    position: relative;
+}
+
+h1::after, h2::after {
+    content: '🌟';
+    margin-left: 10px;
+    font-size: 0.7em;
+    opacity: 0.7;
+}
+
+/* Fun Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+}
+
+.bounce-on-hover:hover {
+    animation: bounce 0.6s ease infinite;
+}
+
+.wiggle-on-hover:hover {
+    animation: wiggle 0.3s ease-in-out;
+}
+
+/* Friendly Tooltips */
+.tooltip {
+    background: var(--brand-primary) !important;
+    border-radius: 10px !important;
+    font-weight: 500;
+}
+
+/* Footer - Casual */
+.footer {
+    background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    color: #666666 !important;
+    border-top: 3px wavy var(--brand-primary) !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+/* Casual Focus States */
+:focus {
+    outline: 3px dotted var(--brand-primary) !important;
+    outline-offset: 2px !important;
+    border-radius: 10px;
+}
+
+/* Breadcrumbs - Casual */
+.breadcrumb {
+    background: rgba(var(--brand-primary-rgb), 0.05) !important;
+    border-radius: 20px !important;
+    border: 2px dashed rgba(var(--brand-primary-rgb), 0.2) !important;
+}
+
+.breadcrumb-item::before {
+    content: '👉' !important;
+}
+
+/* Special Elements */
+.casual-badge {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+    padding: 5px 12px !important;
+    font-weight: 600;
+    position: relative;
+}
+
+.casual-badge::before {
+    content: '🏷️';
+    margin-right: 5px;
+}
+
+/* Emoji Integration */
+.success-message::before { content: '✅ '; }
+.warning-message::before { content: '⚠️ '; }
+.error-message::before { content: '❌ '; }
+.info-message::before { content: 'ℹ️ '; }
+
+/* =========================================
+   MOBILE NAVIGATION TOGGLE - CASUAL
+   Fun and friendly hamburger menu button styling
+   ========================================= */
+
+.mobile-nav-toggle {
+    display: none;
+    cursor: pointer;
+    color: var(--brand-primary) !important;
+    background: #ffffff !important;
+    border: 2px solid var(--brand-primary) !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    border-radius: 50% !important;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(54, 113, 201, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-nav-toggle:hover {
+    background: var(--brand-primary) !important;
+    color: #ffffff !important;
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 18px rgba(54, 113, 201, 0.3) !important;
+}
+
+.mobile-nav-toggle::before {
+    content: '🍔';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle:hover::before {
+    top: -5px;
+    opacity: 1;
+}
+
+.mobile-nav-toggle:focus {
+    outline: 2px solid var(--brand-secondary) !important;
+    outline-offset: 3px !important;
+}
+
+@media (max-width: 991.98px) {
+    .mobile-nav-toggle {
+        display: flex !important;
+    }
+}

@@ -1,0 +1,156 @@
+<?php
+// Prevent direct access to file
+defined('shop                <a href="products.php" class="btn btn-outline-secondary">
+                    Browse All Products
+                </a>
+                <?php if ($logged_in): ?>
+                    <a href="shop_system/index.php?page=myaccount&tab=orders" class="btn btn-outline-success">
+                        My Orders
+                    </a>
+                    <a href="shop_system/index.php?page=myaccount&tab=wishlist" class="btn btn-outline-danger">
+                        My Wishlist
+                    </a>
+                <?php else: ?>or exit;
+
+global $pdo;
+if (!isset($pdo) || !$pdo) {
+    echo '<div class="alert alert-danger">Database connection not available.</div>';
+    return;
+}
+?>
+<div id="shop-sidebar">
+    <!-- Product Categories -->
+    <div class="card mb-3">
+        <div class="card-header accent-background">
+            <i class="fas fa-tags"></i> Categories
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <?php
+                $stmt = $pdo->query("SELECT * FROM shop_product_categories ORDER BY title ASC");
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $category_id = $row['id'];
+                    // Count products in this category
+                    $stmt_count = $pdo->prepare("SELECT COUNT(*) FROM shop_products p JOIN shop_product_category pc ON p.id = pc.product_id WHERE pc.category_id = ? AND p.product_status = 1");
+                    $stmt_count->execute([$category_id]);
+                    $product_count = $stmt_count->fetchColumn();
+                    
+                    if ($product_count > 0) {
+                        echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
+                        echo '<a href="products.php?category=' . $category_id . '" style="text-decoration: none;">';
+                        echo htmlspecialchars($row['title']);
+                        echo '</a>';
+                        echo '<span class="badge bg-primary rounded-pill">' . $product_count . '</span>';
+                        echo '</li>';
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card mb-3">
+        <div class="card-header accent-background">
+            <i class="fas fa-bolt"></i> Quick Actions
+        </div>
+        <div class="card-body">
+            <div class="d-grid gap-2">
+                <a href="shop_system/index.php?page=cart" class="btn btn-outline-primary">
+                    View Cart
+                    <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0): ?>
+                        <span class="badge bg-primary"><?php echo array_sum($_SESSION['cart']); ?></span>
+                    <?php endif; ?>
+                </a>
+                <a href="shop_system/index.php?page=products" class="btn btn-outline-secondary">
+                    Browse All Products
+                </a>
+                <?php if ($logged_in): ?>
+                    <a href="index.php?page=myaccount&tab=orders" class="btn btn-outline-success">
+                        My Orders
+                    </a>
+                    <a href="index.php?page=myaccount&tab=wishlist" class="btn btn-outline-danger">
+                        My Wishlist
+                    </a>
+                <?php else: ?>
+                    <a href="../auth.php?redirect=shop.php" class="btn btn-outline-warning">
+                        Login to Shop
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <div class="card mb-3">
+        <div class="card-header accent-background">
+            <i class="fas fa-star"></i> Featured Products
+        </div>
+        <div class="card-body">
+            <?php
+            // Get 3 featured products (you can add a featured flag to your products table later)
+            $stmt = $pdo->prepare('SELECT p.*, (SELECT m.full_path FROM shop_product_media_map pm JOIN shop_product_media m ON m.id = pm.media_id WHERE pm.product_id = p.id ORDER BY pm.position ASC LIMIT 1) AS img FROM shop_products p WHERE p.product_status = 1 AND p.price > 0 ORDER BY p.created DESC LIMIT 3');
+            $stmt->execute();
+            $featured_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            if ($featured_products):
+                foreach ($featured_products as $product):
+            ?>
+                <div class="mb-3 pb-3 border-bottom">
+                    <div class="row">
+                        <div class="col-4">
+                            <?php if (!empty($product['img'])): ?>
+                                <?php 
+                                // Fix image path - prepend shop_system/ if not already present
+                                $img_path = $product['img'];
+                                if (strpos($img_path, 'shop_system/') !== 0) {
+                                    $img_path = 'shop_system/' . $img_path;
+                                }
+                                ?>
+                                <img src="<?=$img_path?>" class="img-fluid rounded" alt="<?=htmlspecialchars($product['title'])?>" 
+                                     onerror="this.parentElement.innerHTML='<div class=\'bg-light d-flex align-items-center justify-content-center rounded\' style=\'height: 60px;\'><i class=\'fas fa-image text-muted\'></i></div>';">
+                            <?php else: ?>
+                                <div class="bg-light d-flex align-items-center justify-content-center rounded" style="height: 60px;">
+                                    <i class="fas fa-image text-muted"></i>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="col-8">
+                            <h6 class="mb-1">
+                                <a href="product.php?id=<?=$product['url_slug'] ? $product['url_slug'] : $product['id']?>" style="text-decoration: none;">
+                                    <?=htmlspecialchars(substr($product['title'], 0, 40))?>...
+                                </a>
+                            </h6>
+                            <small class="text-primary fw-bold">
+                                <?=currency_code?><?=num_format($product['price'], 2)?>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            <?php 
+                endforeach;
+            else:
+            ?>
+                <p class="text-muted">No featured products available.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Summary -->
+    <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0): ?>
+    <div class="card mb-3">
+        <div class="card-header accent-background">
+            <i class="fas fa-shopping-cart"></i> Cart Summary
+        </div>
+        <div class="card-body">
+            <p class="mb-2">
+                <strong><?php echo array_sum($_SESSION['cart']); ?></strong> item(s) in cart
+            </p>
+            <div class="d-grid gap-2">
+                <a href="cart.php" class="btn btn-primary btn-sm">View Cart</a>
+                <a href="checkout.php" class="btn btn-success btn-sm">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>

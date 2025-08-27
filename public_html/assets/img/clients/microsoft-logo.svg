@@ -1,0 +1,6 @@
+<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="100" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+  <text x="100" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#6c757d">MICROSOFT</text>
+  <text x="100" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6c757d">Corporation</text>
+  <text x="100" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#adb5bd">Placeholder Logo</text>
+</svg>

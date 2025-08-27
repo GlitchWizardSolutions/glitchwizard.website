@@ -1,0 +1,367 @@
+/**
+ * GWS Universal CSS Framework - Base System
+ * 
+ * PURPOSE: Consolidated, optimized CSS foundation for all applications
+ * REPLACES: Multiple scattered Bootstrap files and inline styles
+ * INTEGRATES: Database-driven brand color system
+ * 
+ * VERSION: 1.0
+ * CREATED: 2025-08-17
+ * 
+ * FEATURES:
+ * - Single Bootstrap 5.3 instance
+ * - CSS custom properties for brand colors
+ * - Accessibility-compliant contrast
+ * - Application-specific overrides
+ * - Template system integration
+ */
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES (Brand Variables)
+   ============================================================================= */
+
+:root {
+    /* Database-driven brand colors (loaded from settings) */
+    --brand-primary: #6c2eb6;
+    --brand-secondary: #bf5512;
+    --brand-tertiary: #8B4513;
+    --brand-quaternary: #2E8B57;
+    --brand-accent: #28a745;
+    --brand-warning: #ffc107;
+    --brand-danger: #dc3545;
+    --brand-info: #17a2b8;
+    
+    /* Text colors */
+    --brand-text: #333333;
+    --brand-text-light: #666666;
+    --brand-text-muted: #999999;
+    
+    /* Background colors */
+    --brand-background: #ffffff;
+    --brand-background-light: #f8f9fa;
+    
+    /* Border and surface colors */
+    --brand-border: #dee2e6;
+    --brand-surface: #ffffff;
+    
+    /* Semantic color mapping */
+    --bs-primary: var(--brand-primary);
+    --bs-secondary: var(--brand-secondary);
+    --bs-success: var(--brand-accent);
+    --bs-warning: var(--brand-warning);
+    --bs-danger: var(--brand-danger);
+    --bs-info: var(--brand-info);
+    
+    /* Bootstrap override variables */
+    --bs-body-color: var(--brand-text);
+    --bs-body-bg: var(--brand-background);
+    --bs-border-color: var(--brand-border);
+}
+
+/* =============================================================================
+   ACCESSIBILITY FIXES - Dark on Dark Issues
+   ============================================================================= */
+
+/* Navigation fixes */
+.navbar-dark .navbar-nav .nav-link,
+.bg-dark .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.bg-dark .nav-link:hover {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Dropdown menu fixes */
+.dropdown-menu.bg-dark .dropdown-item {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dropdown-menu.bg-dark .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Remove problematic link-dark on dark backgrounds */
+.bg-dark .link-dark {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Text contrast improvements */
+.text-dark-accessible {
+    color: var(--brand-text) !important;
+    background-color: var(--brand-background) !important;
+}
+
+/* Badge accessibility */
+.badge.bg-light {
+    color: var(--brand-text) !important;
+}
+
+/* =============================================================================
+   BRAND COMPONENT CLASSES (Replace Inline Styles)
+   ============================================================================= */
+
+/* Button variants using brand colors */
+.btn-brand-primary {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: #fff;
+}
+
+.btn-brand-primary:hover {
+    background: color-mix(in srgb, var(--brand-primary), black 15%);
+    border-color: color-mix(in srgb, var(--brand-primary), black 15%);
+    color: #fff;
+}
+
+.btn-brand-secondary {
+    background: var(--brand-secondary);
+    border-color: var(--brand-secondary);
+    color: #fff;
+}
+
+.btn-brand-secondary:hover {
+    background: color-mix(in srgb, var(--brand-secondary), black 15%);
+    border-color: color-mix(in srgb, var(--brand-secondary), black 15%);
+    color: #fff;
+}
+
+.btn-brand-tertiary {
+    background: var(--brand-tertiary);
+    border-color: var(--brand-tertiary);
+    color: #fff;
+}
+
+.btn-brand-tertiary:hover {
+    background: color-mix(in srgb, var(--brand-tertiary), black 15%);
+    border-color: color-mix(in srgb, var(--brand-tertiary), black 15%);
+    color: #fff;
+}
+
+.btn-brand-quaternary {
+    background: var(--brand-quaternary);
+    border-color: var(--brand-quaternary);
+    color: #fff;
+}
+
+.btn-brand-quaternary:hover {
+    background: color-mix(in srgb, var(--brand-quaternary), black 15%);
+    border-color: color-mix(in srgb, var(--brand-quaternary), black 15%);
+    color: #fff;
+}
+
+/* Navigation brand styling */
+.navbar-brand-styled {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    border-radius: 8px;
+    color: #fff !important;
+    padding: 0.5rem 1rem;
+}
+
+/* Form controls with brand styling */
+.form-control-brand:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 0.25rem rgba(108, 46, 182, 0.25);
+}
+
+/* Brand-styled checkboxes */
+.form-check-input-brand {
+    accent-color: var(--brand-secondary);
+    border: 2px solid var(--brand-secondary);
+}
+
+.form-check-input-brand:checked {
+    background-color: var(--brand-secondary);
+    border-color: var(--brand-secondary);
+}
+
+/* =============================================================================
+   APPLICATION SPECIFIC OVERRIDES
+   ============================================================================= */
+
+/* Blog System */
+.blog-sidebar .card {
+    border: 1px solid var(--brand-border);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.blog-post-meta {
+    color: var(--brand-text-muted);
+}
+
+.blog-category-badge {
+    background: var(--brand-primary);
+    color: #fff;
+}
+
+.blog-tag-badge {
+    background: var(--brand-background-light);
+    color: var(--brand-text);
+    border: 1px solid var(--brand-border);
+}
+
+/* Client Portal */
+.portal-navigation {
+    background: var(--brand-primary);
+}
+
+.portal-card {
+    border-left: 4px solid var(--brand-accent);
+}
+
+/* Admin Panel */
+.admin-sidebar {
+    background: linear-gradient(180deg, var(--brand-primary), var(--brand-secondary));
+}
+
+.admin-navigation .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.admin-navigation .nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* =============================================================================
+   RESPONSIVE & UTILITY CLASSES
+   ============================================================================= */
+
+/* Brand background utilities */
+.bg-brand-primary { background-color: var(--brand-primary) !important; }
+.bg-brand-secondary { background-color: var(--brand-secondary) !important; }
+.bg-brand-accent { background-color: var(--brand-accent) !important; }
+
+/* Brand text utilities */
+.text-brand-primary { color: var(--brand-primary) !important; }
+.text-brand-secondary { color: var(--brand-secondary) !important; }
+.text-brand-accent { color: var(--brand-accent) !important; }
+
+/* Border utilities */
+.border-brand-primary { border-color: var(--brand-primary) !important; }
+.border-brand-secondary { border-color: var(--brand-secondary) !important; }
+
+/* Shadow utilities with brand colors */
+.shadow-brand-primary {
+    box-shadow: 0 4px 6px rgba(108, 46, 182, 0.15);
+}
+
+.shadow-brand-secondary {
+    box-shadow: 0 4px 6px rgba(191, 85, 18, 0.15);
+}
+
+/* =============================================================================
+   COMPONENT OPTIMIZATIONS
+   ============================================================================= */
+
+/* Card component enhancements */
+.card-branded {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.card-branded:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.card-header-branded {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    border: none;
+}
+
+/* Table enhancements */
+.table-branded thead th {
+    background: var(--brand-background-light);
+    border-color: var(--brand-border);
+    color: var(--brand-text);
+}
+
+.table-branded tbody tr:hover {
+    background-color: rgba(108, 46, 182, 0.05);
+}
+
+/* Alert component branding */
+.alert-brand-info {
+    background: linear-gradient(135deg, rgba(108, 46, 182, 0.1), rgba(23, 162, 184, 0.1));
+    border-left: 4px solid var(--brand-primary);
+    color: var(--brand-text);
+}
+
+/* Progress bars */
+.progress-bar-branded {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary));
+}
+
+/* =============================================================================
+   DARK MODE SUPPORT (Future-ready)
+   ============================================================================= */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --brand-background: #1a1a1a;
+        --brand-background-light: #2d2d2d;
+        --brand-text: #e0e0e0;
+        --brand-text-light: #b0b0b0;
+        --brand-text-muted: #808080;
+        --brand-border: #404040;
+        --brand-surface: #2d2d2d;
+    }
+    
+    /* Ensure accessibility in dark mode */
+    .text-dark {
+        color: var(--brand-text) !important;
+    }
+    
+    .bg-light {
+        background-color: var(--brand-background-light) !important;
+    }
+}
+
+/* =============================================================================
+   PRINT STYLES
+   ============================================================================= */
+
+@media print {
+    /* Remove background colors for print */
+    .bg-brand-primary,
+    .bg-brand-secondary,
+    .navbar-brand-styled {
+        background: none !important;
+        color: #000 !important;
+    }
+    
+    /* Ensure text is readable when printed */
+    .text-white {
+        color: #000 !important;
+    }
+}
+
+/* =============================================================================
+   LEGACY BROWSER SUPPORT
+   ============================================================================= */
+
+/* Fallbacks for browsers that don't support color-mix() */
+@supports not (color: color-mix(in srgb, red, blue)) {
+    .btn-brand-primary:hover {
+        background: #5a2499; /* Darker primary fallback */
+    }
+    
+    .btn-brand-secondary:hover {
+        background: #a5460f; /* Darker secondary fallback */
+    }
+}
+
+/* CSS custom properties fallbacks */
+.btn-primary {
+    background-color: #6c2eb6; /* Fallback */
+    background-color: var(--brand-primary);
+    border-color: #6c2eb6; /* Fallback */
+    border-color: var(--brand-primary);
+}

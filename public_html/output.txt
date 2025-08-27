@@ -1,0 +1,896 @@
+
+Warning: Undefined variable $site_name in C:\xampp\htdocs\gws-universal-hybrid-app\public_html\shop-auth.php on line 26
+
+Warning: Undefined array key "REQUEST_METHOD" in C:\xampp\htdocs\gws-universal-hybrid-app\public_html\shop-auth.php on line 30
+
+Warning: Undefined array key "REQUEST_METHOD" in C:\xampp\htdocs\gws-universal-hybrid-app\public_html\shop-auth.php on line 93
+
+Warning: Undefined array key "HTTP_HOST" in C:\xampp\htdocs\gws-universal-hybrid-app\public_html\assets\includes\doctype.php on line 54
+
+Warning: Undefined array key "REQUEST_URI" in C:\xampp\htdocs\gws-universal-hybrid-app\public_html\assets\includes\doctype.php on line 54
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="We are a passionate team dedicated to building modern, accessible, and high-performing websites that help businesses of all sizes succeed online.">
+  <meta name="keywords" content="default, keywords">
+  <meta name="author" content="GlitchWizard Solutions">
+  <meta name="copyright" content="GlitchWizard Solutions, Tallahassee, Florida">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="http://" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="GWS Universal Hybrid Application">
+  <meta property="og:description" content="We are a passionate team dedicated to building modern, accessible, and high-performing websites that help businesses of all sizes succeed online.">
+  <meta property="og:image" content="assets/img/social-share/default.jpg">
+  <meta property="og:url" content="http://">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GWS Universal Hybrid Application">
+  <meta name="twitter:description" content="We are a passionate team dedicated to building modern, accessible, and high-performing websites that help businesses of all sizes succeed online.">
+  <meta name="twitter:image" content="assets/img/social-share/default.jpg">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Bootstrap, FontAwesome, Summernote (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-bs5.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-bs5.min.js"></script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- DataTables, AOS, Glightbox, Swiper, Custom CSS -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/section-borders.css" rel="stylesheet">
+  <script src="assets/js/main.js"></script>
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <!-- jsSocials CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/jssocials@1.5.0/dist/jssocials.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jssocials@1.5.0/dist/jssocials.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jssocials@1.5.0/dist/jssocials-theme-flat.css">
+  </head>
+<body><!-- header.php -->
+<!-- Skip to main content link for accessibility -->
+<a href="#main" class="skip-link">Skip to main content</a>
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Dynamic Brand Colors injected from settings -->
+<style id="dynamic-brand-colors">
+  :root {
+    --brand-primary:
+      #6c2eb6    ;
+    --brand-secondary:
+      #bf5512    ;
+    --brand-font-family:
+      Roboto, Poppins, Raleway, Arial, sans-serif    ;
+  }
+
+  .accent-background {
+    background: var(--brand-primary) !important;
+    color: #fff !important;
+  }
+
+  .accent-color {
+    color: var(--brand-primary) !important;
+  }
+
+  .secondary-color {
+    color: var(--brand-secondary) !important;
+  }
+
+  .brand-font {
+    font-family: var(--brand-font-family), Arial, sans-serif !important;
+  }
+  
+  .navmenu ul li a:hover,
+  .navmenu ul li a:focus {
+    color: var(--brand-primary, #124265) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+  }
+  .navmenu ul li a.active {
+    color: var(--brand-secondary, #2487ce) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+  }
+</style>
+<!-- Header Section -->
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+
+      <a href="index.php" class="logo d-flex align-items-center me-auto">
+                  <img src="assets/img/logo.png"
+            alt="GWS Universal Hybrid Application Logo" style="max-height:48px; margin-right:10px;">
+                <h1 class="sitename">GWS Universal Hybrid Application</h1>
+      </a>
+
+
+      <nav id="navmenu" class="navmenu" role="navigation" aria-label="Main navigation">
+        <ul role="menubar">
+          <li role="none"><a role="menuitem" href="about.php" class="active">About</a></li><li role="none"><a role="menuitem" href="index.php#services">Services</a></li><li role="none"><a role="menuitem" href="index.php#contact">Contact</a></li><li role="none"><a role="menuitem" href="blog.php">Blog</a></li><li role="none"><a role="menuitem" href="shop.php">Shop</a></li><li role="none"><a role="menuitem" href="auth.php?tab=login">Login / Register</a></li>        
+        </ul>
+        
+        <button class="mobile-nav-toggle bi bi-list" aria-label="Open main menu" aria-controls="navmenu"
+          aria-expanded="false" style="color: var(--brand-secondary, #2487ce); background: #fff; border: none; width:35px; height:35px; font-size:35px; font-weight:bold; display:flex; align-items:center; justify-content:center;"></button>
+      </nav>
+   </div>
+  </header>
+  <main id="main" class="main"></main>
+  <style>
+    /* Hide menu by default for all screens */
+    .navmenu ul {
+      display: none;
+      width: 320px !important;
+      max-width: 80vw !important;
+      position: absolute !important;
+      top: 60px !important;
+      right: 20px !important;
+      left: auto !important;
+      margin: 0 !important;
+      border-radius: 8px !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      max-height: 75vh;
+      overflow-y: auto;
+      z-index: 10000 !important;
+    }
+
+    /* Show menu when toggled on mobile */
+    @media (max-width: 991.98px) {
+      .navmenu.menu-open ul,
+      body.mobile-nav-active .navmenu ul {
+        display: flex !important;
+        flex-direction: column !important;
+        background: #fff !important;
+        width: 240px !important;
+        max-width: 60vw !important;
+        position: absolute !important;
+        top: 60px !important;
+        right: 20px !important;
+        left: auto !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        max-height: 75vh;
+        overflow-y: auto;
+        z-index: 10000 !important;
+        padding: 0 !important;
+        align-items: flex-start !important;
+      }
+
+      .navmenu.menu-open ul li,
+      body.mobile-nav-active .navmenu ul li {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+      }
+
+      .navmenu.menu-open ul li a,
+      body.mobile-nav-active .navmenu ul li a {
+        width: 100%;
+        padding: 12px 24px !important;
+        margin: 0 !important;
+        text-align: left !important;
+        display: block !important;
+        color: #333 !important;
+        border-bottom: 1px solid #eee !important;
+      }
+      
+      .navmenu.menu-open ul li a:hover,
+      body.mobile-nav-active .navmenu ul li a:hover {
+        color: var(--brand-primary, #124265) !important;
+        font-weight: bold !important;
+        background: #f8f9fa !important;
+      }
+      
+      /* Override any inline styles that might be set by JavaScript */
+      .navmenu.menu-open ul {
+        display: flex !important;
+      }
+      
+      body.mobile-nav-active .navmenu ul {
+        display: flex !important;
+      }
+    }
+    /* Desktop hamburger menu: hide menu by default, show vertical dropdown when toggled */
+    @media (min-width: 992px) {
+      .navmenu.menu-open ul,
+      body.mobile-nav-active .navmenu ul {
+        display: flex !important;
+        flex-direction: column !important;
+        background: #fff !important;
+        width: 240px !important;
+        max-width: 60vw !important;
+        position: absolute !important;
+        top: 60px !important;
+        right: 20px !important;
+        left: auto !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        max-height: 75vh;
+        overflow-y: auto;
+        z-index: 10000 !important;
+        padding: 0 !important;
+        align-items: flex-start !important;
+      }
+
+      .navmenu.menu-open ul li,
+      body.mobile-nav-active .navmenu ul li {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+      }
+
+      .navmenu.menu-open ul li a,
+      body.mobile-nav-active .navmenu ul li a {
+        width: 100%;
+        padding: 12px 24px !important;
+        margin: 0 !important;
+        text-align: left !important;
+        display: block !important;
+      }
+    }
+  .navmenu ul li a.active {
+    color: var(--brand-secondary, #2487ce) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+  }
+ 
+
+      .navmenu .dropdown ul {
+        position: static !important;
+        display: none !important;
+        width: 100% !important;
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin-left: 20px !important;
+        padding-left: 10px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+      }
+
+      .navmenu .dropdown.dropdown-active>ul {
+        display: block !important;
+      }
+
+      .navmenu .dropdown .dropdown ul {
+        margin-left: 40px !important;
+      }
+
+      .navmenu .dropdown>a .toggle-dropdown {
+        transition: transform 0.2s;
+      }
+
+      .navmenu .dropdown.dropdown-active>a .toggle-dropdown {
+        transform: rotate(90deg);
+      }
+    
+  
+    /* Visually hidden skip link, visible on focus */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      background: #124265;
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 10000;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: left 0.2s;
+    }
+
+    .skip-link:focus {
+      left: 10px;
+      outline: 2px solid #2487ce;
+    }
+ 
+  </style>
+   
+  <script>
+    // Hamburger menu toggle for all screens, checks screen size on every click
+    document.addEventListener('DOMContentLoaded', function() {
+      var navmenu = document.getElementById('navmenu');
+      var toggleBtn = document.querySelector('.mobile-nav-toggle');
+      function toggleMenu(e) {
+        e.stopPropagation();
+        var expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', !expanded);
+        navmenu.classList.toggle('menu-open');
+        document.body.classList.toggle('mobile-nav-active');
+        
+        // Force menu <ul> to display: flex for all screen sizes when menu is open
+        var menuList = navmenu.querySelector('ul');
+        if (!expanded) {
+          menuList.style.display = 'flex';
+        } else {
+          menuList.style.display = '';
+        }
+        
+        // Toggle hamburger/X icon
+        if (!expanded) {
+          toggleBtn.classList.remove('bi-list');
+          toggleBtn.classList.add('bi-x');
+        } else {
+          toggleBtn.classList.remove('bi-x');
+          toggleBtn.classList.add('bi-list');
+        }
+      }
+      toggleBtn.addEventListener('click', toggleMenu);
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!navmenu.contains(e.target) && !toggleBtn.contains(e.target) && navmenu.classList.contains('menu-open')) {
+          navmenu.classList.remove('menu-open');
+          document.body.classList.remove('mobile-nav-active');
+          toggleBtn.setAttribute('aria-expanded', false);
+          toggleBtn.classList.remove('bi-x');
+          toggleBtn.classList.add('bi-list');
+          // Reset forced display style
+          var menuList = navmenu.querySelector('ul');
+          if (menuList) {
+            menuList.style.display = '';
+          }
+        }
+      });
+    });
+    </script>
+  <!-- End Header Section Begins Main Section -->
+   <style id="dynamic-brand-colors">
+    :root {
+        --brand-primary: #6c2eb6;
+    }
+</style>
+
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background: #f7f9fc;">
+    <div class="card gws-auth-card"
+        style="width: 100%; max-width: 420px; border-radius:0.5rem; border:2px solid var(--brand-primary); box-shadow:0 2px 8px #0001;">
+        <ul class="nav nav-pills nav-justified gws-auth-tabs" id="authTabs" role="tablist"
+            style="background:var(--brand-primary); border-radius:0.5rem 0.5rem 0 0; border-bottom:0;">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active text-white" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-panel" type="button" role="tab" aria-controls="login-panel" aria-selected="true">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-white" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-panel" type="button" role="tab" aria-controls="register-panel" aria-selected="false">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content gws-auth-tab-content" id="authTabContent"
+            style="border-radius:0 0 0.5rem 0.5rem; border:none; background:#fff;">
+            
+            <!-- Login Panel -->
+            <div class="tab-pane fade show active" id="login-panel" role="tabpanel" aria-labelledby="login-tab">
+                <div class="gws-form-title">Shop Login</div>
+                <div class="gws-form-subtitle">Access your shop account securely</div>
+                                                        
+                            <form method="POST" action="" autocomplete="on"
+                                aria-label="Shop Login Form" role="form" style="width:100%; padding:2rem 1.5rem; margin:0 auto; max-width:400px; background:#fff; border-radius:0.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.04);" class="login-form">
+                                <input type="hidden" name="login" value="1">
+                                <input type="hidden" name="csrf_token" value="eae984e6df09d7eb13761eca6ab63b66f92270517999f68ba740f1657bda2e29">
+                                
+                                <label for="username" class="gws-form-label">Username or Email</label>
+                                <input type="text" class="gws-form-control" id="username" name="username" 
+                                       placeholder="Enter your username or email"
+                                       value="" 
+                                       required autofocus aria-required="true" autocomplete="username">
+                                
+                                <label for="password" class="gws-form-label">Password</label>
+                                <input type="password" class="gws-form-control" id="password" name="password" 
+                                       placeholder="Enter your password"
+                                       required aria-required="true" autocomplete="current-password">
+                                
+                                <div class="d-flex justify-content-between align-items-center" aria-label="Login options">
+                                    <div class="form-check gws-rememberme">
+                                        <input class="form-check-input" type="checkbox" id="remember" name="remember" value="1"
+                                            aria-checked="false" aria-label="Remember me">
+                                        <label class="form-check-label" for="remember">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="msg login-msg" style="min-height:2em;" aria-live="polite"></div>
+                                <button type="submit" class="gws-form-btn">
+                                    <i class="fas fa-sign-in-alt"></i> Login
+                                </button>
+                            </form>
+                            
+                            <div class="text-center">
+                                <p class="mb-2">Don't have an account? <a href="#" onclick="document.getElementById('register-tab').click();">Register here</a></p>
+                                <p><a href="blog.php" class="text-muted">Visit Blog</a> | <a href="shop.php" class="text-muted">Continue Shopping</a></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Register Panel -->
+                        <div class="tab-pane fade" id="register-panel" role="tabpanel" aria-labelledby="register-tab">
+                            <div class="gws-form-title">Create Shop Account</div>
+                            <div class="gws-form-subtitle">Join our shop community</div>
+                            
+                                                        
+                            <form method="POST" action="" autocomplete="on"
+                                aria-label="Shop Register Form" role="form" style="width:100%; padding:2rem 1.5rem; margin:0 auto; max-width:400px; background:#fff; border-radius:0.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.04);" class="register-form">
+                                <input type="hidden" name="register" value="1">
+                                <input type="hidden" name="csrf_token" value="eae984e6df09d7eb13761eca6ab63b66f92270517999f68ba740f1657bda2e29">
+                                
+                                <label for="reg_username" class="gws-form-label">Username</label>
+                                <input type="text" class="gws-form-control" id="reg_username" name="reg_username" 
+                                       placeholder="Choose a username"
+                                       value="" 
+                                       required aria-required="true" autocomplete="username">
+                                <span class="gws-form-help">3+ characters, letters, numbers, and underscores only</span>
+                                
+                                <label for="reg_email" class="gws-form-label">Email Address</label>
+                                <input type="email" class="gws-form-control" id="reg_email" name="reg_email" 
+                                       placeholder="Enter your email address"
+                                       value="" 
+                                       required aria-required="true" autocomplete="email">
+                                
+                                <label for="reg_password" class="gws-form-label">Password</label>
+                                <input type="password" class="gws-form-control" id="reg_password" name="reg_password" 
+                                       placeholder="Create a secure password"
+                                       required aria-required="true" autocomplete="new-password">
+                                <span class="gws-form-help">Minimum 6 characters</span>
+                                
+                                <label for="reg_confirm_password" class="gws-form-label">Confirm Password</label>
+                                <input type="password" class="gws-form-control" id="reg_confirm_password" name="reg_confirm_password" 
+                                       placeholder="Confirm your password"
+                                       required aria-required="true" autocomplete="new-password">
+                                
+                                <div class="msg register-msg" style="min-height:2em;" aria-live="polite"></div>
+                                <button type="submit" class="gws-form-btn">
+                                    <i class="fas fa-user-plus"></i> Create Account
+                                </button>
+                            </form>
+                            
+                            <div class="text-center" style="padding: 1rem;">
+                                <p class="mb-2">Already have an account? <a href="#" onclick="document.getElementById('login-tab').click();" class="gws-form-link">Login here</a></p>
+                                <p><small class="text-muted">By registering, you'll be able to track orders, save favorites, and access exclusive shop features.</small></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<style>
+/* Auth Tab Styling */
+.gws-auth-tabs .nav-link {
+    border: none !important;
+    background: transparent !important;
+    color: rgba(255,255,255,0.8) !important;
+    transition: all 0.3s ease;
+}
+.gws-auth-tabs .nav-link.active {
+    background: rgba(255,255,255,0.15) !important;
+    color: #fff !important;
+    font-weight: 600;
+}
+.gws-auth-tabs .nav-link:hover {
+    background: rgba(255,255,255,0.1) !important;
+    color: #fff !important;
+}
+
+/* Form Title Styling */
+.gws-form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 1.5rem 0 0.5rem 0;
+    color: var(--brand-primary);
+}
+.gws-form-subtitle {
+    font-size: 0.95rem;
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Control Styling */
+.gws-form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.gws-form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+}
+.gws-form-control:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 0.2rem rgba(108, 46, 182, 0.25);
+}
+.gws-form-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--brand-primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.gws-form-btn:hover {
+    background: #5a2595;
+}
+.gws-form-help {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+.gws-form-link {
+    color: var(--brand-primary);
+    text-decoration: none;
+}
+.gws-form-link:hover {
+    color: #5a2595;
+    text-decoration: underline;
+}
+.gws-rememberme {
+    margin: 1rem 0;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab persistence
+    var triggerTabList = [].slice.call(document.querySelectorAll('#authTabs button'));
+    triggerTabList.forEach(function(triggerEl) {
+        triggerEl.addEventListener('shown.bs.tab', function(event) {
+            localStorage.setItem('shopAuthTab', event.target.id);
+        });
+    });
+    
+    // Restore last active tab
+    var lastTab = localStorage.getItem('shopAuthTab');
+    if (lastTab) {
+        var tab = document.getElementById(lastTab);
+        if (tab && typeof bootstrap !== 'undefined') {
+            new bootstrap.Tab(tab).show();
+        }
+    }
+    
+    // Form validation enhancement
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            const passwordField = form.querySelector('input[name="reg_password"]');
+            const confirmField = form.querySelector('input[name="reg_confirm_password"]');
+            
+            if (passwordField && confirmField) {
+                if (passwordField.value !== confirmField.value) {
+                    e.preventDefault();
+                    alert('Passwords do not match!');
+                    return false;
+                }
+                if (passwordField.value.length < 6) {
+                    e.preventDefault();
+                    alert('Password must be at least 6 characters long!');
+                    return false;
+                }
+            }
+        });
+    });
+});
+</script>
+
+</main>
+ 
+<style>
+  :root {
+    --accent-color:
+      #6c2eb6    ;
+    --heading-color:
+      #bf5512    ;
+    /* You can add more custom properties here as you add more color controls */
+  }
+
+  .accent-background {
+    --background-color: var(--accent-color);
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #469fdf;
+    --contrast-color: #ffffff;
+  }
+</style>
+<footer id="footer" class="footer light-background">
+
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-5 col-md-12 footer-about d-flex flex-row align-items-start px-4" style="gap:32px;">
+        <div class="d-flex flex-column justify-content-start align-items-start w-100">
+          <a href="index.php" class="logo mb-1" style="text-decoration:none;">
+            <span class="sitename" style="font-size:1.15rem; font-weight:600; color:var(--accent-color); letter-spacing:1px;">
+              GWS Universal Hybrid Application            </span>
+          </a>
+          <br>
+          <div class="social-links d-flex gap-3 mb-2" style="margin-top:0;">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/GlitchwizardSolutions" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/glitchwizard" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+          <br>
+          <p class="mb-0 text-start" style="max-width:420px; color:#444; font-size:1.08rem; line-height:1.6; font-weight:400;">
+            Welcome to our site!          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-6 footer-links d-flex flex-column align-items-center px-2">
+        <h4 class="mb-3 text-center" style="font-size:1.15rem; font-weight:600; color:var(--accent-color);">Useful Links</h4>
+        <div class="useful-links-card w-100">
+          <div class="links-card p-3" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 8px; border-left: 4px solid var(--accent-color); transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" 
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
+                          <div class="link-list-item d-flex align-items-center mb-2" style="padding: 4px 0;">
+                <i class="fas fa-star" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+                <a href="public_reviews.php" style="text-decoration:none; color:#333; font-weight:500; font-size:0.85rem; transition: color 0.3s ease;">
+                  Reviews                </a>
+              </div>
+                          <div class="link-list-item d-flex align-items-center " style="padding: 4px 0;">
+                <i class="fas fa-question-circle" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+                <a href="faqs.php" style="text-decoration:none; color:#333; font-weight:500; font-size:0.85rem; transition: color 0.3s ease;">
+                  FAQs                </a>
+              </div>
+                      </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-6 footer-links d-flex flex-column align-items-center px-2">
+        <h4 class="mb-3 text-center" style="font-size:1.15rem; font-weight:600; color:var(--accent-color);">Our Services</h4>
+        <div class="services-card w-100">
+          <div class="service-card p-3" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 8px; border-left: 4px solid var(--accent-color); transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" 
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
+                          <div class="service-list-item d-flex align-items-center mb-2" style="padding: 4px 0;">
+                <i class="fas fa-code" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+                                  <span style="color:#333; font-weight:500; font-size:0.85rem;">Web Development</span>
+                              </div>
+                          <div class="service-list-item d-flex align-items-center mb-2" style="padding: 4px 0;">
+                <i class="fas fa-paint-brush" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+                                  <span style="color:#333; font-weight:500; font-size:0.85rem;">UI/UX Design</span>
+                              </div>
+                          <div class="service-list-item d-flex align-items-center mb-2" style="padding: 4px 0;">
+                <i class="fas fa-chart-line" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+                                  <span style="color:#333; font-weight:500; font-size:0.85rem;">SEO &amp; Marketing</span>
+                              </div>
+                          <div class="service-list-item d-flex align-items-center " style="padding: 4px 0;">
+                <i class="fas fa-shield-alt" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+                                  <span style="color:#333; font-weight:500; font-size:0.85rem;">Hosting &amp; Security</span>
+                              </div>
+                      </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-12 footer-contact d-flex flex-column align-items-center px-2">
+        <h4 class="mb-3 text-center" style="font-size:1.15rem; font-weight:600; color:var(--accent-color);">Contact Us</h4>
+        <div class="contact-us-card w-100">
+          <div class="contact-card p-3" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 8px; border-left: 4px solid var(--accent-color); transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" 
+               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" 
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
+            <div class="contact-item d-flex align-items-center mb-2" style="padding: 4px 0;">
+              <i class="fas fa-map-marker-alt" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+              <span style="color:#333; font-weight:500; font-size:0.85rem; line-height: 1.2;">
+                123 Main Street<br>
+                Crawfordville, FL 32327              </span>
+            </div>
+            <div class="contact-item d-flex align-items-center mb-2" style="padding: 4px 0;">
+              <i class="fas fa-phone" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+              <a href="tel:+15551234567" style="text-decoration:none; color:#333; font-weight:500; font-size:0.85rem; transition: color 0.3s ease;">
+                +1 555-123-4567              </a>
+            </div>
+            <div class="contact-item d-flex align-items-center" style="padding: 4px 0;">
+              <i class="fas fa-envelope" style="color: var(--accent-color); font-size: 1rem; margin-right: 8px; width: 16px;"></i>
+              <a href="mailto:info@gws.com" style="text-decoration:none; color:#333; font-weight:500; font-size:0.85rem; transition: color 0.3s ease; word-break: break-all;">
+                info@gws.com              </a>
+            </div>
+            <div class="social-media-section mt-3 pt-2" style="border-top: 1px solid #dee2e6;">
+              <div class="d-flex justify-content-center align-items-center gap-2">
+                <a href="#" aria-label="Twitter" style="color: var(--accent-color); font-size: 1.3rem; transition: color 0.3s ease, transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                  <i class="bi bi-twitter-x"></i>
+                </a>
+                <a href="https://www.facebook.com/GlitchwizardSolutions" aria-label="Facebook" style="color: var(--accent-color); font-size: 1.3rem; transition: color 0.3s ease, transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" aria-label="Instagram" style="color: var(--accent-color); font-size: 1.3rem; transition: color 0.3s ease, transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/glitchwizard" aria-label="LinkedIn" style="color: var(--accent-color); font-size: 1.3rem; transition: color 0.3s ease, transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Horizontal links row -->
+  <div class="container mb-2" style="margin-top: 2rem;">
+    <div class="row">
+      <div class="col text-center">
+        <div>
+          <p class="btn btn-primary" style="background:white"><a href="rss" target="_blank"><i class="fas fa-rss-square"></i> RSS Feed</a></p> 
+          <p class="btn btn-primary" style="background:white"><a href="sitemap" target="_blank"><i class="fas fa-sitemap"></i> XML Sitemap</a></p>          
+          <p class="btn btn-primary" style="background:white"><a href="https://glitchwizardsolutions.com/accessibility.php" target="_blank"><i class="fas fa-universal-access"></i> Accessibility Policy</a></p>
+          <p class="btn btn-primary" style="background:white"><a href="https://glitchwizardsolutions.com/terms.php" target="_blank"><i class="fas fa-file-contract"></i> Terms of Service</a></p>
+          <p class="btn btn-primary" style="background:white"><a href="https://glitchwizardsolutions.com/privacy.php" target="_blank"><i class="fas fa-user-shield"></i> Privacy Policy</a></p><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-100 py-3" style="background: var(--accent-color); color: #fff;">
+    <div class="container text-center">
+      <p class="mb-1">
+        &copy; Copyright 2025 - 2025        GWS Universal Hybrid Application All Rights Reserved
+      </p>
+      <p class="mb-0">
+        <style>
+          .footer-design-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: inherit;
+          }
+          .footer-design-link:hover,
+          .footer-design-link:focus {
+            text-decoration: underline;
+          }
+        </style>
+                  <a href="https://gltchwizardsolutions.com" target="_blank" rel="noopener"
+            aria-label="Designed by: GlitchWizard Solutions. LLC" class="footer-design-link">Designed by: GlitchWizard
+            Solutions. LLC</a>
+              </p>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Scroll Top -->
+<style>
+  /* Enhanced Footer Services Styling - Single Card */
+  .service-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color, #6c2eb6) 0%, var(--brand-secondary, #bf5512) 100%);
+    opacity: 0.05;
+    transition: width 0.3s ease;
+    border-radius: 8px;
+  }
+  
+  .service-card:hover::before {
+    width: 100%;
+  }
+  
+  .service-card:hover {
+    border-left-color: var(--brand-secondary, #bf5512) !important;
+  }
+  
+  .service-list-item span,
+  .service-list-item a {
+    transition: color 0.3s ease;
+  }
+  
+  .service-card:hover .service-list-item a {
+    color: var(--accent-color) !important;
+  }
+  
+  .service-card:hover .service-list-item span {
+    color: var(--accent-color) !important;
+  }
+  
+  .service-card:hover .service-list-item i {
+    color: var(--brand-secondary, #bf5512) !important;
+  }
+  
+  /* Mobile responsiveness for services */
+  @media (max-width: 768px) {
+    .service-card {
+      padding: 0.75rem !important;
+    }
+    
+    .service-list-item span,
+    .service-list-item a {
+      font-size: 0.8rem !important;
+    }
+    
+    .service-list-item i {
+      font-size: 0.9rem !important;
+    }
+  }
+
+  #scroll-top {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 48px;
+    height: 48px;
+    background: var(--heading-color);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  #scroll-top:hover {
+    background: #6c2eb6;
+    color: #fff;
+  }
+</style>
+<a href="#" id="scroll-top" class="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

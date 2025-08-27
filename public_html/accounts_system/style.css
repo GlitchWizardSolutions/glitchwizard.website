@@ -1,0 +1,303 @@
+/* 
+ * ACCOUNTS SYSTEM SPECIFIC STYLES
+ * Only styles unique to accounts_system (login page layout, etc.)
+ * Common form/button styles are in the unified template
+ */
+
+/* Login page specific styling */
+body, html {
+  background-color: #f3f4f7;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+}
+
+/* Login container styling */
+.login {
+  background: #fff;
+  width: 400px;
+  margin: 100px auto;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.login .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #2a77eb;
+  margin-bottom: 30px;
+}
+
+.login h1 {
+  text-align: center;
+  color: #474b50;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Login form specific adjustments */
+.login-form .form-label {
+  padding: 10px 0 5px 0;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.login-form .form-group.pad-y-5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.login-form #rememberme {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #474b50;
+  user-select: none;
+}
+
+.login-form #rememberme input {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  accent-color: #2a77eb;
+}
+
+.login-form .btn {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.login-form .register-link {
+  text-align: center;
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* Profile page specific styling */
+.profile-detail {
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.profile-detail strong {
+  width: 150px;
+  color: #474b50;
+  font-weight: 600;
+}
+
+.profile-detail:last-child {
+  border-bottom: none;
+}
+
+/* Profile edit side-by-side layout */
+.profile-edit-container {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.profile-view-section,
+.profile-edit-section {
+  flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+.profile-view-section .block,
+.profile-edit-section .block {
+  height: fit-content;
+}
+
+.profile-view-section h3,
+.profile-edit-section h3 {
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #474b50;
+  border-bottom: 2px solid #f1f3f4;
+  padding-bottom: 10px;
+}
+
+.current-profile-info {
+  margin-bottom: 30px;
+}
+
+.current-profile-info .profile-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.current-profile-info .profile-detail strong {
+  width: auto;
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.current-profile-info .profile-detail span {
+  color: #212529;
+  font-weight: 600;
+}
+
+.profile-tips {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 20px;
+  border-left: 4px solid #0ea5e9;
+}
+
+.profile-tips h4 {
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #474b50;
+}
+
+.tips-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #6c757d;
+}
+
+.tips-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tips-list li:last-child {
+  margin-bottom: 0;
+}
+
+.password-section {
+  border-top: 1px solid #dee2e6;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f3f4;
+}
+
+.form-actions .btn {
+  display: flex;
+  align-items: center;
+}
+
+/* Password status styling */
+#currentPasswordStatus {
+  font-style: italic;
+  font-size: 14px;
+}
+
+#currentPasswordStatus.profile-preview-changed {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Responsive adjustments for profile edit layout */
+@media (max-width: 768px) {
+  .profile-edit-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .profile-view-section,
+  .profile-edit-section {
+    flex: none;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions .btn {
+    justify-content: center;
+  }
+}
+
+/* Enhanced visual feedback for profile viewing */
+.profile-view-section .current-profile-info .profile-detail:hover {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin: 0 -10px;
+  padding: 12px 10px;
+  transition: all 0.2s ease;
+}
+
+.profile-view-section .current-profile-info .profile-detail span.updated {
+  animation: highlight 0.5s ease;
+}
+
+@keyframes highlight {
+  0% { background-color: #fff3cd; }
+  100% { background-color: transparent; }
+}
+
+/* Real-time changes indicator */
+.profile-preview-changed {
+  position: relative;
+}
+
+.profile-preview-changed::after {
+  content: "•";
+  color: #0ea5e9;
+  font-weight: bold;
+  margin-left: 5px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Form section styling */
+.personal-info-section,
+.address-section,
+.newsletter-section,
+.password-section {
+  border-top: 1px solid #dee2e6;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.address-row .form-group {
+  margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  position: static !important;
+  transform: none !important;
+}
+
+.checkbox-group label {
+  display: block;
+  line-height: 1.4;
+}

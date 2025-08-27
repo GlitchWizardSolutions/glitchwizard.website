@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Instructions</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+		<meta name="robots" content="noindex, nofollow">
+		<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAqFBMVEUAAAAzQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU8zQU+vbZcxAAAAN3RSTlMAAQIDBAUGCAsOEBESFhccHR8gJzM3Pk1OUFRmbXeCg4uMjpSjpqiwtLW3usDO09fZ2uDm6O/9IUR6cgAAAH1JREFUGBltwdUWglAARcGNCNjY2B1YWOD5/z/T68L75AwfgawSxkzZxthKRYxEEYanAw0glDWoLYFYSeAbsarDCEi1cAw3fXKqQF3W1H8Ac1md7gS4ynJXbWjJ2jmZA3tZ/eYauCn3OhbGPeAc8uPefaB8kTXiy/NzBf55A27BHFFEBO8ZAAAAAElFTkSuQmCC" rel="icon" type="image/x-icon">
+		<style>*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"segoe ui",roboto,oxygen,ubuntu,cantarell,"fira sans","droid sans","helvetica neue",Arial,sans-serif;font-size:16px;line-height:24px}body,html{padding:0;margin:0}body{background-color:#f1f3f7}.content{width:800px;background-color:#fff;margin:25px auto 25px auto;padding:25px;box-shadow:0 0 5px rgba(0,0,0,.2)}h2{font-size:18px;color:#495362;padding:15px 0;border-top:1px solid #f5f7f9;border-bottom:1px solid #f5f7f9}h1{margin:0;font-size:20px;color:#495362;padding:15px 0;text-align:center}h2{margin:30px 0 0 0}li{padding:0 0 6px 0}li span{color:red;font-weight:600}li i{color:#37a269}a{color:#006edf;text-decoration:none}a:hover{color:#005bb8}code{display:block;overflow:auto;tab-size:4;width:100%;border-radius:5px;font-family:Consolas,Monaco,"andale mono","ubuntu mono",monospace;padding:15px;background-color:#f3f4f7;font-size:14px}@media screen and (max-width:800px){.content{width:95%}}</style>
+	</head>
+	<body>
+    	<div class="content">
+
+			<h1>Instructions</h1>
+
+			<h2>Add-on Details</h2>
+			
+			<p>The reCAPTCHA v3 add-on can help prevent bots and unwanted guests from registering. Refer to the <a target="_blank" href="https://developers.google.com/recaptcha/docs/v3">reCAPTCHA v3 documentation</a> on how to register keys, which will be required to use this add-on.</p>
+
+			<p><strong>Note:</strong> The PHP cURL extension is required for this add-on to work.</p>
+
+			<h2>How To Add</h2>
+
+			<p>Edit the "config.php" file and add the following constants:</p>
+
+<pre><code>/* reCAPTCHA v3 */
+// Your reCAPTCHA v3 site key.
+define(&#39;recaptcha_site_key&#39;,&#39;YOUR_SITE_KEY&#39;);
+// Your reCAPTCHA v3 secret key.
+define(&#39;recaptcha_secret_key&#39;,&#39;YOUR_SECRET_KEY&#39;);</code></pre>
+			
+			<p>Edit the "register.php" file and find this line:</p>
+			
+<pre><code>&lt;/head&gt;</code></pre>
+
+			<p>Add above:</p>
+			
+<pre><code>&lt;script src=&quot;https://www.google.com/recaptcha/api.js?render=&lt;?=recaptcha_site_key?&gt;&quot;&gt;&lt;/script&gt;</code></pre>
+			
+			<p>Find:</p>
+			
+<pre><code>const registrationForm = document.querySelector('.register-form');
+registrationForm.onsubmit = event =&gt; {
+	event.preventDefault();
+	fetch(registrationForm.action, { method: 'POST', body: new FormData(registrationForm), cache: 'no-store' }).then(response =&gt; response.text()).then(result =&gt; {
+		if (result.toLowerCase().includes('success:')) {
+			registrationForm.querySelector('.msg').classList.remove('error','success');
+			registrationForm.querySelector('.msg').classList.add('success');
+			registrationForm.querySelector('.msg').innerHTML = result.replace('Success: ', '');
+		} else if (result.toLowerCase().includes('redirect:')) {
+			window.location.href = result.replace('Redirect:', '').trim();
+		} else {
+			registrationForm.querySelector('.msg').classList.remove('error','success');
+			registrationForm.querySelector('.msg').classList.add('error');
+			registrationForm.querySelector('.msg').innerHTML = result.replace('Error: ', '');
+		}
+	});
+};</code></pre>
+			
+			<p>Replace with:</p>
+
+<pre><code>const registrationForm = document.querySelector(&#39;.register-form&#39;);
+registrationForm.onsubmit = event =&gt; {
+	event.preventDefault();
+	grecaptcha.ready(() =&gt; {
+		grecaptcha.execute(&#39;&lt;?=recaptcha_site_key?&gt;&#39;, {action: &#39;submit&#39;}).then(token =&gt; {
+			let formData = new FormData(registrationForm);
+			formData.append(&#39;gtoken&#39;, token);
+			fetch(registrationForm.action, { method: &#39;POST&#39;, body: formData, cache: 'no-store' }).then(response =&gt; response.text()).then(result =&gt; {
+				if (result.toLowerCase().includes('success:')) {
+					registrationForm.querySelector('.msg').classList.remove('error','success');
+					registrationForm.querySelector('.msg').classList.add('success');
+					registrationForm.querySelector('.msg').innerHTML = result.replace('Success: ', '');
+				} else if (result.toLowerCase().includes('redirect:')) {
+					window.location.href = result.replace('Redirect:', '').trim();
+				} else {
+					registrationForm.querySelector('.msg').classList.remove('error','success');
+					registrationForm.querySelector('.msg').classList.add('error');
+					registrationForm.querySelector('.msg').innerHTML = result.replace('Error: ', '');
+				}
+			});  
+		});
+	});
+};</code></pre>	
+			
+			<p>Edit the "register-process.php" file and find the following:</p>
+			
+<pre><code>if ($_POST[&#39;cpassword&#39;] != $_POST[&#39;password&#39;]) {
+	exit(&#39;Error: Passwords do not match!&#39;);
+}</code></pre>
+			
+			<p>Add below:</p>
+			
+<pre><code>// Validate captcha
+if (!isset($_POST[&#39;gtoken&#39;])) {
+	exit(&#39;Error: Captcha verification failed! Please try again!&#39;);
+}
+if (empty($_POST[&#39;gtoken&#39;])) {
+	exit(&#39;Error: Captcha verification failed! Please try again!&#39;);
+}
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.google.com/recaptcha/api/siteverify&#39;);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, [
+	&#39;secret&#39; =&gt; recaptcha_secret_key,
+	&#39;response&#39; =&gt; $_POST[&#39;gtoken&#39;]
+]);
+$response = curl_exec($ch);
+curl_close($ch);
+$result = json_decode($response, true);
+if (!$result[&#39;success&#39;] || $result[&#39;score&#39;] &lt; 0.5) {
+	exit(&#39;Error: Captcha verification failed! Please try again!&#39;);
+}</code></pre>		
+
+			<p>That's all you need to do. Make sure to update the keys in the config file. If it doesn't work, make sure you have the PHP cURL extension enabled.</p>
+			
+		</div>
+    </body>
+</html>

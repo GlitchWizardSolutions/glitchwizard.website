@@ -1,0 +1,2 @@
+Run a weekly cron job:
+find /path/to/uploads/previews -type f -mtime +7 -delete

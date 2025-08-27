@@ -1,0 +1,258 @@
+/* =========================================
+   CLIENT PORTAL BRANDING - HIGH CONTRAST
+   High contrast variation for client accessibility
+   ========================================= */
+
+/* Import brand variables */
+@import url('../../../private/gws-universal-branding.css');
+
+/* =========================================
+   CLIENT PORTAL HIGH CONTRAST APPLICATIONS
+   Enhanced visibility and accessibility for clients
+   ========================================= */
+
+/* Portal Header - High Contrast */
+.client-header {
+    background: #000000 !important;
+    border-bottom: 4px solid var(--brand-primary) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+
+.client-header .logo {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.client-header .nav-link {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    margin: 0 4px;
+}
+
+.client-header .nav-link:hover,
+.client-header .nav-link.active {
+    background: var(--brand-primary) !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Portal Sidebar - High Contrast */
+.client-sidebar {
+    background: #000000 !important;
+    border-right: 4px solid var(--brand-primary) !important;
+}
+
+.client-sidebar .nav-link {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border: 2px solid transparent;
+    margin: 2px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.client-sidebar .nav-link:hover,
+.client-sidebar .nav-link.active {
+    background: var(--brand-primary) !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Portal Content - High Contrast */
+.client-content {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Cards - High Contrast */
+.client-card, .portal-card {
+    border: 3px solid #000000 !important;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3) !important;
+    background: #ffffff !important;
+}
+
+.client-card-header, .portal-card-header {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-bottom: 3px solid var(--brand-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Buttons - High Contrast */
+.client-btn-primary, .portal-btn-primary {
+    background: #000000 !important;
+    border: 3px solid var(--brand-primary) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.client-btn-primary:hover, .portal-btn-primary:hover {
+    background: var(--brand-primary) !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+.client-btn-secondary, .portal-btn-secondary {
+    background: #ffffff !important;
+    border: 3px solid #000000 !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+.client-btn-secondary:hover, .portal-btn-secondary:hover {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+/* Tables - High Contrast */
+.client-table, .portal-table {
+    border: 2px solid #000000 !important;
+}
+
+.client-table th, .portal-table th {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid var(--brand-primary) !important;
+    font-weight: 700 !important;
+}
+
+.client-table td, .portal-table td {
+    border: 1px solid #333333 !important;
+    font-weight: 500;
+}
+
+.client-table-striped tbody tr:nth-of-type(odd),
+.portal-table-striped tbody tr:nth-of-type(odd) {
+    background: #f8f9fa !important;
+}
+
+/* Forms - High Contrast */
+.client-form-control, .portal-form-control {
+    border: 3px solid #000000 !important;
+    font-weight: 500;
+}
+
+.client-form-control:focus, .portal-form-control:focus {
+    border-color: var(--brand-primary) !important;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.3) !important;
+    outline: 2px solid var(--brand-primary) !important;
+    outline-offset: 2px;
+}
+
+.client-form-label, .portal-form-label {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+/* Alerts - High Contrast */
+.client-alert, .portal-alert {
+    border: 3px solid #000000 !important;
+    font-weight: 600 !important;
+}
+
+.client-alert-success, .portal-alert-success {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #28a745 !important;
+}
+
+.client-alert-danger, .portal-alert-danger {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #dc3545 !important;
+}
+
+.client-alert-warning, .portal-alert-warning {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffc107 !important;
+}
+
+.client-alert-info, .portal-alert-info {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #17a2b8 !important;
+}
+
+/* Navigation - High Contrast */
+.client-breadcrumb, .portal-breadcrumb {
+    background: #000000 !important;
+    border: 2px solid var(--brand-primary) !important;
+}
+
+.client-breadcrumb-item a, .portal-breadcrumb-item a {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+.client-breadcrumb-item.active, .portal-breadcrumb-item.active {
+    color: var(--brand-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Client Dashboard - High Contrast */
+.client-dashboard {
+    background: #ffffff !important;
+}
+
+.client-stat-card {
+    border: 3px solid #000000 !important;
+    background: #ffffff !important;
+}
+
+.client-stat-card .stat-icon {
+    background: #000000 !important;
+    color: var(--brand-primary) !important;
+    border: 2px solid var(--brand-primary) !important;
+}
+
+/* Accessibility Enhancements */
+.client-content :focus, .portal-content :focus {
+    outline: 4px solid var(--brand-primary) !important;
+    outline-offset: 3px !important;
+}
+
+/* High Contrast Text */
+.client-content h1, .client-content h2, .client-content h3, 
+.client-content h4, .client-content h5, .client-content h6,
+.portal-content h1, .portal-content h2, .portal-content h3, 
+.portal-content h4, .portal-content h5, .portal-content h6 {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+.client-text-muted, .portal-text-muted {
+    color: #333333 !important;
+    font-weight: 600 !important;
+}
+
+/* Client Projects/Services - High Contrast */
+.client-project-card, .client-service-card {
+    border: 3px solid #000000 !important;
+    background: #ffffff !important;
+}
+
+.client-project-status, .client-service-status {
+    font-weight: 700 !important;
+    padding: 4px 8px;
+    border: 2px solid #000000 !important;
+}
+
+.status-active {
+    background: var(--brand-primary) !important;
+    color: #000000 !important;
+}
+
+.status-pending {
+    background: #ffc107 !important;
+    color: #000000 !important;
+}
+
+.status-completed {
+    background: #28a745 !important;
+    color: #000000 !important;
+}

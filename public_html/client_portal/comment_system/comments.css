@@ -1,0 +1,824 @@
+.cs-comments {
+  padding: 15px 0 25px 0;
+}
+.cs-comments p.cs-no-comments {
+  text-align: center;
+  color: #80828d;
+}
+.cs-comments .cs-write-comment .cs-button, .cs-comments .comment-login-form .cs-button, .cs-comments .comment-register-form .cs-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b3c3f;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 5px 6px 0 0;
+  padding: 0 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  height: 35px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 6px 1px rgba(20, 24, 31, 0.05);
+}
+.cs-comments .cs-write-comment .cs-button:hover, .cs-comments .comment-login-form .cs-button:hover, .cs-comments .comment-register-form .cs-button:hover {
+  background-color: #2f2f32;
+}
+.cs-comments .cs-write-comment .cs-button:disabled, .cs-comments .comment-login-form .cs-button:disabled, .cs-comments .comment-register-form .cs-button:disabled {
+  background-color: #b1b1b2;
+  color: white;
+  cursor: not-allowed;
+}
+.cs-comments .cs-write-comment .cs-button:disabled:hover, .cs-comments .comment-login-form .cs-button:disabled:hover, .cs-comments .comment-register-form .cs-button:disabled:hover {
+  background-color: #b1b1b2;
+}
+.cs-comments .cs-write-comment .cs-button.cs-alt, .cs-comments .comment-login-form .cs-button.cs-alt, .cs-comments .comment-register-form .cs-button.cs-alt {
+  background-color: transparent;
+  border: 1px solid #d3d5db;
+  color: #51545e;
+  box-shadow: none;
+  font-weight: 500;
+}
+.cs-comments .cs-write-comment .cs-button.cs-alt:hover, .cs-comments .comment-login-form .cs-button.cs-alt:hover, .cs-comments .comment-register-form .cs-button.cs-alt:hover {
+  border: 1px solid #b7bac4;
+  color: #393c43;
+}
+.cs-comments .cs-login-btn, .cs-comments .cs-search-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #acb0b6;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  height: 35px;
+}
+.cs-comments .cs-login-btn:hover, .cs-comments .cs-search-btn:hover {
+  background-color: #f7f7fa;
+  color: #91969e;
+}
+.cs-comments .cs-login-btn:hover svg, .cs-comments .cs-search-btn:hover svg {
+  fill: #91969e;
+}
+.cs-comments .cs-login-btn svg, .cs-comments .cs-search-btn svg {
+  fill: #acb0b6;
+  margin-right: 8px;
+}
+.cs-comments .cs-search-btn {
+  font-size: 14px;
+}
+.cs-comments .cs-search-btn svg {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.cs-comments .cs-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 150px;
+  border-radius: 5px;
+  overflow: hidden;
+  flex-flow: column;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  z-index: 999999;
+}
+.cs-comments .cs-options a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f2f2f7;
+  color: #707179;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.cs-comments .cs-options a:last-child {
+  border: 0;
+}
+.cs-comments .cs-options a:hover {
+  background-color: #f7f7fa;
+  color: #57585f;
+}
+.cs-comments .cs-options a.cs-alt {
+  color: #da3e3e;
+}
+.cs-comments .cs-options a.cs-alt:hover {
+  color: #c02525;
+}
+.cs-comments .cs-comment-header {
+  display: flex;
+  padding: 25px 0 5px 0;
+  margin-bottom: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cs-comments .cs-comment-header .cs-total {
+  color: #555761;
+  font-size: 18px;
+  padding-right: 25px;
+  font-weight: 500;
+}
+.cs-comments .cs-comment-header .cs-comment-btns {
+  flex-grow: 1;
+}
+.cs-comments .cs-comment-header .cs-sort-by {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  height: 35px;
+  z-index: 999;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.cs-comments .cs-comment-header .cs-sort-by > a {
+  color: #acb0b6;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cs-comments .cs-comment-header .cs-sort-by > a svg {
+  margin-left: 8px;
+  fill: #c5c9cf;
+}
+.cs-comments .cs-comment-header .cs-sort-by > a span {
+  font-weight: 600;
+  color: #838992;
+}
+.cs-comments .cs-comment-header .cs-sort-by:hover {
+  background-color: #f7f7fa;
+}
+.cs-comments .cs-comment-header .cs-sort-by:hover .cs-options, .cs-comments .cs-comment-header .cs-sort-by:active .cs-options {
+  display: flex;
+}
+.cs-comments .cs-comment-header .cs-sort-by:hover > a, .cs-comments .cs-comment-header .cs-sort-by:active > a {
+  color: #9ea3aa;
+}
+.cs-comments .cs-comment-header .cs-sort-by:hover > a span, .cs-comments .cs-comment-header .cs-sort-by:active > a span {
+  color: #767c86;
+}
+.cs-comments .cs-comment-header .cs-sort-by:hover > a svg, .cs-comments .cs-comment-header .cs-sort-by:active > a svg {
+  fill: #b7bcc3;
+}
+.cs-comments .cs-comment-header .cs-profile-info {
+  position: relative;
+  margin-left: 10px;
+  padding: 4px 0;
+}
+.cs-comments .cs-comment-header .cs-profile-info .cs-profile-photo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  background-color: #777;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.cs-comments .cs-comment-header .cs-profile-info:hover .cs-options, .cs-comments .cs-comment-header .cs-profile-info:active .cs-options {
+  display: flex;
+}
+.cs-comments .cs-write-comment, .cs-comments .cs-comment-auth-forms {
+  width: 100%;
+  padding: 10px 0 10px 0;
+}
+.cs-comments .cs-write-comment.cs-hidden, .cs-comments .cs-comment-auth-forms.cs-hidden {
+  display: none;
+}
+.cs-comments .cs-write-comment .cs-content, .cs-comments .cs-comment-auth-forms .cs-content {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  padding: 5px 0 0 0;
+}
+.cs-comments .cs-write-comment .cs-content textarea, .cs-comments .cs-comment-auth-forms .cs-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfe1e7;
+  border-bottom: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  min-height: 100px;
+  resize: none;
+  outline: 0;
+  background-color: transparent;
+}
+.cs-comments .cs-write-comment .cs-content textarea.cs-hidden-textarea, .cs-comments .cs-comment-auth-forms .cs-content textarea.cs-hidden-textarea {
+  display: none;
+}
+.cs-comments .cs-write-comment .cs-content textarea::placeholder, .cs-comments .cs-comment-auth-forms .cs-content textarea::placeholder {
+  color: #95979e;
+}
+.cs-comments .cs-write-comment .cs-content .cs-char-counter, .cs-comments .cs-comment-auth-forms .cs-content .cs-char-counter {
+  position: relative;
+  z-index: 1;
+  color: #a8abb4;
+  font-size: 12px;
+  margin-top: 14px;
+  margin-bottom: -20px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+.cs-comments .cs-write-comment .cs-content .cs-char-counter.cs-limit-exceeded, .cs-comments .cs-comment-auth-forms .cs-content .cs-char-counter.cs-limit-exceeded {
+  color: #ff0000;
+}
+.cs-comments .cs-write-comment .cs-content .cs-toolbar, .cs-comments .cs-comment-auth-forms .cs-content .cs-toolbar {
+  display: flex;
+  width: 100%;
+  border: 1px solid #dfe1e7;
+  background-color: #f9fafc;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.cs-comments .cs-write-comment .cs-content .cs-toolbar.cs-toolbar-standard .cs-format-btn, .cs-comments .cs-comment-auth-forms .cs-content .cs-toolbar.cs-toolbar-standard .cs-format-btn {
+  display: inline-flex;
+  align-items: center;
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  height: 35px;
+  padding: 0 5px;
+  outline: 0;
+}
+.cs-comments .cs-write-comment .cs-content .cs-toolbar.cs-toolbar-standard .cs-format-btn svg, .cs-comments .cs-comment-auth-forms .cs-content .cs-toolbar.cs-toolbar-standard .cs-format-btn svg {
+  fill: #a4a7b4;
+}
+.cs-comments .cs-write-comment .cs-content .cs-toolbar.cs-toolbar-standard .cs-format-btn:hover svg, .cs-comments .cs-comment-auth-forms .cs-content .cs-toolbar.cs-toolbar-standard .cs-format-btn:hover svg {
+  fill: #888c9d;
+}
+.cs-comments .cs-write-comment input, .cs-comments .cs-comment-auth-forms input {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #dfe1e7;
+  border-radius: 5px;
+  margin: 10px 0 5px 0;
+}
+.cs-comments .cs-write-comment input::placeholder, .cs-comments .cs-comment-auth-forms input::placeholder {
+  color: #95979e;
+}
+.cs-comments .cs-write-comment button, .cs-comments .cs-comment-auth-forms button {
+  cursor: pointer;
+}
+.cs-comments .cs-write-comment {
+  padding: 5px 0 15px 0;
+}
+.cs-comments .cs-comment-content .cs-comment-placeholder-content, .cs-comments .cs-comment-content .cs-comment-search input {
+  display: block;
+  width: 100%;
+  padding: 20px 18px;
+  border: 1px solid #dfe1e7;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+.cs-comments .cs-comment-content .cs-comment-placeholder-content::placeholder, .cs-comments .cs-comment-content .cs-comment-search input::placeholder {
+  color: #95979e;
+}
+.cs-comments .cs-comment-content .cs-comment-search {
+  display: none;
+  position: relative;
+}
+.cs-comments .cs-comment-content .cs-comment-search svg {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  fill: #a8abb4;
+}
+.cs-comments .cs-comment-content .cs-comment-search input {
+  padding-left: 40px;
+}
+.cs-comments .cs-comment {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  max-width: 100%;
+  padding-top: 14px;
+}
+.cs-comments .cs-comment.cs-new-comment-animation {
+  animation: fadeIt 0.2s ease-in-out;
+}
+@keyframes fadeIt {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+.cs-comments .cs-comment > .cs-comment-profile-picture {
+  width: 60px;
+  padding-right: 12px;
+}
+.cs-comments .cs-comment > .cs-comment-profile-picture span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background-color: #777;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.cs-comments .cs-comment > .cs-comment-profile-picture img {
+  border-radius: 50px;
+  width: 44px;
+  height: 44px;
+}
+.cs-comments .cs-comment > .cs-con {
+  display: flex;
+  flex-flow: column;
+  width: calc(100% - 60px);
+  max-width: calc(100% - 60px);
+}
+.cs-comments .cs-comment > .cs-con.cs-highlighted > .cs-comment-meta, .cs-comments .cs-comment > .cs-con.cs-highlighted > .cs-comment-content, .cs-comments .cs-comment > .cs-con.cs-highlighted > .cs-comment-footer {
+  border-left: 3px solid #3c4852;
+  padding-left: 20px;
+}
+.cs-comments .cs-comment > .cs-con .cs-name {
+  display: inline;
+  font-size: 16px;
+  font-weight: 500;
+  color: #45464d;
+}
+.cs-comments .cs-comment > .cs-con .cs-name.cs-banned {
+  color: #d12929;
+}
+.cs-comments .cs-comment > .cs-con .cs-name a {
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: inherit;
+  color: #336de9;
+}
+.cs-comments .cs-comment > .cs-con .cs-name a:hover {
+  text-decoration: underline;
+}
+.cs-comments .cs-comment > .cs-con .cs-role {
+  display: inline;
+  padding: 1px 4px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #ffdede;
+  color: #c56060;
+  border-radius: 5px;
+}
+.cs-comments .cs-comment > .cs-con .cs-featured svg {
+  fill: #ffcc25;
+}
+.cs-comments .cs-comment > .cs-con .cs-date, .cs-comments .cs-comment > .cs-con .cs-edited {
+  color: #8a8a92;
+  font-size: 14px;
+}
+.cs-comments .cs-comment > .cs-con .cs-toggle-comment-menu, .cs-comments .cs-comment > .cs-con .cs-toggle-comment {
+  text-decoration: none;
+  display: inline-flex;
+  padding: 1px 2px;
+  border-radius: 5px;
+}
+.cs-comments .cs-comment > .cs-con .cs-toggle-comment-menu svg, .cs-comments .cs-comment > .cs-con .cs-toggle-comment svg {
+  fill: #c9c9d3;
+}
+.cs-comments .cs-comment > .cs-con .cs-toggle-comment-menu:hover, .cs-comments .cs-comment > .cs-con .cs-toggle-comment:hover {
+  background-color: #f7f7fa;
+}
+.cs-comments .cs-comment > .cs-con .cs-toggle-comment-menu:hover svg, .cs-comments .cs-comment > .cs-con .cs-toggle-comment:hover svg {
+  fill: #adadbc;
+}
+.cs-comments .cs-comment > .cs-con .cs-toggle-comment {
+  margin-left: auto;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-meta:hover ~ .cs-comment-footer .cs-share-comment-btn, .cs-comments .cs-comment > .cs-con .cs-comment-meta:active ~ .cs-comment-footer .cs-share-comment-btn {
+  display: inline-flex;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content {
+  position: relative;
+  max-width: 100%;
+  padding: 10px 0 14px 0;
+  margin: 0;
+  color: #1c1c1c;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content p {
+  color: inherit;
+  margin: 15px 0;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content p:first-child {
+  margin-top: 0;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content p:last-child {
+  margin-bottom: 0;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content strong {
+  color: inherit;
+  font-weight: bold;
+  overflow-wrap: break-word;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content a {
+  color: #06c;
+  text-decoration: underline;
+  overflow-wrap: break-word;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content a:hover {
+  color: #004d99;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content img {
+  max-width: 100%;
+  max-height: 300px;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-content:hover ~ .cs-comment-footer .cs-share-comment-btn, .cs-comments .cs-comment > .cs-con .cs-comment-content:active ~ .cs-comment-footer .cs-share-comment-btn {
+  display: inline-flex;
+}
+.cs-comments .cs-comment > .cs-con .cs-comment-awaiting-approval {
+  padding: 10px 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #8a8a92;
+}
+.cs-comments .cs-comment .cs-comment-footer {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.cs-comments .cs-comment .cs-comment-footer a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+.cs-comments .cs-comment .cs-comment-footer a svg {
+  fill: #8a8a92;
+}
+.cs-comments .cs-comment .cs-comment-footer a:hover {
+  background-color: #f7f7fa;
+}
+.cs-comments .cs-comment .cs-comment-footer a:hover svg {
+  fill: #64646b;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-num {
+  color: #8a8a92;
+  padding-right: 5px;
+  font-size: 14px;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-reply-comment-btn, .cs-comments .cs-comment .cs-comment-footer .cs-share-comment-btn, .cs-comments .cs-comment .cs-comment-footer .cs-edit-comment-btn, .cs-comments .cs-comment .cs-comment-footer .cs-moderate-comment-btn, .cs-comments .cs-comment .cs-comment-footer .cs-delete-comment-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  color: #8a8a92;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-reply-comment-btn:hover, .cs-comments .cs-comment .cs-comment-footer .cs-share-comment-btn:hover, .cs-comments .cs-comment .cs-comment-footer .cs-edit-comment-btn:hover, .cs-comments .cs-comment .cs-comment-footer .cs-moderate-comment-btn:hover, .cs-comments .cs-comment .cs-comment-footer .cs-delete-comment-btn:hover {
+  color: #64646b;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-reply-comment-btn.cs-selected, .cs-comments .cs-comment .cs-comment-footer .cs-share-comment-btn.cs-selected, .cs-comments .cs-comment .cs-comment-footer .cs-edit-comment-btn.cs-selected, .cs-comments .cs-comment .cs-comment-footer .cs-moderate-comment-btn.cs-selected, .cs-comments .cs-comment .cs-comment-footer .cs-delete-comment-btn.cs-selected {
+  font-weight: 500;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-reply-comment-btn {
+  margin-left: 5px;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-share-comment-btn {
+  margin-left: 5px;
+  display: none;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-share-comment-btn svg {
+  fill: #b5b5be;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-edit-comment-btn {
+  margin: 0 5px 0 2px;
+}
+.cs-comments .cs-comment .cs-comment-footer .cs-vote {
+  padding: 4px 2px;
+}
+.cs-comments .cs-comment .cs-comment-footer:hover .cs-share-comment-btn, .cs-comments .cs-comment .cs-comment-footer:active .cs-share-comment-btn {
+  display: inline-flex;
+}
+.cs-comments .cs-show-more-comments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cs-comments .cs-show-more-comments a {
+  display: inline-block;
+  max-width: 250px;
+  width: 100%;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  color: #93969b;
+  background-color: #edeff3;
+  margin: 25px 0;
+  font-size: 14px;
+}
+.cs-comments .cs-show-more-comments a:hover {
+  background-color: #e7eaef;
+}
+.cs-comments .cs-powered-by {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+.cs-comments .cs-powered-by a {
+  font-weight: 500;
+  font-size: 14px;
+  color: #93969b;
+  text-decoration: none;
+}
+.cs-comments .cs-powered-by a:hover {
+  text-decoration: underline;
+}
+.cs-comments .cs-loader {
+  display: inline-block;
+  border: 2px solid #999;
+  border-top: 2px solid #eee;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  animation: spin 1s ease infinite;
+}
+.cs-comments .cs-loader.cs-hidden {
+  display: none;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cs-msg .cs-error {
+  display: inline-block;
+  padding: 10px 0 0 0;
+  color: #d10e0e;
+  font-size: 14px;
+  font-weight: 500;
+}
+.cs-msg .cs-note {
+  display: inline-block;
+  padding: 10px 0 0 0;
+  color: #e7a035;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cs-modal {
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  max-width: 350px;
+  width: 90%;
+  border: 0;
+  border-radius: 15px;
+  padding: 0;
+  margin: auto;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+.cs-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.cs-modal .cs-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 30px 25px 30px;
+  background-color: #fff;
+  border-radius: 15px 15px 0 0;
+}
+.cs-modal .cs-modal-header h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #474a50;
+}
+.cs-modal .cs-modal-header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+}
+.cs-modal .cs-modal-header a svg {
+  fill: #ccccd3;
+}
+.cs-modal .cs-modal-header a:hover {
+  background-color: #f7f7fa;
+}
+.cs-modal .cs-modal-header a:hover svg {
+  fill: #64646b;
+}
+.cs-modal .cs-modal-content {
+  padding: 0 30px;
+}
+.cs-modal .cs-comment-auth-form input, .cs-modal .cs-comment-auth-form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfe1e7;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.cs-modal .cs-comment-auth-form input::placeholder, .cs-modal .cs-comment-auth-form textarea::placeholder {
+  color: #95979e;
+}
+.cs-modal .cs-comment-auth-form p.cs-modal-auth-link {
+  margin: 0;
+  padding: 5px 30px 30px 30px;
+  font-size: 14px;
+  color: #93969b;
+}
+.cs-modal .cs-comment-auth-form p.cs-modal-auth-link a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3b3c3f;
+  text-decoration: none;
+}
+.cs-modal .cs-comment-auth-form p.cs-modal-auth-link a:hover {
+  text-decoration: underline;
+}
+.cs-modal .cs-modal-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px 25px 30px;
+  gap: 15px;
+}
+.cs-modal .cs-modal-btns a, .cs-modal .cs-modal-btns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  height: 38px;
+  width: 100%;
+  background-color: #3b3c3f;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 1px rgba(20, 24, 31, 0.1);
+}
+.cs-modal .cs-modal-btns a:hover, .cs-modal .cs-modal-btns button:hover {
+  background-color: #272729;
+}
+.cs-modal .cs-modal-btns a.cs-modal-btn-alt, .cs-modal .cs-modal-btns button.cs-modal-btn-alt {
+  background-color: transparent;
+  border: 1px solid #d3d5db;
+  color: #51545e;
+  box-shadow: none;
+}
+.cs-modal .cs-modal-btns a.cs-modal-btn-alt:hover, .cs-modal .cs-modal-btns button.cs-modal-btn-alt:hover {
+  border: 1px solid #b7bac4;
+  color: #393c43;
+}
+.cs-modal .cs-modal-social-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30px 15px 30px;
+  gap: 15px;
+}
+.cs-modal .cs-modal-social-btns a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #d3d5db;
+  color: #51545e;
+  text-decoration: none;
+  border-radius: 5px;
+  position: relative;
+}
+.cs-modal .cs-modal-social-btns a svg {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.cs-modal .cs-modal-social-btns a.cs-modal-fb-btn svg {
+  fill: #3f7cdf;
+}
+.cs-modal .cs-modal-social-btns a.cs-modal-x-btn svg {
+  fill: #2a2a2c;
+}
+.cs-modal .cs-modal-social-btns a:hover {
+  border: 1px solid #b7bac4;
+  color: #393c43;
+}
+
+.ql-snow .ql-editor blockquote, .cs-comment-content blockquote {
+  border-left: 4px solid #c9cbce !important;
+  margin: 10px 0 10px 0 !important;
+  padding-left: 16px !important;
+}
+
+.ql-code-block-container, .cs-comment-content pre {
+  font-family: Consolas, monaco, monospace !important;
+  border-radius: 5px !important;
+  background-color: #eceef1 !important;
+  color: #474a50 !important;
+  overflow: auto !important;
+  margin: 10px 0 10px 0 !important;
+  padding: 10px 12px 10px 12px !important;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  overflow-wrap: break-word !important;
+  scrollbar-width: thin !important;
+}
+.ql-code-block-container .ql-code-block, .cs-comment-content pre .ql-code-block {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  color: inherit !important;
+  background-color: inherit !important;
+  overflow-wrap: break-word !important;
+}
+
+.ql-container.ql-snow {
+  border-bottom: 0 !important;
+  border-right: 1px solid #dfe1e7 !important;
+  border-left: 1px solid #dfe1e7 !important;
+  border-top: 1px solid #dfe1e7 !important;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.cs-comment-content code {
+  font-family: Consolas, monaco, monospace;
+  font-size: 16px;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.ql-editor {
+  min-height: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .cs-comments .cs-comment-header .cs-total {
+    font-size: 16px;
+  }
+  .cs-comments .cs-comment > .cs-comment-profile-picture {
+    width: 40px;
+  }
+  .cs-comments .cs-comment > .cs-comment-profile-picture span {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  .cs-comments .cs-comment > .cs-comment-profile-picture img {
+    width: 32px;
+    height: 32px;
+  }
+  .cs-comments .cs-comment > .cs-con {
+    width: calc(100% - 40px);
+    max-width: calc(100% - 40px);
+  }
+  .cs-comments .cs-comment > .cs-con .cs-edited {
+    display: none;
+  }
+}

@@ -1,0 +1,40 @@
+#Development
+#Hello bot, engineer, or very lost layperson! 
+#You've found a robots.txt file for a website by GlitchWizard Solutions, LLC
+#Https://glitchwizardsolutions.com 
+#By accessing this website, you agree to our terms of service, available at:
+#https://glitchwizardsolutions.com/terms.php
+#              _____
+#             |     |
+#             | | | |
+#             |_____|
+#       ____ ___|_|___ ____
+#      ()___)         ()___)
+#      // /|           |\ \\
+#     // / |           | \ \\
+#    (___) |___________| (___)
+#    (___)   (_______)   (___)
+#    (___)     (___)     (___)
+#    (___)      |_|      (___)
+#    (___)  ___/___\___   | |
+#     | |  |           |  | |
+#     | |  |___________| /___\ 
+#    /___\  |||     ||| //   \\
+#   //   \\ |||     ||| \\   //
+#   \\   // |||     |||  \\ //
+#    \\ // ()__)   (__()
+#          ///       \\\ 
+#         ///         \\\ 
+#       _///___     ___\\\_
+#      |_______|   |_______|
+#
+#This robots.txt file is specifically for websites that are either in development, or getting ready to shut down.
+#
+User-agent: *
+Allow: /index.php
+Disallow: /admin/
+Disallow: /client_portal/
+Disallow: /accounts_system/
+Disallow: /documents_system/
+Disallow: /forms/
+Disallow: /shared/
